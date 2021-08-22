@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 import { GA_TRACKING_ID } from '../lib/gtag';
-import { version } from '../package.json';
+import packageInfo from '../package.json';
 
 function GoogleAnalyticsScript() {
   return (
@@ -41,7 +41,7 @@ class CustomDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <meta name="msapplication-TileColor" content="#000000" />
 
-          <meta name="build version" content={version} />
+          <meta name="build version" content={packageInfo.version} />
           <meta name="description" content="Aaron Agarunov's portfolio" />
 
           <link
