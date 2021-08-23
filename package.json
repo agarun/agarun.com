@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preexport": "yarn build",
+    "export": "next export"
   },
   "dependencies": {
     "next": "11.1.0",
