@@ -1,30 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
-import { GA_TRACKING_ID } from '../lib/gtag';
 import packageInfo from '../package.json';
-
-function GoogleAnalyticsScript() {
-  return (
-    <>
-      <Script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-      />
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_TRACKING_ID}', {
-page_path: window.location.pathname,
-});
-`,
-        }}
-      />
-    </>
-  );
-}
 
 class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -36,8 +11,6 @@ class CustomDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <GoogleAnalyticsScript />
-
           <meta name="theme-color" content="#000000" />
           <meta name="msapplication-TileColor" content="#000000" />
 

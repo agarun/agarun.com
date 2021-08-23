@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
+import ColorModesScript from '../components/ColorModesScript';
+import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
 import '../styles/normalize.css';
 
 function App({ Component, pageProps }) {
@@ -15,7 +17,13 @@ function App({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <ColorModesScript />
+      <GoogleAnalyticsScript />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default App;
