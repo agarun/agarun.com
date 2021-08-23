@@ -12,7 +12,22 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Stack
+## Preview
+
+To build the static site:
+
+```bash
+yarn export
+```
+
+Then, to serve the build (`.out`) locally:
+
+```bash
+serve .out
+# or `python -m http.server --directory .out`, etc.
+```
+
+## Technologies 🧰
 
 ### Tooling
 
