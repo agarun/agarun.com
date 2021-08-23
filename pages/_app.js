@@ -3,8 +3,10 @@ import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import ColorModesScript from '../components/ColorModesScript';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
+
 import '../styles/variables.css';
 import '../styles/normalize.css';
+import '../styles/global.css';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
