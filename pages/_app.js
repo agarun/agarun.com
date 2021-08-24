@@ -8,6 +8,8 @@ import '../styles/variables.css';
 import '../styles/normalize.css';
 import '../styles/global.css';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 function App({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
@@ -23,7 +25,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <ColorModesScript />
-      <GoogleAnalyticsScript />
+      {isProduction && gtag.GA_TRACKING_ID && <GoogleAnalyticsScript />}
       <Component {...pageProps} />
     </>
   );
