@@ -9,6 +9,7 @@ import '../styles/normalize.css';
 import '../styles/global.css';
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isGoogleAnalyticsEnabled = isProduction && gtag.GA_TRACKING_ID;
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -24,10 +25,22 @@ function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      {isProduction && gtag.GA_TRACKING_ID && <GoogleAnalyticsScript />}
+      {isGoogleAnalyticsEnabled && <GoogleAnalyticsScript />}
       <Component {...pageProps} />
     </ThemeProvider>
   );
 }
 
 export default App;
+
+export function reportWebVitals({ id, name, label, value }) {
+  if (isGoogleAnalyticsEnabled) {
+    gtag.event({
+      action: name,
+      category: label,
+      value: Math.round(name === 'CLS' ? value * 1000 : value), // integers only
+      label: id, // id unique to current page load
+      non_interaction: true, // avoids affecting bounce rate
+    });
+  }
+}
