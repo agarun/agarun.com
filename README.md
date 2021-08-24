@@ -22,10 +22,10 @@ To build the static site:
 yarn export
 ```
 
-Then, to serve the build (`.out`) locally:
+Then, to serve the build (`./out`) locally:
 
 ```bash
-serve .out
+serve ./out
 # or `python -m http.server --directory .out`, etc.
 ```
 
