@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { DefaultSeo } from 'next-seo';
 import ColorModesScript, {
   minifyColorModesScript,
 } from '../components/ColorModesScript';
@@ -46,6 +47,20 @@ class CustomDocument extends Document {
 
           <meta name="build version" content={packageInfo.version} />
           <meta name="description" content="Aaron Agarunov's portfolio" />
+
+          <DefaultSeo
+            openGraph={{
+              type: 'website',
+              locale: 'en_US',
+              url: 'https://agarun.com',
+              site_name: 'Aaron Agarunov',
+            }}
+            twitter={{
+              handle: '@agarune',
+              site: '@agarune',
+              cardType: 'summary_large_image',
+            }}
+          />
 
           <link
             rel="preconnect"
