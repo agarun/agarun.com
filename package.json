@@ -9,7 +9,8 @@
     "lint": "next lint --fix",
     "prepare": "husky install",
     "preexport": "yarn build",
-    "export": "next export"
+    "export": "next export",
+    "serve": "yarn export && serve out"
   },
   "dependencies": {
     "next": "11.1.0",
@@ -32,7 +33,8 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^7.0.1",
     "lint-staged": ">=10",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "terser": "^5.7.2"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
