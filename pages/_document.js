@@ -1,11 +1,14 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import ColorModesScript from '../components/ColorModesScript';
+import ColorModesScript, {
+  minifyColorModesScript,
+} from '../components/ColorModesScript';
 import packageInfo from '../package.json';
 
 class CustomDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    const colorModesScriptProps = await minifyColorModesScript();
+    return { ...initialProps, ...colorModesScriptProps };
   }
 
   render() {
@@ -54,7 +57,7 @@ class CustomDocument extends Document {
           />
         </Head>
         <body>
-          <ColorModesScript />
+          <ColorModesScript code={this.props.code} />
           <Main />
           <NextScript />
         </body>
