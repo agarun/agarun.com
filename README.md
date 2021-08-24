@@ -36,3 +36,8 @@ serve .out
 - Prettier
 - Husky
   - Pre-commit hooks that run tools like ESLint & Prettier on modified files (via `lint-staged`)
+
+### Theming
+
+- Color modes and theming tokens are implemented with CSS variables (custom properties)
+  - [Josh Comeau's dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid FOUC.
