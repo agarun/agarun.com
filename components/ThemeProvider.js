@@ -1,8 +1,9 @@
-import { createContext, useCallback, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import {
   initialColorMode,
   setColorModeIntoStyles,
   setColorModeIntoStorage,
+  COLOR_MODES,
   LIGHT_MODE,
   DARK_MODE,
 } from '../lib/color-modes';
@@ -10,7 +11,7 @@ import {
 export const ThemeContext = createContext();
 
 function ThemeProvider({ children }) {
-  const [colorMode, setColorMode] = useState(initialColorMode());
+  const [colorMode, setColorMode] = useState(null);
 
   const setAndPersistColorMode = useCallback((mode) => {
     setColorModeIntoStyles(mode);
@@ -18,11 +19,17 @@ function ThemeProvider({ children }) {
     setColorMode(mode);
   }, []);
 
+  // NOTE(agarun): `useLayoutEffect` caveat https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
+  useEffect(() => {
+    const mode = initialColorMode();
+    setAndPersistColorMode(mode);
+  }, [setAndPersistColorMode]);
+
   return (
     <ThemeContext.Provider
       value={{
         colorMode,
-        colorModes: [LIGHT_MODE, DARK_MODE],
+        colorModes: COLOR_MODES,
         setColorMode: setAndPersistColorMode,
         setLightMode: () => setAndPersistColorMode(LIGHT_MODE),
         setDarkMode: () => setAndPersistColorMode(DARK_MODE),
