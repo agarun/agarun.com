@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
-import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
 import ThemeProvider from '../components/ThemeProvider';
+import { isEnabled } from '../components/GoogleAnalyticsScript';
 
 import '../styles/variables.css';
 import '../styles/normalize.css';
 import '../styles/global.css';
-
-const isProduction = process.env.NODE_ENV === 'production';
-const isGoogleAnalyticsEnabled = isProduction && gtag.GA_TRACKING_ID;
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -25,7 +22,6 @@ function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      {isGoogleAnalyticsEnabled && <GoogleAnalyticsScript />}
       <Component {...pageProps} />
     </ThemeProvider>
   );
@@ -33,8 +29,9 @@ function App({ Component, pageProps }) {
 
 export default App;
 
+// https://github.com/GoogleChrome/web-vitals#using-gtagjs-universal-analytics
 export function reportWebVitals({ id, name, label, value }) {
-  if (isGoogleAnalyticsEnabled) {
+  if (isEnabled) {
     gtag.event({
       action: name,
       category: label,

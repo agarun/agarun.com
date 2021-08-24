@@ -1,15 +1,20 @@
-import Script from 'next/script';
 import { GA_TRACKING_ID } from '../lib/gtag';
 
+export const isEnabled =
+  GA_TRACKING_ID && process.env.NODE_ENV === 'production';
+
 function GoogleAnalyticsScript() {
+  if (!isEnabled) {
+    return null;
+  }
+
   return (
     <>
-      <Script
-        strategy="lazyOnload"
+      <script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
-      <Script
-        strategy="lazyOnload"
+      <script
         dangerouslySetInnerHTML={{
           __html: `
   window.dataLayer = window.dataLayer || [];

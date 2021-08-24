@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import ColorModesScript, {
   minifyColorModesScript,
 } from '../components/ColorModesScript';
+import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
 import packageInfo from '../package.json';
 
 class CustomDocument extends Document {
@@ -55,6 +56,8 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
             rel="stylesheet"
           />
+
+          <GoogleAnalyticsScript />
         </Head>
         <body>
           <ColorModesScript code={this.props.code} />
