@@ -1,12 +1,12 @@
 import Script from 'next/script';
-import { setColorModesOnLoadFunctionString } from '../lib/color-modes';
+import { setColorModeOnLoadFunctionString } from '../lib/color-modes';
 
 function ColorModesScript() {
   return (
     <Script
       strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
-        __html: `(${setColorModesOnLoadFunctionString()})()`,
+        __html: `(${setColorModeOnLoadFunctionString()})()`,
       }}
     />
   );
