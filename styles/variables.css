@@ -5,4 +5,60 @@
     segoe ui, arial, sans-serif;
   --font-family-serif: Lora, Garamond, Georgia, serif;
   --font-family-mono: monospace;
+  --font-size-scale: 1;
+  --font-size-body: calc(14px * var(--font-size-scale));
+  --font-weight-body: 400;
+
+  --spacing: 8px;
+  --scrollbar-width: 15px;
+  --gutter-width: calc(var(--spacing) * 2);
+  --window-width: calc(100vw - var(var(--scrollbar-width)));
+  --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
+}
+
+body.light {
+  /* https://theme-ui.com/theming/ */
+  --colors-text-primary: hsl(252deg, 56%, 2%);
+  --colors-text-secondary: hsl(0deg, 0%, 0%);
+  --colors-primary: hsl(0deg, 0%, 0%);
+  --colors-secondary: hsl(0deg, 0%, 50%);
+  --colors-accent: hsl(0deg, 0%, 0%);
+  --colors-highlight: hsl(0deg, 0%, 0%);
+  --colors-muted: hsl(0deg, 0%, 0%);
+  --colors-background: hsl(0deg, 0%, 96%);
+
+  --colors-grey-100: hsl(225deg, 25%, 95%);
+  --colors-grey-200: hsl(225deg, 16%, 90%);
+  --colors-grey-300: hsl(225deg, 8%, 80%);
+  --colors-grey-400: hsl(225deg, 8%, 70%);
+  --colors-grey-500: hsl(225deg, 7%, 60%);
+  --colors-grey-600: hsl(225deg, 15%, 50%);
+  --colors-grey-700: hsl(225deg, 12%, 40%);
+  --colors-grey-900: hsl(225deg, 25%, 20%);
+  --colors-grey-1000: hsl(225deg, 15%, 15%);
+
+  --link-color: hsl(333deg, 40%, 69%);
+  --link-hover-color: hsl(38deg, 91%, 68%);
+}
+
+body.dark {
+  --colors-text-primary: hsl(0deg, 0%, 89%);
+  --colors-text-secondary: hsl(0deg, 0%, 0%);
+  --colors-primary: hsl(0deg, 0%, 0%);
+  --colors-secondary: hsl(0deg, 0%, 50%);
+  --colors-accent: hsl(0deg, 0%, 0%);
+  --colors-background: hsl(224deg, 43%, 8%);
+
+  --colors-grey-100: hsl(210deg, 15%, 20%);
+  --colors-grey-200: hsl(210deg, 15%, 25%);
+  --colors-grey-300: hsl(210deg, 10%, 40%);
+  --colors-grey-400: hsl(210deg, 9%, 45%);
+  --colors-grey-500: hsl(210deg, 8%, 50%);
+  --colors-grey-600: hsl(210deg, 12%, 55%);
+  --colors-grey-700: hsl(210deg, 14%, 66%);
+  --colors-grey-900: hsl(210deg, 25%, 88%);
+  --colors-grey-1000: hsl(210deg, 25%, 96%);
+
+  --link-color: hsl(333deg, 40%, 69%);
+  --link-hover-color: hsl(38deg, 91%, 68%);
 }
