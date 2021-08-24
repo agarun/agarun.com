@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import ColorModesScript from '../components/ColorModesScript';
 import packageInfo from '../package.json';
 
 class CustomDocument extends Document {
@@ -53,6 +54,7 @@ class CustomDocument extends Document {
           />
         </Head>
         <body>
+          <ColorModesScript />
           <Main />
           <NextScript />
         </body>
