@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
-import ColorModesScript from '../components/ColorModesScript';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript';
+import ThemeProvider from '../components/ThemeProvider';
 
 import '../styles/variables.css';
 import '../styles/normalize.css';
@@ -23,11 +23,10 @@ function App({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <>
-      <ColorModesScript />
+    <ThemeProvider>
       {isProduction && gtag.GA_TRACKING_ID && <GoogleAnalyticsScript />}
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 
