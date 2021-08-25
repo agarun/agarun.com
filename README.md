@@ -26,7 +26,7 @@ Then, to serve the build (`./out`) locally:
 
 ```bash
 serve ./out
-# or `python -m http.server --directory .out`, etc.
+# or `python -m http.server --directory ./out`, etc.
 ```
 
 ## Technologies 🧰
@@ -41,10 +41,11 @@ Hosted with [Netlify](https://www.netlify.com/). Built with React and [Next.js](
 - [Husky](https://github.com/typicode/husky)
   - Pre-commit hooks that run tools like ESLint & Prettier on modified files (via `lint-staged`)
 
-### Theming
+### Styling
 
 - Color modes and theming tokens are implemented with CSS variables (custom properties)
   - [Josh Comeau's dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid FOUC.
+- [Emotion](https://github.com/emotion-js/emotion) for writing style modules with JavaScript
 
 ### Misc.
 
