@@ -13,12 +13,14 @@
     "serve": "yarn export && serve out"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
     "next": "11.1.0",
     "next-seo": "^4.26.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^4.0.0",
     "babel-eslint": "^10.0.0",
