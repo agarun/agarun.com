@@ -10,7 +10,9 @@
     "prepare": "husky install",
     "preexport": "yarn build",
     "export": "next export",
-    "serve": "yarn export && serve out"
+    "serve": "serve out",
+    "site": "yarn export && serve out",
+    "lighthouse": "lighthouse http://localhost:5000 --output html --view"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -35,6 +37,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^7.0.1",
+    "lighthouse": "^8.3.0",
     "lint-staged": ">=10",
     "prettier": "^2.3.2",
     "terser": "^5.7.2"
