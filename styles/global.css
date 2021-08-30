@@ -9,3 +9,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+::-moz-selection {
+  background-color: var(--colors-highlight);
+  color: var(--colors-primary);
+}
+::selection {
+  background-color: var(--colors-highlight);
+  color: var(--colors-primary);
+}

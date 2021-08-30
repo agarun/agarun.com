@@ -12,7 +12,7 @@
   --spacing: 8px;
   --scrollbar-width: 15px;
   --gutter-width: calc(var(--spacing) * 2);
-  --window-width: calc(100vw - var(var(--scrollbar-width)));
+  --window-width: calc(100vw - var(--scrollbar-width));
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
 }
 
@@ -23,7 +23,7 @@ body.light {
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(0deg, 0%, 0%);
-  --colors-highlight: hsl(0deg, 0%, 0%);
+  --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(0deg, 0%, 0%);
   --colors-background: hsl(0deg, 0%, 96%);
 
@@ -47,7 +47,9 @@ body.dark {
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(0deg, 0%, 0%);
-  --colors-background: hsl(224deg, 43%, 8%);
+  --colors-highlight: hsl(260deg, 73%, 91%);
+  --colors-muted: hsl(0deg, 0%, 0%);
+  --colors-background: hsl(226deg, 30%, 10%);
 
   --colors-grey-100: hsl(210deg, 15%, 20%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
