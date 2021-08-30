@@ -40,6 +40,7 @@ Hosted with [Netlify](https://www.netlify.com/). Built with React and [Next.js](
 - [Prettier](https://prettier.io/)
 - [Husky](https://github.com/typicode/husky)
   - Pre-commit hooks that run tools like ESLint & Prettier on modified files (via `lint-staged`)
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse) to collect performance metrics about webpages
 
 ### Styling
 
