@@ -13,7 +13,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
-      gtag.pageview(url);
+      isEnabled && gtag.pageview(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
