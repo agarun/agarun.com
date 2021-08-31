@@ -6,14 +6,15 @@ export const link = css`
   color: var(--colors-grey-800);
   background: linear-gradient(
     20deg,
-    var(--colors-link-hover) 0%,
+    var(--colors-link-alt) 0%,
     var(--colors-link-gradient) 100%
   );
   background-repeat: repeat-x;
-  background-position: 0px 85%;
-  background-size: 100% 40%;
+  background-position: 0px 82%;
+  background-size: 100% 44%;
   border-bottom: 2px solid transparent;
   transition: all 100ms ease-out;
+  cursor: pointer;
 
   &:hover {
     color: var(--colors-link);
