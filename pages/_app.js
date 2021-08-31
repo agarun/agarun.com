@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import ThemeProvider from '../components/ThemeProvider';
+import Layout from '../components/Layout';
 import { isEnabled } from '../components/GoogleAnalyticsScript';
 
 import '../styles/variables.css';
@@ -22,7 +23,9 @@ function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ThemeProvider>
   );
 }
