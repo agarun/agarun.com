@@ -16,10 +16,10 @@
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
 }
 
+/* https://theme-ui.com/theming/ */
 body.light {
-  /* https://theme-ui.com/theming/ */
   --colors-text-primary: hsl(252deg, 56%, 2%);
-  --colors-text-secondary: hsl(0deg, 0%, 0%);
+  --colors-text-secondary: hsl(0deg, 0%, 45%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(0deg, 0%, 0%);
@@ -34,22 +34,26 @@ body.light {
   --colors-grey-500: hsl(225deg, 7%, 60%);
   --colors-grey-600: hsl(225deg, 15%, 50%);
   --colors-grey-700: hsl(225deg, 12%, 40%);
-  --colors-grey-900: hsl(225deg, 25%, 20%);
+  --colors-grey-800: hsl(225deg, 20%, 30%);
+  --colors-grey-900: hsl(225deg, 20%, 20%);
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
-  --link-color: hsl(333deg, 40%, 69%);
-  --link-hover-color: hsl(38deg, 91%, 68%);
+  --colors-link: hsl(216deg, 90%, 60%);
+  --colors-link-hover: hsl(216deg, 100%, 60%, 0.4);
+  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.4);
+
+  --font-weight-bold: 600;
 }
 
 body.dark {
-  --colors-text-primary: hsl(0deg, 0%, 89%);
-  --colors-text-secondary: hsl(0deg, 0%, 0%);
+  --colors-text-primary: hsl(0deg, 0%, 95%);
+  --colors-text-secondary: hsl(210deg, 5%, 75%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(0deg, 0%, 0%);
   --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(0deg, 0%, 0%);
-  --colors-background: hsl(226deg, 30%, 10%);
+  --colors-background: hsl(232deg, 31%, 9%);
 
   --colors-grey-100: hsl(210deg, 15%, 20%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
@@ -58,9 +62,12 @@ body.dark {
   --colors-grey-500: hsl(210deg, 8%, 50%);
   --colors-grey-600: hsl(210deg, 12%, 55%);
   --colors-grey-700: hsl(210deg, 14%, 66%);
-  --colors-grey-900: hsl(210deg, 25%, 88%);
-  --colors-grey-1000: hsl(210deg, 25%, 96%);
+  --colors-grey-900: hsl(210deg, 17%, 88%);
+  --colors-grey-1000: hsl(210deg, 17%, 96%);
 
-  --link-color: hsl(333deg, 40%, 69%);
-  --link-hover-color: hsl(38deg, 91%, 68%);
+  --colors-link: hsl(38deg, 91%, 60%);
+  --colors-link-hover: hsl(38deg, 93%, 60%, 0.7);
+  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.7);
+
+  --font-weight-bold: 500;
 }
