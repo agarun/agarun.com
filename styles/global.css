@@ -18,3 +18,11 @@ body {
   background-color: var(--colors-highlight);
   color: var(--colors-primary);
 }
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
