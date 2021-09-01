@@ -1,15 +1,60 @@
 import Head from 'next/head';
+import { css } from '@emotion/react';
+import Link from '../components/Link';
+import Monogram from '../components/Monogram';
+import Subtitle from '../components/Subtitle';
+import { NavLink } from '../components/Nav';
+
+const styles = {
+  header: css`
+    margin-top: calc(var(--spacing) * 20);
+    margin-bottom: calc(var(--spacing) * 10);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
+  heading: css`
+    font-size: calc(var(--font-size-scale) * 56px);
+    font-weight: var(--font-weight-bold);
+    color: var(--colors-text-primary);
+  `,
+  subheading: css`
+    max-width: 800px;
+    font-size: calc(var(--font-size-scale) * 36px);
+    line-height: 1.33;
+    color: var(--colors-text-primary);
+  `,
+  description: css`
+    font-size: calc(var(--font-size-scale) * 28px);
+    line-height: 1.5;
+    color: var(--colors-text-secondary);
+  `,
+};
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Home</title>
+        <title>Aaron Agarunov</title>
       </Head>
-
-      <main role="main"></main>
-
-      <footer></footer>
-    </div>
+      <header css={styles.header}>
+        <h1 css={styles.heading}>Aaron Agarunov</h1>
+        <Monogram width={42} height={42} bottom="var(--colors-background)" />
+      </header>
+      <main role="main">
+        <p css={styles.subheading}>
+          Software developer based in Brooklyn, NY. Building web experiences at{' '}
+          <Link href="https://mskcc.org">MSKCC</Link>.
+        </p>
+        <p css={styles.description}>
+          I&apos;m interested in user interfaces, data visualization, and
+          interaction design. <NavLink href="/about">Read more</NavLink>, see my{' '}
+          <NavLink href="/projects">projects</NavLink>,{' '}
+          <NavLink href="/posts">posts</NavLink>, or{' '}
+          <NavLink href="/contact">contact me</NavLink>.
+        </p>
+        <Subtitle>Projects</Subtitle>
+      </main>
+    </>
   );
 }
