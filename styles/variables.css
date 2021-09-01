@@ -14,6 +14,8 @@
   --gutter-width: calc(var(--spacing) * 2);
   --window-width: calc(100vw - var(--scrollbar-width));
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
+
+  --shape-border-radius: 4px;
 }
 
 /* https://theme-ui.com/theming/ */
@@ -39,7 +41,8 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-hover: hsl(216deg, 100%, 60%, 0.4);
+  --colors-link-alt: hsl(216deg, 100%, 60%, 0.4);
+  --colors-link-alt-dark: hsl(216deg, 100%, 60%, 0.6);
   --colors-link-gradient: hsl(303deg, 100%, 70%, 0.4);
 
   --font-weight-bold: 600;
@@ -62,12 +65,13 @@ body.dark {
   --colors-grey-500: hsl(210deg, 8%, 50%);
   --colors-grey-600: hsl(210deg, 12%, 55%);
   --colors-grey-700: hsl(210deg, 14%, 66%);
+  --colors-grey-800: hsl(210deg, 14%, 80%);
   --colors-grey-900: hsl(210deg, 17%, 88%);
   --colors-grey-1000: hsl(210deg, 17%, 96%);
 
   --colors-link: hsl(38deg, 91%, 60%);
-  --colors-link-hover: hsl(38deg, 93%, 60%, 0.7);
-  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.7);
+  --colors-link-alt: hsl(38deg, 93%, 60%, 0.63);
+  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.63);
 
   --font-weight-bold: 500;
 }
