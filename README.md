@@ -47,6 +47,7 @@ Hosted with [Netlify](https://www.netlify.com/). Built with React and [Next.js](
 - Color modes and theming tokens are implemented with CSS variables (custom properties)
   - [Josh Comeau's dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid FOUC.
 - [Emotion](https://github.com/emotion-js/emotion) for writing style modules with JavaScript
+- [Framer Motion](https://www.framer.com/motion/) for animations
 
 ### Misc.
 
