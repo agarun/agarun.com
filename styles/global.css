@@ -22,7 +22,16 @@ body {
 ol,
 ul,
 li {
+  /* reset */
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+button {
+  /* reset */
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
