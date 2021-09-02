@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { css } from '@emotion/react';
 import Link from '../components/Link';
 import Monogram from '../components/Monogram';
+import ThemeSwitch from '../components/ThemeSwitch';
 import Subtitle from '../components/Subtitle';
 import { NavLink } from '../components/Nav';
 
@@ -29,6 +30,11 @@ const styles = {
     line-height: 1.5;
     color: var(--colors-text-secondary);
   `,
+  footer: css`
+    margin: var(--spacing);
+    display: flex;
+    justify-content: center;
+  `,
 };
 
 export default function Home() {
@@ -39,7 +45,7 @@ export default function Home() {
       </Head>
       <header css={styles.header}>
         <h1 css={styles.heading}>Aaron Agarunov</h1>
-        <Monogram width={42} height={42} bottom="var(--colors-background)" />
+        <ThemeSwitch />
       </header>
       <main role="main">
         <p css={styles.subheading}>
@@ -51,10 +57,13 @@ export default function Home() {
           interaction design. <NavLink href="/about">Read more</NavLink>, see my{' '}
           <NavLink href="/projects">projects</NavLink>,{' '}
           <NavLink href="/posts">posts</NavLink>, or{' '}
-          <NavLink href="/contact">contact me</NavLink>.
+          <NavLink href="/contact">contact info</NavLink>.
         </p>
         <Subtitle>Projects</Subtitle>
       </main>
+      <footer css={styles.footer}>
+        <Monogram width={30} height={30} />
+      </footer>
     </>
   );
 }
