@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { DefaultSeo } from 'next-seo';
 import * as gtag from '../lib/gtag';
 import ThemeProvider from '../components/ThemeProvider';
 import Layout from '../components/Layout';
@@ -23,6 +24,28 @@ function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
+      <DefaultSeo
+        openGraph={{
+          type: 'website',
+          title: 'Aaron Agarunov',
+          site_name: 'Aaron Agarunov',
+          description: "Aaron Agarunov's personal site",
+          images: [
+            {
+              url: 'https://pbs.twimg.com/profile_images/1094646600104902656/VxaU85_I_400x400.jpg',
+              alt: 'Gradient icon',
+            },
+          ],
+          locale: 'en_US',
+          url: 'https://agarun.com',
+        }}
+        twitter={{
+          handle: '@agarune',
+          site: '@agarune',
+          cardType: 'summary_large_image',
+        }}
+      />
+
       <Layout>
         <Component {...pageProps} />
       </Layout>
