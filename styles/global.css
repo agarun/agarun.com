@@ -36,3 +36,12 @@ button {
   border: none;
   cursor: pointer;
 }
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
