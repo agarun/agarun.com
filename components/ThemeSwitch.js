@@ -4,6 +4,10 @@ import useColorMode from '../lib/hooks/useColorMode';
 import DropletIcon from './DropletIcon';
 
 const styles = {
+  dropletIconButton: css`
+    width: 40px;
+    height: 40px;
+  `,
   dropletIcon: ({ colorMode }) => css`
     fill: ${colorMode === DARK_MODE
       ? 'var(--colors-grey-500)'
@@ -27,7 +31,7 @@ const styles = {
 function ThemeSwitch(props) {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <button onClick={toggleColorMode} {...props}>
+    <button onClick={toggleColorMode} css={styles.dropletIconButton} {...props}>
       <DropletIcon css={styles.dropletIcon({ colorMode })} />
     </button>
   );
