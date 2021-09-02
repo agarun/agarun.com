@@ -13,9 +13,27 @@ export const title = css`
 
 export const header = css`
   padding-top: calc(var(--spacing) * 10);
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 export const main = css``;
+
+export const icon = css`
+  position: absolute;
+  right: calc(var(--spacing) * -10);
+  width: 40px;
+  height: 40px;
+`;
+
+export const monogram = css`
+  padding: var(--spacing);
+  background: var(--colors-grey-200);
+  border-radius: var(--shape-border-radius);
+`;
+
+export const themeSwitch = css`
+  top: calc(var(--spacing) * 11.25);
+`;
