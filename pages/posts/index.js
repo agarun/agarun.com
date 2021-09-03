@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { NavLink } from '../../components/Nav';
-import { formatDate } from '../../lib/dates';
+import Date from '../../components/PostLayout/components/Date';
 import { getPosts } from '../../lib/posts';
 
 const styles = {
@@ -25,14 +25,6 @@ const styles = {
     letter-spacing: -0.5px;
     border-bottom: 2px solid var(--colors-grey-300);
   `,
-  date: css`
-    margin-top: var(--spacing);
-    margin-bottom: calc(var(--spacing) * 2);
-    font-size: calc(var(--font-size-scale) * 16px);
-    font-weight: var(--font-weight-body);
-    letter-spacing: normal;
-    color: var(--colors-accent);
-  `,
 };
 
 export async function getStaticProps() {
@@ -52,7 +44,7 @@ function Posts({ posts }) {
         {posts.map(({ id, date, title }) => (
           <li key={id} css={styles.listItem}>
             <NavLink href={`/posts/${id}`}>{title}</NavLink>
-            <span css={styles.date}>{formatDate(date)}</span>
+            <Date>{date}</Date>
           </li>
         ))}
       </ul>
