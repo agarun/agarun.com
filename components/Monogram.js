@@ -1,8 +1,8 @@
 function Monogram({
-  bottom = 'var(--colors-link-alt-dark)',
+  bottom = 'transparent',
   leftBottom = 'transparent',
   rightBottom = 'transparent',
-  left = 'var(--colors-link-alt)',
+  left = 'var(--colors-grey-800)',
   right = 'var(--colors-grey-100)',
   ...props
 }) {
