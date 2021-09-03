@@ -17,13 +17,11 @@ const styles = {
   heading: css`
     font-size: calc(var(--font-size-scale) * 56px);
     font-weight: var(--font-weight-bold);
-    color: var(--colors-text-primary);
   `,
   subheading: css`
     max-width: 800px;
     font-size: calc(var(--font-size-scale) * 36px);
     line-height: 1.33;
-    color: var(--colors-text-primary);
   `,
   description: css`
     font-size: calc(var(--font-size-scale) * 28px);
