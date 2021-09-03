@@ -26,8 +26,9 @@ body.light {
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(250deg, 79%, 63%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(0deg, 0%, 0%);
+  --colors-muted: hsl(232deg, 15%, 50%);
   --colors-background: hsl(0deg, 0%, 96%);
+  --colors-background-gradient: hsl(0deg, 0%, 100%);
 
   --colors-grey-100: hsl(225deg, 25%, 95%);
   --colors-grey-200: hsl(225deg, 16%, 90%);
@@ -55,8 +56,9 @@ body.dark {
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(23deg 37% 51%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(0deg, 0%, 0%);
+  --colors-muted: hsl(232deg, 15%, 50%);
   --colors-background: hsl(232deg, 31%, 9%);
+  --colors-background-gradient: hsl(232deg, 25%, 6%);
 
   --colors-grey-100: hsl(210deg, 15%, 20%);
   --colors-grey-200: hsl(210deg, 15%, 25%);

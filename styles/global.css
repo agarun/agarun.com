@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  color: var(--colors-text-primary);
   background-color: var(--colors-background);
   direction: ltr;
   font-family: var(--font-family-sans-serif);
