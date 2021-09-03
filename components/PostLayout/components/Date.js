@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { formatDate } from '../../lib/dates';
+import { formatDate } from '../../../lib/dates';
 
 const styles = {
   date: css`
