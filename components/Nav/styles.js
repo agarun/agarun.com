@@ -8,6 +8,13 @@ export const links = css`
   & li:not(:last-of-type) {
     margin-right: calc(var(--spacing) * 5);
   }
+
+  @media (max-width: 430px) {
+    font-size: calc(var(--font-size-scale) * 20px);
+    & li:not(:last-of-type) {
+      margin-right: calc(var(--spacing) * 3);
+    }
+  }
 `;
 
 export const link = css`
