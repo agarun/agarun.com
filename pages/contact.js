@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head';
 import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
 import { getSocials } from '../lib/socials';
@@ -41,7 +42,7 @@ const styles = {
     z-index: 2;
   `,
   description: css`
-    padding: calc(var(--spacing) * 0.75) calc(var(--spacing) * 1.25);
+    padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.25);
     position: absolute;
     right: -75%;
     bottom: -10%;
@@ -102,6 +103,9 @@ function Contact({ links }) {
 
   return (
     <>
+      <Head>
+        <title>Contact — Aaron Agarunov</title>
+      </Head>
       <motion.ul
         initial="hidden"
         animate="visible"
