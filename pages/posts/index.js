@@ -8,7 +8,7 @@ const styles = {
     margin: calc(var(--spacing) * 8) 0;
     font-size: calc(var(--font-size-scale) * 36px);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.33;
   `,
   list: css`
     margin: calc(var(--spacing) * 8) 0;
