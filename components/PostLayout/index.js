@@ -20,7 +20,7 @@ function Post({ title, date, html, prev, next }) {
           alt="Photo of the author Aaron"
         />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} css={styles.prose} />
       <PrevNext prev={prev} next={next} />
     </article>
   );

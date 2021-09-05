@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { link as linkStyle } from '../Link/styles';
 
 export const article = css`
   padding: calc(var(--spacing) * 4);
@@ -29,6 +30,14 @@ export const avatar = css`
   overflow: hidden;
 
   img {
-    transform: scale(1.5);
+    transform: scale(1.6);
+  }
+`;
+
+export const prose = css`
+  line-height: 1.5;
+
+  a {
+    ${linkStyle}
   }
 `;
