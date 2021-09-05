@@ -43,7 +43,7 @@ body.light {
 
   --colors-link: hsl(216deg, 90%, 60%);
   --colors-link-alt: hsl(216deg, 100%, 60%, 0.4);
-  --colors-link-alt-dark: hsl(216deg, 100%, 60%, 0.6);
+  --colors-link-alt-dark: hsl(216deg, 100%, 60%, 0.14);
   --colors-link-gradient: hsl(303deg, 100%, 70%, 0.4);
 
   --font-weight-bold: 600;
@@ -73,6 +73,7 @@ body.dark {
 
   --colors-link: hsl(38deg, 91%, 60%);
   --colors-link-alt: hsl(38deg, 93%, 60%, 0.63);
+  --colors-link-alt-dark: hsl(38deg, 93%, 60%, 0.19);
   --colors-link-gradient: hsl(333deg, 43%, 63%, 0.63);
 
   --font-weight-bold: 500;
