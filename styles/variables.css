@@ -14,8 +14,6 @@
   --gutter-width: calc(var(--spacing) * 2);
   --window-width: calc(100vw - var(--scrollbar-width));
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
-
-  --shape-border-radius: 4px;
 }
 
 /* https://theme-ui.com/theming/ */
@@ -51,7 +49,7 @@ body.light {
 
 body.dark {
   --colors-text-primary: hsl(0deg, 0%, 95%);
-  --colors-text-secondary: hsl(210deg, 5%, 75%);
+  --colors-text-secondary: hsl(210deg, 5%, 69%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(23deg 37% 51%);
@@ -77,4 +75,9 @@ body.dark {
   --colors-link-gradient: hsl(333deg, 43%, 63%, 0.63);
 
   --font-weight-bold: 500;
+}
+
+body {
+  --shape-border-radius: 4px;
+  --border-style: 1px dotted var(--colors-grey-400);
 }
