@@ -4,7 +4,7 @@ import profilePhoto from '../../../public/images/me.jpg';
 
 const styles = {
   author: css`
-    margin-top: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 6);
     margin-bottom: calc(var(--spacing) * 8);
     padding-top: calc(var(--spacing) * 2);
     display: flex;
