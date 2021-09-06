@@ -6,7 +6,7 @@ export const article = css`
   min-height: calc(100vh - 40px);
   background: linear-gradient(
     to top,
-    var(--colors-background-gradient) calc(var(--spacing) * 50),
+    var(--colors-background-gradient) calc(var(--spacing) * 100),
     transparent
   );
 
@@ -22,19 +22,9 @@ export const title = css`
   line-height: 1.1;
 `;
 
-export const avatar = css`
-  position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: var(--shape-border-radius);
-  overflow: hidden;
-
-  img {
-    transform: scale(1.6);
-  }
-`;
-
 export const prose = css`
+  margin-top: calc(var(--spacing) * 10);
+  margin-bottom: calc(var(--spacing) * 2);
   line-height: 1.5;
 
   a {
