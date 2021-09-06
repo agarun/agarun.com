@@ -12,11 +12,13 @@
     "export": "next export",
     "serve": "serve out",
     "site": "yarn export && serve out",
-    "lighthouse": "lighthouse http://localhost:5000 --output html --view"
+    "lighthouse": "lighthouse http://localhost:5000 --output html --view",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "framer-motion": "^4.1.17",
+    "jest": "^27.1.0",
     "next": "11.1.0",
     "next-seo": "^4.26.0",
     "react": "17.0.2",
