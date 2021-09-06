@@ -36,18 +36,20 @@ const styles = {
     left: calc(-100% - var(--spacing) * 15);
     display: block;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: var(--colors-background);
     pointer-events: none;
     z-index: 2;
+    transition: background 300ms ease;
   `,
   description: css`
-    padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.25);
+    padding: calc(var(--spacing) * 0.75) calc(var(--spacing) * 1.15);
     position: absolute;
     right: -75%;
     bottom: -10%;
     font-size: calc(var(--font-size-scale) * 20px);
-    font-weight: 500;
+    font-weight: 600;
+    line-height: 1;
     color: var(--colors-background);
     background-color: var(--colors-text-primary);
     border-radius: var(--shape-border-radius);
@@ -102,7 +104,7 @@ function Contact({ links }) {
   };
 
   return (
-    <>
+    <section>
       <Head>
         <title>Contact — Aaron Agarunov</title>
       </Head>
@@ -141,7 +143,7 @@ function Contact({ links }) {
         ))}
       </motion.ul>
       <div css={styles.listCover} />
-    </>
+    </section>
   );
 }
 
