@@ -12,7 +12,6 @@ export const link = css`
   background-repeat: repeat-x;
   background-position: 0px 82%;
   background-size: 100% 44%;
-  border-bottom: 2px solid transparent;
   transition: all 100ms ease-out;
   cursor: pointer;
 
