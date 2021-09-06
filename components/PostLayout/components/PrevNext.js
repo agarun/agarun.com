@@ -4,10 +4,9 @@ import Subtitle from '../../Subtitle';
 
 const styles = {
   prevNext: css`
-    --border: 1px dotted var(--colors-grey-400);
     display: flex;
-    border-top: var(--border);
-    border-bottom: var(--border);
+    border-top: var(--border-style);
+    border-bottom: var(--border-style);
   `,
   prevNextItem: css`
     padding: calc(var(--spacing) * 2);
@@ -18,7 +17,7 @@ const styles = {
 
     &:first-of-type {
       padding-left: 0;
-      border-right: var(--border);
+      border-right: var(--border-style);
     }
     &:last-of-type {
       padding-right: 0;
@@ -46,7 +45,7 @@ const styles = {
 
 function PrevNext({ prev, next }) {
   return (
-    <section css={styles.prevNext}>
+    <section css={styles.prevNext} aria-label="other blog posts">
       <article css={styles.prevNextItem}>
         {prev && (
           <NavLink css={styles.prevNextItemLink} href={`/posts/${prev.id}`}>
