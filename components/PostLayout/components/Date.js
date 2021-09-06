@@ -13,7 +13,11 @@ const styles = {
 };
 
 function Date({ date, children }) {
-  return <span css={styles.date}>{formatDate(date || children)}</span>;
+  return (
+    <time css={styles.date} dateTime={date}>
+      {formatDate(date || children)}
+    </time>
+  );
 }
 
 export default Date;
