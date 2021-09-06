@@ -23,8 +23,11 @@
     "next-seo": "^4.26.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.1"
+    "rehype-external-links": "^1.0.0",
+    "rehype-stringify": "^9.0.2",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^9.0.0",
+    "unified": "^10.1.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
