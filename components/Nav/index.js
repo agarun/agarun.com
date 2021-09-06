@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import * as styles from './styles';
 
 const links = [
-  { title: 'Work', href: '/projects' },
   { title: 'About', href: '/about' },
+  { title: 'Work', href: '/projects' },
   { title: 'Contact', href: '/contact' },
   { title: 'Blog', href: '/posts' },
 ];
