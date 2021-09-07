@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 export const link = css`
   display: inline-block;
   text-decoration: none;
+  text-shadow: var(--text-shadow);
   color: var(--colors-grey-800);
   background: linear-gradient(
     20deg,
