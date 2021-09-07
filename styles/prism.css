@@ -1,0 +1,56 @@
+/* NOTE: these styles require the base stylesheet from https://github.com/antfu/prism-theme-vars. */
+body {
+  --prism-block-margin-y: calc(var(--spacing) * 5);
+  --prism-block-padding-x: calc(var(--spacing) * 4);
+  --prism-block-padding-y: var(--prism-block-padding-x);
+  --prism-font-family: var(--font-family-monospace);
+  --prism-font-size: calc(var(--font-size-scale) * 16px);
+}
+body.light {
+  --prism-foreground: #403f53;
+  --prism-background: #f9f9f9;
+  --prism-comment: #989fb1;
+  --prism-namespace: #0c969b;
+  --prism-string: #cf7268;
+  --prism-property: #4d66d7;
+  --prism-punctuation: #d96065;
+  --prism-literal: #36acaa;
+  --prism-keyword: #4d66d7;
+  --prism-function: #a457c7;
+  --prism-deleted: #ef535090;
+  --prism-class: #050707;
+  --prism-builtin: #29a1a5;
+  --prism-regex: #5ca7e4;
+  --prism-operator: #d96065;
+  --prism-keyword-control: #4d66d7;
+  --prism-variable: #36acaa;
+}
+body.dark {
+  --prism-foreground: #d6deeb;
+  --prism-background: #0c0f1d;
+  --prism-comment: #637777;
+  --prism-namespace: #b2ccd6;
+  --prism-string: #ffcb8b;
+  --prism-property: #a5ff90;
+  --prism-punctuation: #7fdbca;
+  --prism-literal: #36acaa;
+  --prism-keyword: #c792ea;
+  --prism-function: #82aaff;
+  --prism-deleted: #ef535090;
+  --prism-class: #4ec9b0;
+  --prism-builtin: #caece6;
+  --prism-regex: #5ca7e4;
+  --prism-operator: #caece6;
+  --prism-keyword-control: #c792ea;
+  --prism-variable: #baebe2;
+}
+/* many prism remark/rehype plugins don't give inline `code`
+tags a `language-*` class, so we style them separately */
+body code:not([class]) {
+  padding: 2px;
+  font-family: var(--prism-font-family);
+  font-size: var(--prism-font-size);
+  color: var(--prism-foreground);
+  background-color: var(--prism-background);
+  border-radius: var(--shape-border-radius);
+}
