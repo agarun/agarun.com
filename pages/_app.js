@@ -9,6 +9,7 @@ import { isEnabled } from '../components/GoogleAnalyticsScript';
 import '../styles/variables.css';
 import '../styles/normalize.css';
 import '../styles/global.css';
+import '../styles/prism.css';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
