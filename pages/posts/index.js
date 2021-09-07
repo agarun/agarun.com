@@ -16,7 +16,7 @@ const styles = {
     flex-direction: column;
   `,
   listItem: css`
-    margin: calc(var(--spacing) * 2) 0;
+    margin: calc(var(--spacing) * 1) 0;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
