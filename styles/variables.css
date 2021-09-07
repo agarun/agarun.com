@@ -3,8 +3,11 @@
   --font-family-sans-serif: Inter, -apple-system, BlinkMacSystemFont,
     avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto,
     segoe ui, arial, sans-serif;
+  --font-family-monospace: Cousine, Menlo, Consolas, 'Andale Mono WT',
+    'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
+    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
+    'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
   --font-family-serif: Lora, Garamond, Georgia, serif;
-  --font-family-mono: monospace;
   --font-size-scale: 1;
   --font-size-body: calc(14px * var(--font-size-scale));
   --font-weight-body: 400;
@@ -40,15 +43,16 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-alt: hsl(216deg, 100%, 60%, 0.4);
+  --colors-link-alt: hsl(216deg, 100%, 60%, 0.34);
   --colors-link-alt-dark: hsl(216deg, 100%, 60%, 0.14);
-  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.4);
+  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.34);
 
   --font-weight-bold: 600;
+  --text-shadow: none;
 }
 
 body.dark {
-  --colors-text-primary: hsl(0deg, 0%, 95%);
+  --colors-text-primary: hsl(225deg, 5%, 94%);
   --colors-text-secondary: hsl(210deg, 5%, 69%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
@@ -56,7 +60,7 @@ body.dark {
   --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(232deg, 15%, 50%);
   --colors-background: hsl(232deg, 31%, 9%);
-  --colors-background-gradient: hsl(232deg, 25%, 6%);
+  --colors-background-gradient: hsl(232deg, 25%, 1%);
 
   --colors-grey-100: hsl(210deg, 15%, 20%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
@@ -70,11 +74,12 @@ body.dark {
   --colors-grey-1000: hsl(210deg, 17%, 96%);
 
   --colors-link: hsl(38deg, 91%, 60%);
-  --colors-link-alt: hsl(38deg, 93%, 60%, 0.63);
+  --colors-link-alt: hsl(38deg, 93%, 60%, 0.44);
   --colors-link-alt-dark: hsl(38deg, 93%, 60%, 0.19);
-  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.63);
+  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.44);
 
   --font-weight-bold: 500;
+  --text-shadow: 1px 1px var(--colors-grey-200);
 }
 
 body {
