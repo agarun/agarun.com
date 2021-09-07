@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
 import { getPostById, getPostIds, getPosts } from '../../lib/posts';
 import PostLayout from '../../components/PostLayout';
+import 'prism-theme-vars/base.css';
 
 export async function getStaticPaths() {
   const postIds = getPostIds();
@@ -26,6 +28,10 @@ function Post({ post, prev, next }) {
     <>
       <Head>
         <title>{post.title} — Aaron Agarunov</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cousine&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <PostLayout {...post} prev={prev} next={next} />
     </>
