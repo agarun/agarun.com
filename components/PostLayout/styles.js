@@ -34,6 +34,7 @@ export const prose = css`
 
   a {
     ${linkStyle}
+    line-height: 1.56;
   }
   h1 {
     margin-top: calc(var(--spacing) * 8);
@@ -42,5 +43,18 @@ export const prose = css`
     margin-top: calc(var(--spacing) * 6);
     margin-bottom: calc(var(--spacing) * 2);
     color: var(--colors-accent);
+  }
+  ol,
+  ul {
+    padding-left: calc(var(--spacing) * 5);
+    list-style-type: '〰';
+    line-height: 2;
+  }
+  li {
+    padding-left: calc(var(--spacing) * 3);
+    list-style-type: inherit;
+    &::marker {
+      color: var(--colors-link);
+    }
   }
 `;
