@@ -9,6 +9,7 @@ const styles = {
     height: 40px;
   `,
   dropletIcon: ({ colorMode }) => css`
+    width: 100%;
     fill: ${colorMode === DARK_MODE
       ? 'var(--colors-grey-500)'
       : 'var(--colors-grey-200)'};
