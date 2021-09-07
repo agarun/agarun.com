@@ -4,10 +4,6 @@ import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
 import { getSocials } from '../lib/socials';
 
-export async function getStaticProps() {
-  return { props: { links: getSocials().filter((item) => !item.disabled) } };
-}
-
 const styles = {
   list: css`
     margin: calc(var(--spacing) * 8) 0;
@@ -58,50 +54,54 @@ const styles = {
   `,
 };
 
+const listVariants = {
+  hidden: {
+    x: '-27%',
+    opacity: 0.8,
+  },
+  visible: {
+    x: '0%',
+    opacity: 1,
+    transition: {
+      duration: 850 / 1000,
+      staggerChildren: 85 / 1000,
+      ease: 'easeInOut',
+      delay: 100 / 1000,
+    },
+  },
+};
+
+const listItemVariants = {
+  hidden: {
+    x: '-20%',
+  },
+  visible: {
+    x: '0%',
+    transition: { duration: 550 / 1000, ease: [0.25, 0.1, 0.25, 1.0] },
+  },
+};
+
+const listItemDescriptionVariants = {
+  hidden: {
+    opacity: 0,
+    y: '-50%',
+    rotate: '2deg',
+    scale: 1.08,
+  },
+  visible: {
+    opacity: 1,
+    rotate: '-12deg',
+    scale: 1,
+    transition: { duration: 700 / 1000, ease: [0.19, 1, 0.22, 1] },
+  },
+};
+
+export async function getStaticProps() {
+  return { props: { links: getSocials().filter((item) => !item.disabled) } };
+}
+
 function Contact({ links }) {
   const [currentLink, setCurrentLink] = useState(null);
-
-  const listVariants = {
-    hidden: {
-      x: '-27%',
-      opacity: 0.8,
-    },
-    visible: {
-      x: '0%',
-      opacity: 1,
-      transition: {
-        duration: 850 / 1000,
-        staggerChildren: 85 / 1000,
-        ease: 'easeInOut',
-        delay: 100 / 1000,
-      },
-    },
-  };
-
-  const listItemVariants = {
-    hidden: {
-      x: '-20%',
-    },
-    visible: {
-      x: '0%',
-      transition: { duration: 550 / 1000, ease: [0.25, 0.1, 0.25, 1.0] },
-    },
-  };
-
-  const listItemDescriptionVariants = {
-    hidden: {
-      opacity: 0,
-      y: '-50%',
-      rotate: '2deg',
-      scale: 1.08,
-    },
-    visible: {
-      opacity: 1,
-      rotate: '-12deg',
-      scale: 1,
-      transition: { duration: 700 / 1000, ease: [0.19, 1, 0.22, 1] },
-    },
-  };
 
   return (
     <section>
@@ -142,7 +142,7 @@ function Contact({ links }) {
           </motion.li>
         ))}
       </motion.ul>
-      <div css={styles.listCover} />
+      <div css={styles.listCover} aria-hidden="true" />
     </section>
   );
 }
