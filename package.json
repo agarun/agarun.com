@@ -21,6 +21,7 @@
     "framer-motion": "^4.1.17",
     "jest": "^27.1.0",
     "next": "11.1.0",
+    "next-mdx-remote": "^3.0.4",
     "next-seo": "^4.26.0",
     "prism-theme-vars": "^0.2.2",
     "react": "17.0.2",
