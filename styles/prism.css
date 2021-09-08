@@ -12,17 +12,17 @@ body.light {
   --prism-comment: #989fb1;
   --prism-namespace: #0c969b;
   --prism-string: #cf7268;
-  --prism-property: #4d66d7;
+  --prism-property: #3f64db;
   --prism-punctuation: #d96065;
   --prism-literal: #36acaa;
-  --prism-keyword: #4d66d7;
-  --prism-function: #a457c7;
+  --prism-keyword: #3f64db;
+  --prism-function: #9e4fd3;
   --prism-deleted: #ef535090;
   --prism-class: #050707;
   --prism-builtin: #29a1a5;
   --prism-regex: #5ca7e4;
   --prism-operator: #d96065;
-  --prism-keyword-control: #4d66d7;
+  --prism-keyword-control: #3f64db;
   --prism-variable: #36acaa;
 }
 body.dark {
@@ -50,7 +50,7 @@ body code:not([class]) {
   padding: 2px;
   font-family: var(--prism-font-family);
   font-size: var(--prism-font-size);
-  color: var(--prism-foreground);
+  color: var(--prism-keyword);
   background-color: var(--prism-background);
   border-radius: var(--shape-border-radius);
 }
