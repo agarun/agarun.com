@@ -14,10 +14,6 @@ export const container = css`
   }
 `;
 
-export const title = css`
-  font-size: calc(var(--font-size-scale) * 26px);
-`;
-
 export const header = css`
   padding-top: calc(var(--spacing) * 10);
   width: 100%;
@@ -31,29 +27,12 @@ export const header = css`
   }
 `;
 
-export const main = css``;
-
-export const icon = css`
-  position: absolute;
-  right: calc(var(--spacing) * -10);
-  width: 40px;
-  height: 40px;
-
-  @media (max-width: 950px) {
-    top: auto;
-    bottom: calc(var(--spacing) * -8);
-  }
+export const title = css`
+  font-size: calc(var(--font-size-scale) * 26px);
 `;
 
-export const monogram = css`
-  padding: var(--spacing);
-  bottom: 0;
-  background: var(--colors-grey-200);
-  border-radius: var(--shape-border-radius);
-
-  @media (max-width: 950px) {
-    right: calc(var(--spacing) * 8);
-  }
+export const main = css`
+  padding-bottom: calc(var(--spacing) * 10);
 `;
 
 export const themeSwitch = css`
