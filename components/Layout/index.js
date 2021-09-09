@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
-import { NavLink } from '../Nav';
-import Nav from '../Nav';
-import * as styles from './styles';
-import Monogram from '../Monogram';
+import Nav, { NavLink } from '../Nav';
 import ThemeSwitch from '../ThemeSwitch';
+import Footer from '../Footer';
+import * as styles from './styles';
+import * as sharedStyles from '../../styles/shared';
 
 function Layout({ children }) {
   const router = useRouter();
@@ -15,19 +15,17 @@ function Layout({ children }) {
 
   return (
     <div css={styles.container}>
-      <header css={styles.header}>
+      <header id="top" css={styles.header}>
         <NavLink href="/">
           <h1 css={styles.title}>Aaron Agarunov</h1>
         </NavLink>
         <Nav />
-        <ThemeSwitch css={[styles.icon, styles.themeSwitch]} />
+        <ThemeSwitch css={[sharedStyles.icon, styles.themeSwitch]} />
       </header>
       <main role="main" css={styles.main}>
         {children}
       </main>
-      <footer>
-        <Monogram css={[styles.icon, styles.monogram]} />
-      </footer>
+      <Footer />
     </div>
   );
 }
