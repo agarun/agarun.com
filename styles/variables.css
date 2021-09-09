@@ -1,5 +1,7 @@
+/* tokens based on https://theme-ui.com/theming/ */
+
 :root {
-  /* https://systemfontstack.com/ */
+  /* fonts, sans serif based on https://systemfontstack.com/ */
   --font-family-sans-serif: Inter, -apple-system, BlinkMacSystemFont,
     avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto,
     segoe ui, arial, sans-serif;
@@ -19,7 +21,6 @@
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
 }
 
-/* https://theme-ui.com/theming/ */
 body.light {
   --colors-text-primary: hsl(252deg, 56%, 2%);
   --colors-text-secondary: hsl(0deg, 0%, 45%);
@@ -28,7 +29,9 @@ body.light {
   --colors-accent: hsl(250deg, 79%, 63%);
   --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(232deg, 15%, 50%);
+
   --colors-background: hsl(0deg, 0%, 96%);
+  --colors-background-light: hsl(0deg, 0%, 100%);
   --colors-background-gradient: hsl(0deg, 0%, 100%);
 
   --colors-grey-100: hsl(225deg, 25%, 95%);
@@ -43,8 +46,8 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-alt: hsl(216deg, 100%, 60%, 0.34);
-  --colors-link-alt-dark: hsl(216deg, 100%, 60%, 0.14);
+  --colors-link-700: hsl(216deg, 100%, 60%, 0.34);
+  --colors-link-900: hsl(216deg, 100%, 60%, 0.14);
   --colors-link-gradient: hsl(303deg, 100%, 70%, 0.34);
 
   --font-weight-bold: 600;
@@ -59,10 +62,12 @@ body.dark {
   --colors-accent: hsl(23deg 37% 51%);
   --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(232deg, 15%, 50%);
+
   --colors-background: hsl(232deg, 31%, 9%);
+  --colors-background-light: hsl(222deg, 23%, 15%);
   --colors-background-gradient: hsl(232deg, 25%, 1%);
 
-  --colors-grey-100: hsl(210deg, 15%, 20%);
+  --colors-grey-100: hsl(210deg, 13%, 19%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
   --colors-grey-300: hsl(210deg, 10%, 40%);
   --colors-grey-400: hsl(210deg, 9%, 45%);
@@ -74,15 +79,28 @@ body.dark {
   --colors-grey-1000: hsl(210deg, 17%, 96%);
 
   --colors-link: hsl(38deg, 91%, 60%);
-  --colors-link-alt: hsl(38deg, 93%, 60%, 0.44);
-  --colors-link-alt-dark: hsl(38deg, 93%, 60%, 0.19);
+  --colors-link-700: hsl(38deg, 93%, 60%, 0.44);
+  --colors-link-900: hsl(38deg, 93%, 60%, 0.19);
   --colors-link-gradient: hsl(333deg, 43%, 63%, 0.44);
 
   --font-weight-bold: 500;
   --text-shadow: 1px 1px var(--colors-grey-200);
 }
 
+/* shapes, borders */
 body {
-  --shape-border-radius: 4px;
+  --shape-border-radius: 5px;
   --border-style: 1px dotted var(--colors-grey-400);
+}
+
+/* scrollbar */
+body::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+body::-webkit-scrollbar-track {
+  background-color: var(--colors-background-light);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--colors-grey-300);
+  border-radius: var(--shape-border-radius);
 }

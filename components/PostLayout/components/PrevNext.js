@@ -29,7 +29,7 @@ const styles = {
     display: block;
     width: 100%;
     font-weight: var(--font-weight-bold);
-    background-color: var(--colors-link-alt-dark);
+    background-color: var(--colors-link-900);
     border-radius: var(--shape-border-radius);
     filter: brightness(0.85);
   `,

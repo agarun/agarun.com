@@ -7,7 +7,7 @@ export const link = css`
   color: var(--colors-grey-800);
   background: linear-gradient(
     20deg,
-    var(--colors-link-alt) 0%,
+    var(--colors-link-700) 0%,
     var(--colors-link-gradient) 100%
   );
   background-repeat: repeat-x;
