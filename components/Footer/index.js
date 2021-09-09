@@ -3,7 +3,9 @@ import { getSocials } from '../../lib/socials';
 import GitHubIcon from '../GitHubIcon';
 import LinkedInIcon from '../LinkedInIcon';
 import TwitterIcon from '../TwitterIcon';
+import ArrowTopIcon from '../ArrowTopIcon';
 import * as styles from './styles';
+import * as sharedStyles from '../../styles/shared';
 
 const icons = {
   GitHub: GitHubIcon,
@@ -34,12 +36,10 @@ function Footer({ ...props }) {
           );
         })}
         <a href="#top" css={styles.link}>
-          <span role="img" aria-label="arrow pointing to top of page">
-            ↑
-          </span>
+          <ArrowTopIcon width={14} height={14} />
         </a>
       </div>
-      <Monogram css={[styles.icon, styles.monogram]} />
+      <Monogram css={[sharedStyles.icon, styles.monogram]} />
     </footer>
   );
 }
