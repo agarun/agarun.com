@@ -19,12 +19,12 @@ That brings us here. This version of agarun.com uses:
 - **Emotion**, a CSS-in-JS library
 - **Framer Motion**, an animation library
 - **Prettier** & **ESLint** for formatting & linting, ran pre-commit by **Husky** & **lint-staged**
-- **Unified** libraries like remark and rehype, for processing HTML and markdown
+- **Unified** libraries like remark and rehype, for processing markdown and **MDX**
 - **Prism** to theme this blog's code snippets
 - **Jest** and **Cypress** for testing utilities and pages
 - plus some more, check out the [code](https://github.com/agarun/agarun.com)!
 
-I expect the stack to change a bit as I'm still looking over alternatives like `linaria`, `react-spring`, `MDX`, and others, so the `README` might be more up-to-date.
+I expect the stack to change a bit as I'm still looking over alternatives like `linaria` and `react-spring`, so the `README` might be more up-to-date.
 
 # Next.js Ecosystem
 
