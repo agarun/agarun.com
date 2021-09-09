@@ -12,7 +12,7 @@ export const content = css`
   left: 0;
   bottom: -2px;
   display: grid;
-  grid-gap: var(--spacing);
+  grid-gap: calc(var(--spacing) * 0.75);
   grid-auto-flow: column dense;
   path {
     fill: currentColor;
@@ -28,18 +28,6 @@ export const link = css`
   text-decoration: none;
   &:hover {
     color: var(--colors-grey-600);
-  }
-`;
-
-export const icon = css`
-  position: absolute;
-  right: calc(var(--spacing) * -10);
-  width: 40px;
-  height: 40px;
-
-  @media (max-width: 950px) {
-    top: auto;
-    bottom: calc(var(--spacing) * -8);
   }
 `;
 
