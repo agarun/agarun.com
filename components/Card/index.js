@@ -1,7 +1,21 @@
 import * as styles from './styles';
 
-function Card({ children }) {
-  return <article css={styles.card}>{children}</article>;
+export function CardTitle({ children }) {
+  return <h2 css={styles.title}>{children}</h2>;
+}
+
+export function CardDescription({ children }) {
+  return <p css={styles.description}>{children}</p>;
+}
+
+function Card({ title, description, children }) {
+  return (
+    <article css={styles.card}>
+      {title && <CardTitle>{title}</CardTitle>}
+      {description && <CardDescription>{description}</CardDescription>}
+      {children}
+    </article>
+  );
 }
 
 export default Card;
