@@ -92,15 +92,3 @@ body {
   --shape-border-radius: 5px;
   --border-style: 1px dotted var(--colors-grey-400);
 }
-
-/* scrollbar */
-body::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-}
-body::-webkit-scrollbar-track {
-  background-color: var(--colors-background-light);
-}
-body::-webkit-scrollbar-thumb {
-  background-color: var(--colors-grey-300);
-  border-radius: var(--shape-border-radius);
-}

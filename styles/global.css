@@ -21,6 +21,28 @@ body {
   color: var(--colors-primary);
 }
 
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* scrollbar */
+body::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+body::-webkit-scrollbar-track {
+  background-color: var(--colors-background-light);
+}
+body::-webkit-scrollbar-thumb {
+  border: 3px solid var(--colors-grey-100);
+  background-color: var(--colors-grey-300);
+  border-radius: var(--shape-border-radius);
+}
+
 ol,
 ul,
 li {
@@ -37,13 +59,4 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-
-html {
-  box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
 }
