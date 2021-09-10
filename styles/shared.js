@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 export const icon = css`
   position: absolute;
-  right: calc(var(--spacing) * -10);
+  right: calc(var(--spacing) * -9);
   width: 40px;
   height: 40px;
 

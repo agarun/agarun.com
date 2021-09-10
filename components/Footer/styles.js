@@ -4,6 +4,10 @@ export const footer = css`
   margin-bottom: calc(var(--spacing) * 2);
   color: var(--colors-grey-400);
   font-size: calc(var(--font-size-scale) * 13px);
+
+  @media (max-width: 950px) {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
 `;
 
 export const content = css`
