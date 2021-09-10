@@ -62,7 +62,7 @@ function Projects({ projects }) {
         <Card key={id}>
           <NavLink href={`/projects/${id}`} css={styles.navLink}>
             <CardTitle>{title}</CardTitle>
-            <CardDescription>{summary}</CardDescription>
+            <CardDescription>{summary} ↗</CardDescription>
             <p css={styles.meta}>
               {new Date(date).getFullYear()} — {tags[0]}
             </p>{' '}

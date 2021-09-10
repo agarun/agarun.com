@@ -69,6 +69,7 @@ export const global = css`
   .autolink {
     position: absolute;
     left: calc(var(--spacing) * 9);
+    width: 30px;
     color: var(--colors-text-secondary);
     opacity: 0;
   }
@@ -80,6 +81,6 @@ export const global = css`
   h2:hover .autolink,
   h3:hover .autolink,
   h4:hover .autolink {
-    opacity: 0.33;
+    opacity: 0.5;
   }
 `;
