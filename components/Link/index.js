@@ -3,7 +3,8 @@ import NextLink from 'next/link';
 import * as styles from './styles';
 
 function Link({ href, ...props }) {
-  const isExternal = !href.startsWith('/');
+  const isFragment = href.startsWith('#');
+  const isExternal = !href.startsWith('/') && !isFragment;
 
   if (isExternal) {
     return (
