@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { DARK_MODE } from '../lib/color-modes';
 import useColorMode from '../lib/hooks/useColorMode';
-import DropletIcon from './DropletIcon';
+import { DropletIcon } from './Icon';
 
 const styles = {
   dropletIconButton: css`

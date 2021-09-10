@@ -1,9 +1,6 @@
 import Monogram from '../Monogram';
 import { getSocials } from '../../lib/socials';
-import GitHubIcon from '../GitHubIcon';
-import LinkedInIcon from '../LinkedInIcon';
-import TwitterIcon from '../TwitterIcon';
-import ArrowTopIcon from '../ArrowTopIcon';
+import { GitHubIcon, LinkedInIcon, TwitterIcon, ArrowTopIcon } from '../Icon';
 import * as styles from './styles';
 import * as sharedStyles from '../../styles/shared';
 
