@@ -10,7 +10,11 @@ export const container = css`
     width: 800px;
   }
   @media (max-width: 950px) {
+    max-width: calc(var(--layout-width) + var(--gutter-width) * 1);
     width: 100%;
+  }
+  @media (max-width: 350px) {
+    max-width: calc(var(--layout-width) + var(--gutter-width) * 3);
   }
 `;
 
@@ -21,6 +25,10 @@ export const header = css`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 1190px) {
+    margin: 0 auto;
+    width: calc(100% - calc(var(--spacing) * 3));
+  }
   @media (max-width: 767px) {
     flex-direction: column;
     align-items: flex-start;
