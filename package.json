@@ -13,7 +13,9 @@
     "serve": "serve out",
     "site": "yarn export && serve out",
     "lighthouse": "lighthouse http://localhost:5000 --output html --view",
-    "test": "jest"
+    "test": "jest",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -37,11 +39,14 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
+    "@testing-library/cypress": "^8.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^4.0.0",
     "babel-eslint": "^10.0.0",
+    "cypress": "^8.3.1",
     "eslint": "^7.5.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
