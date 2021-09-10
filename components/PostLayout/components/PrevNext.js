@@ -50,7 +50,10 @@ function PrevNext({ prev, next }) {
         {prev && (
           <NavLink css={styles.prevNextItemLink} href={`/posts/${prev.id}`}>
             <Subtitle css={styles.prevNextItemSubtitle}>
-              &larr; Previous
+              <span role="img" aria-label="arrow pointing left">
+                &larr;
+              </span>{' '}
+              Previous
             </Subtitle>
             <div css={styles.prevNextItemTitle}>{prev.title}</div>
           </NavLink>
@@ -59,7 +62,12 @@ function PrevNext({ prev, next }) {
       <article css={styles.prevNextItem}>
         {next && (
           <NavLink css={styles.prevNextItemLink} href={`/posts/${next.id}`}>
-            <Subtitle css={styles.prevNextItemSubtitle}>Next &rarr;</Subtitle>
+            <Subtitle css={styles.prevNextItemSubtitle}>
+              Next{' '}
+              <span role="img" aria-label="arrow pointing right">
+                &rarr;
+              </span>
+            </Subtitle>
             <div css={styles.prevNextItemTitle}>{next.title}</div>
           </NavLink>
         )}
