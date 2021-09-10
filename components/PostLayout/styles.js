@@ -11,6 +11,8 @@ export const article = css`
     var(--colors-background-gradient) calc(var(--spacing) * 100),
     transparent
   );
+  border-bottom-left-radius: var(--shape-border-radius);
+  border-bottom-right-radius: var(--shape-border-radius);
 
   @media (max-width: 840px) {
     padding: 0;
@@ -34,7 +36,7 @@ export const prose = css`
 
   a {
     ${linkStyle}
-    line-height: 1.56;
+    line-height: 1.5;
   }
   h1 {
     margin-top: calc(var(--spacing) * 8);
@@ -56,5 +58,28 @@ export const prose = css`
     &::marker {
       color: var(--colors-link);
     }
+  }
+`;
+
+export const global = css`
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .autolink {
+    position: absolute;
+    left: calc(var(--spacing) * 9);
+    color: var(--colors-text-secondary);
+    opacity: 0;
+  }
+  .autolink::before {
+    position: relative;
+    content: '#';
+  }
+  h1:hover .autolink,
+  h2:hover .autolink,
+  h3:hover .autolink,
+  h4:hover .autolink {
+    opacity: 0.33;
   }
 `;

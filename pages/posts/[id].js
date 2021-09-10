@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
+import { Global } from '@emotion/react';
 import { getPostById, getPostIds, getPosts } from '../../lib/posts';
 import PostLayout from '../../components/PostLayout';
+import { global } from '../../components/PostLayout/styles';
 import 'prism-theme-vars/base.css';
 
 export async function getStaticPaths() {
@@ -34,6 +36,7 @@ function Post({ post, prev, next }) {
         />
       </Head>
       <PostLayout {...post} prev={prev} next={next} />
+      <Global styles={global} />
     </>
   );
 }
