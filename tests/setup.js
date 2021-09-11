@@ -7,6 +7,8 @@ beforeAll(() => {
       matches: false,
       media: query,
       onchange: null,
+      addListener: jest.fn(), // deprecated
+      removeListener: jest.fn(), // deprecated
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn(),
@@ -16,6 +18,23 @@ beforeAll(() => {
     writable: true,
     value: {
       writeText: jest.fn(),
+    },
+  });
+  let store = {};
+  Object.defineProperty(window, 'localStorage', {
+    value: {
+      getItem(key) {
+        return store[key] || null;
+      },
+      setItem(key, value) {
+        store[key] = value.toString();
+      },
+      clear() {
+        store = {};
+      },
+      removeItem(key) {
+        delete store[key];
+      },
     },
   });
 });
