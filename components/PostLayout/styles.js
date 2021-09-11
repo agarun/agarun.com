@@ -62,10 +62,6 @@ export const prose = css`
 `;
 
 export const global = css`
-  html {
-    scroll-behavior: smooth;
-  }
-
   .autolink {
     position: absolute;
     left: calc(var(--spacing) * 9);
