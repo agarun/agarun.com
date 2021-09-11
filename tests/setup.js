@@ -12,4 +12,10 @@ beforeAll(() => {
       dispatchEvent: jest.fn(),
     })),
   });
+  Object.defineProperty(navigator, 'clipboard', {
+    writable: true,
+    value: {
+      writeText: jest.fn(),
+    },
+  });
 });
