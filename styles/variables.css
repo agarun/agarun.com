@@ -13,6 +13,7 @@
   --font-size-scale: 1;
   --font-size-body: calc(14px * var(--font-size-scale));
   --font-weight-body: 400;
+  --font-letter-spacing-wide: 0.7px;
 
   --spacing: 8px;
   --scrollbar-width: 15px;

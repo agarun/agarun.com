@@ -39,7 +39,7 @@ const styles = {
     background-position: 0px 76%;
     font-size: calc(var(--font-size-scale) * 14px);
     font-weight: 600;
-    letter-spacing: 0.7px;
+    letter-spacing: var(--font-letter-spacing-wide);
     text-transform: uppercase;
     line-height: 1.56;
   `,
@@ -70,7 +70,7 @@ function Projects({ projects }) {
           <div css={styles.links}>
             {live && (
               <Link href={live} css={styles.link}>
-                Live
+                Site
               </Link>
             )}{' '}
             {code && (
