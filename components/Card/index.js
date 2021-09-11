@@ -8,9 +8,9 @@ export function CardDescription({ children }) {
   return <p css={styles.description}>{children}</p>;
 }
 
-function Card({ title, description, children }) {
+function Card({ title, description, children, ...props }) {
   return (
-    <article css={styles.card}>
+    <article css={styles.card} {...props}>
       {title && <CardTitle>{title}</CardTitle>}
       {description && <CardDescription>{description}</CardDescription>}
       {children}
