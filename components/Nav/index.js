@@ -15,7 +15,11 @@ export function NavLink({ href, ...props }) {
   const isActive = asPath === href || asPath === props.as;
   return (
     <NextLink href={href}>
-      <a css={[styles.link, isActive && styles.active]} {...props} />
+      <a
+        css={[styles.link, isActive && styles.active]}
+        aria-current={isActive ? 'page' : null}
+        {...props}
+      />
     </NextLink>
   );
 }
