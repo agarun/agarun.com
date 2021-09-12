@@ -6,6 +6,12 @@ body {
   --prism-font-family: var(--font-family-monospace);
   --prism-font-size: calc(var(--font-size-scale) * 16px);
 }
+@media (max-width: 623px) {
+  body {
+    --prism-block-padding-x: calc(var(--spacing) * 3);
+    --prism-font-size: calc(var(--font-size-scale) * 14px);
+  }
+}
 body.light {
   --prism-foreground: #403f53;
   --prism-background: #f9f9f9;

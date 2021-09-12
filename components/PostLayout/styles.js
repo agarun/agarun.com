@@ -65,9 +65,6 @@ export const prose = css`
   }
   code {
     word-break: break-all;
-    @media (max-width: 623px) {
-      font-size: calc(var(--font-size-scale) * 14px);
-    }
   }
   hr {
     margin: calc(var(--spacing) * 3);
