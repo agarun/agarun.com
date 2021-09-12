@@ -17,10 +17,25 @@ const styles = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    svg {
+      min-width: 40px;
+    }
+    @media (max-width: 560px) {
+      margin-top: calc(var(--spacing) * 10);
+      margin-bottom: calc(var(--spacing) * 5);
+    }
+  `,
+  themeSwitch: css`
+    @media (max-width: 560px) {
+      position: absolute;
+      top: calc(var(--spacing) * -7);
+      right: 0;
+    }
   `,
   heading: css`
     font-size: calc(var(--font-size-scale) * 56px);
     font-weight: var(--font-weight-bold);
+    line-height: 0.95;
   `,
   subheading: css`
     max-width: 800px;
@@ -86,7 +101,7 @@ function Home({ recentProjects }) {
       </Head>
       <motion.header css={styles.header} {...topMotionProps}>
         <h1 css={styles.heading}>Aaron Agarunov</h1>
-        <ThemeSwitch />
+        <ThemeSwitch css={styles.themeSwitch} />
       </motion.header>
       <main role="main">
         <motion.p css={styles.subheading} {...middleMotionProps}>
@@ -95,9 +110,8 @@ function Home({ recentProjects }) {
         </motion.p>
         <motion.div {...bottomMotionProps}>
           <p css={styles.description}>
-            I work on user interfaces and data visualizations. I focus on the
-            details to make apps simple. tODO-Change
-            <NavLink href="/about">Read more</NavLink>, see my{' '}
+            I work on creating modern, engaging user interfaces with a focused
+            approach. <NavLink href="/about">Read more</NavLink>, see my{' '}
             <NavLink href="/projects">projects</NavLink>,{' '}
             <NavLink href="/posts">posts</NavLink>, or{' '}
             <NavLink href="/contact">contact info</NavLink>.
