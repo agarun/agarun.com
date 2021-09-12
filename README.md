@@ -46,18 +46,19 @@ Hosted with [Netlify](https://www.netlify.com/). Built with React and [Next.js](
 - [Husky](https://github.com/typicode/husky)
   - Pre-commit hooks that run tools like ESLint & Prettier on modified files via `lint-staged`
 - [Lighthouse](https://github.com/GoogleChrome/lighthouse) to collect performance metrics about webpages
+  - I use this locally and [on Netlify](https://www.netlify.com/blog/2021/03/26/netlify-build-plugin-of-the-week-lighthouse/), in addition to [web.dev/measure](https://web.dev/measure/)
 
 ### Styling
 
 - Color modes and theming tokens are implemented with CSS variables (custom properties)
   - [Josh Comeau's dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid FOUC.
 - [Emotion](https://github.com/emotion-js/emotion) for writing style modules with JavaScript
-- [Framer Motion](https://www.framer.com/motion/) for animations
+- [Framer Motion](https://www.framer.com/motion/) for creating animated components
 
 ### Writing
 
 - [https://github.com/unifiedjs/unified](Unified) libraries including remark & rehype to process HTML and markdown
-- [MDX](https://mdxjs.com/) to use React components like `next/image` in Markdown files
+- [MDX](https://mdxjs.com/) to use React components (like `next/image`, or custom ones) in Markdown files. I chose to use `next-mdx-remote` over `mdx-bundler` here.
 - [Prism](https://github.com/PrismJS/prism) to theme code snippets (with `prism-theme-vars`!)
   - [Custom theme](https://github.com/agarun/agarun.com/blob/main/styles/prism.css) based on [Night Owl by Sarah Drasner](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
 
