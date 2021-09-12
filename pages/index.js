@@ -21,14 +21,14 @@ const styles = {
       min-width: 40px;
     }
     @media (max-width: 560px) {
-      margin-top: calc(var(--spacing) * 10);
+      padding-top: calc(var(--spacing) * 10);
       margin-bottom: calc(var(--spacing) * 5);
     }
   `,
   themeSwitch: css`
     @media (max-width: 560px) {
       position: absolute;
-      top: calc(var(--spacing) * -7);
+      top: calc(var(--spacing) * 3);
       right: 0;
     }
   `,
