@@ -4,6 +4,8 @@ My personal website where I host my portfolio, contact information, and blog pos
 
 ## Getting Started
 
+The prerequisites are Yarn and Node >= 14.
+
 First, install the dependencies:
 
 ```bash
