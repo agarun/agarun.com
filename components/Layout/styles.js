@@ -9,13 +9,6 @@ export const container = css`
   @media (max-width: 1190px) {
     width: 800px;
   }
-  @media (max-width: 950px) {
-    max-width: calc(var(--layout-width) + var(--gutter-width) * 1);
-    width: 100%;
-  }
-  @media (max-width: 350px) {
-    max-width: calc(var(--layout-width) + var(--gutter-width) * 3);
-  }
 `;
 
 export const header = css`
@@ -27,7 +20,6 @@ export const header = css`
 
   @media (max-width: 1190px) {
     margin: 0 auto;
-    width: calc(100% - calc(var(--spacing) * 3));
   }
   @media (max-width: 767px) {
     flex-direction: column;
