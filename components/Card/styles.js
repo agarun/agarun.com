@@ -8,7 +8,6 @@ export const card = css`
   border: 2px solid transparent;
   transition: box-shadow 300ms ease;
   overflow: hidden;
-  cursor: pointer;
 
   &:hover {
     p,

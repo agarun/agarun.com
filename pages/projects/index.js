@@ -1,10 +1,8 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { getProjects } from '../../lib/projects';
 import Card, { CardTitle, CardDescription } from '../../components/Card';
 import Link from '../../components/Link';
-import { NavLink } from '../../components/Nav';
 
 const styles = {
   cards: css`
@@ -19,10 +17,9 @@ const styles = {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   `,
-  navLink: css`
+  card: css`
     padding: calc(var(--spacing) * 3);
     padding-bottom: 0;
-    display: block;
   `,
   meta: css`
     color: var(--colors-grey-600);
@@ -30,7 +27,6 @@ const styles = {
     text-transform: uppercase;
   `,
   links: css`
-    padding: 0 calc(var(--spacing) * 3);
     margin-bottom: calc(var(--spacing) * 3);
     display: flex;
     align-items: flex-start;
@@ -54,22 +50,18 @@ export async function getStaticProps() {
 }
 
 function Projects({ projects }) {
-  const { push } = useRouter(); // fallback if clicking outside the `NavLink`
-
   return (
     <section css={styles.cards}>
       <Head>
         <title>Work — Aaron Agarunov</title>
       </Head>
       {projects.map(({ id, title, summary, live, code, date, tags }) => (
-        <Card key={id} tabindex="-1" onClick={() => push(`/projects/${id}`)}>
-          <NavLink href={`/projects/${id}`} css={styles.navLink}>
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{summary} ↗</CardDescription>
-            <p css={styles.meta}>
-              {new Date(date).getFullYear()} — {tags[0]}
-            </p>{' '}
-          </NavLink>
+        <Card key={id} css={styles.card}>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{summary} ↗</CardDescription>
+          <p css={styles.meta}>
+            {new Date(date).getFullYear()} — {tags[0]}
+          </p>{' '}
           <div css={styles.links}>
             {live && (
               <Link href={live} css={styles.link}>
