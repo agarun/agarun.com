@@ -5,7 +5,7 @@ export const article = css`
   margin: 0 auto;
   padding: calc(var(--spacing) * 6);
   min-height: calc(100vh - 40px);
-  width: 850px;
+  max-width: 850px;
   background: linear-gradient(
     to top,
     var(--colors-background-gradient) calc(var(--spacing) * 100),
@@ -14,10 +14,12 @@ export const article = css`
   border-bottom-left-radius: var(--shape-border-radius);
   border-bottom-right-radius: var(--shape-border-radius);
 
+  @media (max-width: 1190px) {
+    width: 100%;
+  }
   @media (max-width: 850px) {
     padding: 0;
     background: var(--colors-background);
-    width: 100%;
   }
 `;
 

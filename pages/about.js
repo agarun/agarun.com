@@ -80,8 +80,9 @@ function About() {
         </p>
         <p css={styles.paragraph}>
           I spend a lot of time working on generative art and design. I&apos;m
-          also into esports, peripherals, and music. I&apos;m trying to{' '}
-          <Link href="/posts">write more</Link> and explore creative projects.
+          also into esports, peripherals, and music. Right now, I&apos;m trying
+          to <Link href="/posts">write more</Link> and explore creative
+          projects.
         </p>
         <p css={styles.paragraph}>
           I&apos;m open to new opportunities! Feel free to{' '}
