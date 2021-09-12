@@ -14,8 +14,10 @@ export const article = css`
   border-bottom-left-radius: var(--shape-border-radius);
   border-bottom-right-radius: var(--shape-border-radius);
 
-  @media (max-width: 840px) {
+  @media (max-width: 850px) {
     padding: 0;
+    background: var(--colors-background);
+    width: 100%;
   }
 `;
 
@@ -57,6 +59,12 @@ export const prose = css`
     list-style-type: inherit;
     &::marker {
       color: var(--colors-link);
+    }
+  }
+  code {
+    word-break: break-all;
+    @media (max-width: 623px) {
+      font-size: calc(var(--font-size-scale) * 14px);
     }
   }
 `;
