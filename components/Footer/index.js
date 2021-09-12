@@ -10,7 +10,7 @@ const icons = {
   Twitter: TwitterIcon,
 };
 
-const links = getSocials().filter((link) => link.footer);
+const links = getSocials().filter((link) => link.isFooterIcon);
 
 function Footer({ ...props }) {
   return (
