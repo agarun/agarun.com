@@ -94,3 +94,7 @@ Code snippets are themed thanks to Prism using CSS variables via [`prism-theme-v
 ## Testing
 
 Common behaviors, components, and helper functions are tested with Jest and React Testing Library. For testing pages, navigation, and data presence, I'm writing end-to-end tests with Cypress.
+
+# Summary
+
+I've always enjoyed using my personal site to test out libraries, frameworks, and features at a small scale, and this time is no different. I'm also super excited to have the site [open-sourced](https://github.com/agarun/agarun.com)!
