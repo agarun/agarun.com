@@ -69,6 +69,10 @@ export const prose = css`
       font-size: calc(var(--font-size-scale) * 14px);
     }
   }
+  hr {
+    margin: calc(var(--spacing) * 3);
+    border-bottom: 2px solid var(--colors-grey-300);
+  }
 `;
 
 export const global = css`
