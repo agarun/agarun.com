@@ -19,6 +19,7 @@ export const links = css`
 
 export const link = css`
   color: var(--colors-text-primary);
+  text-decoration: none;
   cursor: pointer;
   &:hover {
     color: var(--colors-grey-500);

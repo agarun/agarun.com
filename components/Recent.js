@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { NavLink } from './Nav';
+import * as navStyles from './Nav/styles';
 
 const styles = {
   container: css`
@@ -22,12 +23,17 @@ const styles = {
 function Recent({ projects }) {
   return (
     <section css={styles.container}>
-      {projects.map(({ id, title, summary }) => (
+      {projects.map(({ id, live, title, summary }) => (
         <article key={id}>
-          <NavLink href={`/projects/${id}`}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            css={navStyles.link}
+            href={live}
+          >
             <h2 css={styles.title}>{title}</h2>
             <p css={styles.summary}>{summary}</p>
-          </NavLink>
+          </a>
         </article>
       ))}
       <NavLink css={styles.note} href="/projects">
