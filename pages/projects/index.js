@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { getProjects } from '../../lib/projects';
 import Card, { CardTitle, CardDescription } from '../../components/Card';
 import Link from '../../components/Link';
@@ -13,8 +14,8 @@ const styles = {
     gap: calc(var(--spacing) * 4);
 
     @media (max-width: 960px) {
-      margin-left: calc(var(--spacing) * 1);
-      margin-right: calc(var(--spacing) * 1);
+      margin-left: 0;
+      margin-right: 0;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   `,
@@ -53,13 +54,15 @@ export async function getStaticProps() {
 }
 
 function Projects({ projects }) {
+  const { push } = useRouter(); // fallback if clicking outside the `NavLink`
+
   return (
     <section css={styles.cards}>
       <Head>
         <title>Work — Aaron Agarunov</title>
       </Head>
       {projects.map(({ id, title, summary, live, code, date, tags }) => (
-        <Card key={id}>
+        <Card key={id} tabindex="-1" onClick={() => push(`/projects/${id}`)}>
           <NavLink href={`/projects/${id}`} css={styles.navLink}>
             <CardTitle>{title}</CardTitle>
             <CardDescription>{summary} ↗</CardDescription>

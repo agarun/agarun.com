@@ -33,7 +33,7 @@ const styles = {
     color: var(--colors-text-secondary);
   `,
   footer: css`
-    margin: var(--spacing);
+    margin: calc(var(--spacing) * 2) var(--spacing);
     display: flex;
     justify-content: center;
   `,
