@@ -12,7 +12,7 @@ import { NavLink } from '../components/Nav';
 
 const styles = {
   header: css`
-    margin-top: calc(var(--spacing) * 20);
+    padding-top: calc(var(--spacing) * 20);
     margin-bottom: calc(var(--spacing) * 10);
     display: flex;
     justify-content: space-between;
