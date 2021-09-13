@@ -47,9 +47,9 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-700: hsl(216deg, 100%, 60%, 0.34);
+  --colors-link-700: hsl(216deg, 100%, 60%, 0.31);
   --colors-link-900: hsl(216deg, 100%, 60%, 0.14);
-  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.34);
+  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.31);
 
   --font-weight-bold: 600;
   --text-shadow: none;

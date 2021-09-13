@@ -1,11 +1,11 @@
 ---
 title: 'A New Website'
-date: '2021-09-01'
+date: '2021-09-13'
 tags: ['code']
 draft: false
 ---
 
-I first built [agarun.com](https://agarun.com) in late 2017, just a few weeks before attending a coding bootcamp. I was looking for last-minute projects to better prepare myself for the months ahead, had some time on my hands, and figured I'd need a portfolio website to land a job. I had previously used templates and site generators in the Freewebs & GeoCities era, so I really wanted to try something new. That's kind of where it all started.
+I first built [agarun.com](https://agarun.com) in late 2017, just a few weeks before attending a coding bootcamp. I was looking for last-minute projects to better prepare myself for the months ahead, had some time on my hands, and figured I'd need a portfolio website to land a job. I had previously used templates and site generators in the Freewebs & GeoCities era, so I wanted to try something new. That's kind of where it all started.
 
 # Choosing a Stack
 
