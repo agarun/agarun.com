@@ -58,7 +58,7 @@ function Projects({ projects }) {
       {projects.map(({ id, title, summary, live, code, date, tags }) => (
         <Card key={id} css={styles.card}>
           <CardTitle>{title}</CardTitle>
-          <CardDescription>{summary} ↗</CardDescription>
+          <CardDescription>{summary}</CardDescription>
           <p css={styles.meta}>
             {new Date(date).getFullYear()} — {tags[0]}
           </p>{' '}
