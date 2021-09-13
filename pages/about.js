@@ -42,6 +42,9 @@ const styles = {
       font-size: calc(var(--font-size-scale) * 54px);
     }
   `,
+  subtitle: css`
+    color: var(--colors-accent);
+  `,
   paragraph: css`
     font-size: calc(var(--font-size-scale) * 22px);
     line-height: 1.5;
@@ -70,7 +73,7 @@ function About() {
       </p>
 
       <section>
-        <Subtitle>Currently</Subtitle>
+        <Subtitle css={styles.subtitle}>Currently</Subtitle>
         <p css={styles.paragraph}>
           I work in Pathology at <Link href="https://www.mskcc.org">MSKCC</Link>{' '}
           where I collaborate with physicians, biologists, and engineers to
@@ -97,7 +100,7 @@ function About() {
       </section>
 
       <section>
-        <Subtitle>Previously</Subtitle>
+        <Subtitle css={styles.subtitle}>Previously</Subtitle>
         <p css={styles.paragraph}>
           I studied Chemistry at{' '}
           <Link href="https://macaulay.cuny.edu/">Macaulay @ CUNY Hunter</Link>{' '}
@@ -110,7 +113,7 @@ function About() {
       </section>
 
       <section>
-        <Subtitle>Colophon</Subtitle>
+        <Subtitle css={styles.subtitle}>Colophon</Subtitle>
         <p css={styles.paragraph}>
           This is the 3rd iteration of my personal site. This one is built with
           React and Next.js, and hosted on Netlify. It&apos;s set in{' '}
