@@ -70,6 +70,12 @@ export const prose = css`
     margin: calc(var(--spacing) * 3);
     border-bottom: 2px solid var(--colors-grey-300);
   }
+  blockquote {
+    margin: calc(var(--spacing) * 4) 0;
+    padding-left: 1em;
+    color: var(--colors-text-secondary);
+    border-left: 6px solid var(--colors-grey-300);
+  }
 `;
 
 export const global = css`
