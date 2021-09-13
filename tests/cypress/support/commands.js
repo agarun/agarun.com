@@ -25,3 +25,16 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import '@testing-library/cypress/add-commands';
+
+Cypress.Commands.add('waitForApp', () => {
+  // Wait for all the JavaScript payloads to be lazily loaded inside the shell.
+  // https://github.com/cypress-io/cypress/issues/5743#issuecomment-609972751
+  cy.get('main', { log: true, timeout: 10000 }).should(($main) => {
+    expect($main[0].childElementCount).to.be.greaterThan(0);
+  });
+});
+
+Cypress.Commands.add('waitForAppAfterVisit', (newPath) => {
+  cy.location('pathname').should('equal', newPath);
+  cy.waitForApp();
+});
