@@ -89,7 +89,7 @@ function About() {
           <Link href="mailto:agarunovaaron@gmail.com">email</Link>
           <CopyIconButton text="agarunovaaron@gmail.com" /> me or check out my{' '}
           <Link href="/contact">socials</Link> or{' '}
-          <Link href="https://agarun.com/aaron-agarunov-resume.pdf">
+          <Link href="https://agarun.com/files/aaron-agarunov-resume.pdf">
             résumé
           </Link>
           .
