@@ -103,8 +103,8 @@ function About() {
           <Link href="https://macaulay.cuny.edu/">Macaulay @ CUNY Hunter</Link>{' '}
           until May 2017. After graduating, I went to{' '}
           <Link href="https://www.appacademy.io/">App Academy</Link> to learn
-          development. I loved it and I&apos;ve been navigating software ever
-          since. I guess messing with HTML and CSS on 2007-era Myspace and
+          development. I loved it and I&apos;ve been navigating the industry
+          ever since. I guess messing with HTML and CSS on 2007-era Myspace and
           Tumblr was just the start.
         </p>
       </section>
