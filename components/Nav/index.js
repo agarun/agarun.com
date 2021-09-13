@@ -13,8 +13,9 @@ const links = [
 export function NavLink({ href, ...props }) {
   const { asPath } = useRouter();
   const isActive = asPath === href || asPath === props.as;
+
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <a
         css={[styles.link, isActive && styles.active]}
         aria-current={isActive ? 'page' : null}

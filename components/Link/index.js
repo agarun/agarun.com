@@ -19,7 +19,7 @@ function Link({ href, ...props }) {
   }
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <a css={styles.link} {...props} />
     </NextLink>
   );
