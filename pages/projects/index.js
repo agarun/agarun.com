@@ -32,7 +32,7 @@ const styles = {
     align-items: flex-start;
   `,
   link: css`
-    margin-right: var(--spacing);
+    margin-right: calc(var(--spacing) * 2);
     background-position: 0px 76%;
     font-size: calc(var(--font-size-scale) * 14px);
     font-weight: 600;
