@@ -45,6 +45,7 @@ function App({ Component, pageProps }) {
           site: '@agarune',
           cardType: 'summary_large_image',
         }}
+        canonical={`https://agarun.com${router.asPath}`}
       />
 
       <Layout>

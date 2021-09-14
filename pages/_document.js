@@ -46,7 +46,6 @@ class CustomDocument extends Document {
 
           <meta name="build version" content={packageInfo.version} />
           <meta name="description" content="Aaron Agarunov's portfolio" />
-          <link rel="canonical" href="https://agarun.com" />
 
           <link
             rel="preconnect"
