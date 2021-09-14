@@ -25,6 +25,9 @@ const styles = {
         : linkColor};
       transition: color 200ms ease-out;
     }
+    @media (max-width: 430px) {
+      font-size: calc(var(--font-size-scale) * 56px);
+    }
   `,
   listCover: css`
     position: absolute;
