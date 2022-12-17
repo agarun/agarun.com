@@ -33,8 +33,8 @@ function App({ Component, pageProps }) {
           description: "Aaron Agarunov's personal site",
           images: [
             {
-              url: 'https://pbs.twimg.com/profile_images/1094646600104902656/VxaU85_I_400x400.jpg',
-              alt: 'Gradient icon',
+              url: 'https://i.imgur.com/eKTChaw.png',
+              alt: 'generated art image',
             },
           ],
           locale: 'en_US',
