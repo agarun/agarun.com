@@ -107,11 +107,11 @@ const listItemDescriptionVariants = {
 };
 
 const copyVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 25 },
   visible: {
-    opacity: [0, 1, 0],
-    y: -30,
-    transition: { duration: 2, ease: 'easeOut' },
+    opacity: [0, 1, 1, 1, 0],
+    y: -20,
+    transition: { duration: 2, ease: 'circOut' },
   },
 };
 
