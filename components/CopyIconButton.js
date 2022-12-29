@@ -2,14 +2,12 @@ import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
 
-const styles = {
+export const styles = {
   copyIcon: css`
     position: relative;
-    font-weight: 600;
-    color: var(--colors-text-secondary);
     transition: opacity 200ms ease-out;
-    &:hover {
-      opacity: 0.8;
+    & span:first-child:hover {
+      opacity: 0.75;
     }
   `,
   copiedIcon: css`
@@ -18,11 +16,25 @@ const styles = {
     left: -12px;
     bottom: 28px;
     font-size: calc(var(--font-size-scale) * 13px);
+    font-weight: 600;
     color: var(--colors-grey-100);
     background-color: var(--colors-grey-800);
     border-radius: var(--shape-border-radius);
+    opacity: 1;
   `,
 };
+
+export function CopiedNotification() {
+  return (
+    <motion.span
+      initial={{ opacity: 0, y: '25%' }}
+      animate={{ opacity: 1, y: 0 }}
+      css={styles.copiedIcon}
+    >
+      copied
+    </motion.span>
+  );
+}
 
 function CopyIconButton({ text }) {
   const [isCopied, setIsCopied] = useState(false);
@@ -49,16 +61,8 @@ function CopyIconButton({ text }) {
         role="img"
         aria-label="copy email address to clipboard"
       >
-        📋
-        {isCopied && (
-          <motion.span
-            initial={{ opacity: 0, y: '25%' }}
-            animate={{ opacity: 1, y: 0 }}
-            css={styles.copiedIcon}
-          >
-            copied
-          </motion.span>
-        )}
+        <span>📋</span>
+        {isCopied && <CopiedNotification />}
       </span>
     </button>
   );
