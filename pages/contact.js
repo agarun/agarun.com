@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
 import { getSocials } from '../lib/socials';
+import { styles as copyStyles } from '../components/CopyIconButton';
 
 const styles = {
   list: css`
@@ -55,12 +56,18 @@ const styles = {
     z-index: 2;
     pointer-events: none;
   `,
+  copy: css`
+    ${copyStyles.copiedIcon}
+    position: absolute;
+    left: auto;
+    right: -50px;
+  `,
 };
 
 const listVariants = {
   hidden: {
     x: '-27%',
-    opacity: 0.8,
+    opacity: 0.75,
   },
   visible: {
     x: '0%',
@@ -99,12 +106,22 @@ const listItemDescriptionVariants = {
   },
 };
 
+const copyVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: [0, 1, 0],
+    y: -60,
+    transition: { duration: 1.5 },
+  },
+};
+
 export async function getStaticProps() {
   return { props: { links: getSocials().filter((item) => !item.disabled) } };
 }
 
 function Contact({ links }) {
   const [currentLink, setCurrentLink] = useState(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   return (
     <section>
@@ -117,7 +134,7 @@ function Contact({ links }) {
         variants={listVariants}
         css={styles.list}
       >
-        {links.map(({ title, href, color, description }) => (
+        {links.map(({ title, href, color, description, copy }) => (
           <motion.li
             key={title}
             variants={listItemVariants}
@@ -127,6 +144,13 @@ function Contact({ links }) {
             })}
             onMouseEnter={() => setCurrentLink({ title, color, description })}
             onMouseLeave={() => setCurrentLink(null)}
+            onContextMenu={(event) => {
+              if (copy) {
+                event.preventDefault();
+                navigator.clipboard.writeText(href.slice(7));
+                setIsCopied(1);
+              }
+            }}
           >
             <a href={href} target="_blank" rel="noopener noreferrer">
               {title}
@@ -140,6 +164,17 @@ function Contact({ links }) {
                 css={styles.description}
               >
                 {description}
+              </motion.div>
+            ) : null}
+            {copy ? (
+              <motion.div
+                variants={copyVariants}
+                initial={false}
+                animate={isCopied ? 'visible' : 'hidden'}
+                onAnimationComplete={() => setIsCopied(false)}
+                css={styles.copy}
+              >
+                copied
               </motion.div>
             ) : null}
           </motion.li>
