@@ -1,74 +1,111 @@
 # [agarun.com](agarun.com)
 
-My personal website where I host my portfolio, contact information, and blog posts. It's always a work in progress, but feel free to look around.
+My personal website where I host my portfolio, contact info, and writing. It's always a work in progress, but feel free to look around.
 
 ## Getting Started
 
-The prerequisites are Yarn and Node >= 14.
+First, setup [pnpm](https://pnpm.io/) and [Node](https://nodejs.org/en/download) >= 20.
 
-First, install the dependencies:
+Next, install the dependencies:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
+Visit [http://localhost:3000](http://localhost:3000) to see the site.
 
-## Preview 🚀
+## Preview Build
 
-To build the site:
+Build the site:
 
 ```bash
-yarn build
+pnpm build
 ```
 
-Then, to serve it locally:
+Then, serve it locally:
 
 ```bash
-yarn start
+pnpm start
 ```
 
-## Technologies 🧰
+## Tech Stack
 
-Hosted with [Netlify](https://www.netlify.com/). Built with React and [Next.js](https://nextjs.org/).
+### Codebase
+
+This project uses [React](https://react.dev/) and [Next.js](https://nextjs.org/)
+
+```bash
+.
+├── components
+│   ├── …
+│   ├── Icon
+│   ├── Link
+│   ├── Nav
+│   ├── Layout
+│   ├── PostLayout
+│   └── ProjectLayout
+├── pages
+│   ├── …
+│   ├── posts
+│   └── projects
+├── lib
+├── posts
+├── projects
+├── public
+├── styles
+└── tests
+    └── playwright # TODO
+        ├── integration
+        ├── plugins
+        └── support
+```
+
+### Hosting
+
+- [Netlify](https://www.netlify.com/)
 
 ### Tooling
 
-- [ESLint](https://eslint.org/)
-  - The ESLint config (`.eslintrc.json`) extends the `create-react-app` config, Next.js config, and includes a few plugins
-- [Prettier](https://prettier.io/)
-- [Husky](https://github.com/typicode/husky)
-  - Pre-commit hooks that run tools like ESLint & Prettier on modified files via `lint-staged`
-- [Lighthouse](https://github.com/GoogleChrome/lighthouse) to collect performance metrics about webpages
-  - I use this locally and [on Netlify](https://www.netlify.com/blog/2021/03/26/netlify-build-plugin-of-the-week-lighthouse/), in addition to [web.dev/measure](https://web.dev/measure/)
+- [ESLint](https://eslint.org/): linting
+- [Prettier](https://prettier.io/): formatting
+- [Husky](https://github.com/typicode/husky): pre-commit hooks that run on modified files using `lint-staged`
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse) to collect performance metrics
+
+> You can use Lighthouse locally and [on Netlify](https://www.netlify.com/blog/2021/03/26/netlify-build-plugin-of-the-week-lighthouse/), in addition to PageSpeed ([web.dev/measure](https://web.dev/measure/)).
 
 ### Styling
 
-- Color modes and theming tokens are implemented with CSS variables (custom properties)
-  - [Josh Comeau's dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid FOUC.
-- [Emotion](https://github.com/emotion-js/emotion) for writing style modules with JavaScript
-- [Framer Motion](https://www.framer.com/motion/) for creating animated components
+- **Theming**: color mode support and theming tokens are implemented with CSS variables
+- **CSS**: [Emotion](https://github.com/emotion-js/emotion) CSS prop in addition to regular stylesheets
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+
+> Josh Comeau's [dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [Tailwind](https://github.com/tailwindlabs/tailwindcss/blob/c45616ff915c4bddb551f92f4c651ca76c4448ea/packages/tailwindcss/src/compat/dark-mode.ts#L4), and [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid flash of unstyled content (FOUC).
 
 ### Writing
 
-- [https://github.com/unifiedjs/unified](Unified) libraries including remark & rehype to process HTML and markdown
-- [MDX](https://mdxjs.com/) to use React components (like `next/image`, or custom ones) in Markdown files. I chose to use `next-mdx-remote` over `mdx-bundler` here.
-- [Prism](https://github.com/PrismJS/prism) to theme code snippets (with `prism-theme-vars`!)
-  - [Custom theme](https://github.com/agarun/agarun.com/blob/main/styles/prism.css) based on [Night Owl by Sarah Drasner](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+- [unified](https://github.com/unifiedjs/unified): libraries to process HTML and markdown content, including remark & rehype plugins
+- [MDX](https://mdxjs.com/): use React components in Markdown files, using `next-mdx-remote` over `mdx-bundler`
+- [Prism](https://github.com/PrismJS/prism): code syntax highlighting themes, using `prism-theme-vars`
+
+> I use a [custom](https://github.com/agarun/agarun.com/blob/main/styles/prism.css) syntax highlighting theme based on the lovely [Night Owl by Sarah Drasner](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) theme.
 
 ### Testing
 
-- [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit and integration tests
-- [Cypress](https://www.cypress.io/) for integration and end-to-end tests
+- [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for unit and integration tests
+- [Playwright](https://playwright.dev/) for end-to-end tests
 
-### Misc.
+### Colophon
+
+- [Inter](https://rsms.me/inter/): sans-serif (website)
+- [TASA Orbiter](https://uncut.wtf/sans-serif/tasa-orbiter/): sans-serif (resume)
+- [Cousine](https://fonts.google.com/specimen/Cousine): monospace
+
+## History
 
 This is the third iteration of `agarun.com`. The first one was made with [Jekyll](https://jekyllrb.com/), and the second with [Gatsby](https://www.gatsbyjs.com/).
