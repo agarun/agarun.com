@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /*.pdf$
+Allow: /$
+Allow: /index.html$
+Disallow: /
