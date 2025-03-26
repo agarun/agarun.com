@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export const styles = {
   copyIcon: css`
