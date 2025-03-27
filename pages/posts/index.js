@@ -37,9 +37,7 @@ export async function getStaticProps() {
 function Posts({ posts }) {
   return (
     <section>
-      <h1 css={styles.title}>
-        A home for personal and technical notes, posts, and essays.
-      </h1>
+      <h1 css={styles.title}>Writing</h1>
       <ul css={styles.list}>
         {posts.map(({ id, date, title }) => (
           <li key={id} css={styles.listItem}>
