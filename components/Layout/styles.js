@@ -16,6 +16,7 @@ export const header = css`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  letter-spacing: -0.3px;
   align-items: center;
 
   @media (max-width: 1190px) {
@@ -29,6 +30,7 @@ export const header = css`
 
 export const title = css`
   font-size: calc(var(--font-size-scale) * 26px);
+  font-weight: 600;
 `;
 
 export const main = css`
