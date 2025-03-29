@@ -9,9 +9,3 @@ date: '2018-01-02'
 ---
 
 kume is an interactive visualization of k-means clustering, image segmentation, and color quantization.
-
-## K-means clustering
-
-## Image segmentation
-
-## Color quantization

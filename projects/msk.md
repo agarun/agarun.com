@@ -12,4 +12,6 @@ links:
     url: https://www.mskcc.org/msk-impact
   - title: MSK-ACCESS®
     url: https://www.mskcc.org/departments/division-solid-tumor-oncology/early-drug-development-service-phase-clinical-trials/precision-medicine-approach/msk-access
+  - title: Clinical Bioinformatics
+    url: https://www.mskcc.org/departments/pathology-laboratory-medicine/expertise
 ---

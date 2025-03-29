@@ -6,4 +6,9 @@ live: https://ronivonu.com
 tags: [javascript, processing]
 date: '2019-01-02'
 images: []
+links:
+  - title: Instagram
+    url: https://instagram.com/ronivonu
+  - title: Twitter
+    url: https://twitter.com/ronivonu
 ---
