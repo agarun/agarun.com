@@ -24,7 +24,10 @@ That brings us here. This version of agarun.com uses:
 - **Jest** and **Cypress** for testing utilities and pages
 - plus some more, check out the [code](https://github.com/agarun/agarun.com)!
 
-I expect the stack to change a bit as I'm still looking over alternatives like `linaria` and `react-spring`, so the `README` might be more up-to-date.
+I expect the stack to change a bit as I'm still looking over alternatives like `linaria` and `react-spring`, so the [`README`](https://github.com/agarun/agarun.com/blob/main/README.md) might be more up-to-date.
+
+> **2025 Update**:
+> I've updated this site to V2, so this article is a bit out of date. We now use Next 15, Vitest, Playwright, and more: [https://github.com/agarun/agarun.com](https://github.com/agarun/agarun.com)
 
 # Next.js Ecosystem
 
