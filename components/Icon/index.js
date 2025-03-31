@@ -6,3 +6,6 @@ export { default as LinkedInIcon } from './LinkedInIcon';
 export { default as InstagramIcon } from './InstagramIcon';
 export { default as MSKIcon } from './MSKIcon';
 export { default as AppleIcon } from './AppleIcon';
+export { default as GlobeIcon } from './GlobeIcon';
+export { default as ArrowUpRightIcon } from './ArrowUpRightIcon';
+export { default as ArrowDownIcon } from './ArrowDownIcon';
