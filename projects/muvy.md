@@ -5,4 +5,7 @@ description: Ruby gem that allows users to generate movie barcodes and frame mon
 code: https://github.com/agarun/ruby-muvy
 tags: [ruby]
 date: '2017-09-01'
+links:
+  - title: Code
+    url: https://github.com/agarun/ruby-muvy
 ---

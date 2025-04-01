@@ -28,9 +28,11 @@ export const title = css`
   font-size: calc(var(--font-size-scale) * 70px);
   font-weight: var(--font-weight-bold);
   line-height: 1.1;
+  letter-spacing: -1.5px;
 `;
 
 export const prose = css`
+  position: relative;
   margin-top: calc(var(--spacing) * 10);
   margin-bottom: calc(var(--spacing) * 2);
   margin-left: auto;
@@ -38,7 +40,7 @@ export const prose = css`
   font-size: calc(var(--font-size-scale) * 18px);
   line-height: 1.56;
 
-  a {
+  a:not([href*='#']) {
     ${linkStyle}
     line-height: 1.5;
   }
@@ -60,11 +62,11 @@ export const prose = css`
     padding-left: calc(var(--spacing) * 3);
     list-style-type: inherit;
     &::marker {
-      color: var(--colors-link);
+      color: var(--colors-accent);
     }
   }
   code {
-    word-break: break-all;
+    word-break: break-word;
   }
   hr {
     margin: calc(var(--spacing) * 3);
@@ -81,9 +83,11 @@ export const prose = css`
 export const global = css`
   .autolink {
     position: absolute;
-    left: calc(var(--spacing) * 9);
+    left: calc(var(--spacing) * -4);
     width: 30px;
-    color: var(--colors-text-secondary);
+    color: var(--colors-accent);
+    text-decoration: none;
+    transition: opacity ease 100ms;
     opacity: 0;
   }
   .autolink::before {
@@ -94,6 +98,6 @@ export const global = css`
   h2:hover .autolink,
   h3:hover .autolink,
   h4:hover .autolink {
-    opacity: 0.5;
+    opacity: 1;
   }
 `;

@@ -6,6 +6,9 @@ description: A study on Yelp review cycles that reveals seasonal patterns in loc
 live: https://engineeringblog.yelp.com/2017/01/dataset-round-7-winners-and-announcing-round-9.html
 tags: [data, analysis]
 date: '2016-06-30'
+links:
+  - title: Website
+    url: https://engineeringblog.yelp.com/2017/01/dataset-round-7-winners-and-announcing-round-9.html
 ---
 
 In 2016, I joined the Macaulay Data Science Pipeline Fellowship program. Our group entered the [Yelp Dataset Challenge](https://www.yelp.com/dataset/challenge/winners). We studied how restaurants' reviews reflected seasonal activity.

@@ -15,6 +15,11 @@ const styles = {
     cursor:
       url('/images/pointer.svg') 24 24,
       auto;
+
+    @media (max-width: 867px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 1fr;
+    }
   `,
   area: css`
     position: relative;
