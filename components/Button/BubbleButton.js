@@ -11,7 +11,7 @@ const styles = {
     font-size: 22px;
     letter-spacing: -0.3px;
     font-weight: 400;
-    color: var(--colors-grey-800);
+    color: var(--colors-text-grey-800);
     height: 60px;
     border-radius: 48px;
     border: 0.5px solid rgb(194, 194, 194, 0.74);
@@ -53,6 +53,7 @@ const styles = {
     height: 64px;
     width: 100%;
     height: 100%;
+    text-shadow: 0px 1px 1px rgb(255, 255, 255, 0.7);
     background: linear-gradient(
       179.962deg,
       rgba(255, 255, 255, 0.01) 0%,
@@ -90,11 +91,11 @@ const styles = {
       height: 32px;
       overflow: hidden;
       background: linear-gradient(
-        rgba(255, 255, 255, 0.74),
-        rgba(255, 255, 255, 0.24)
+        rgba(255, 255, 255, 0.77),
+        rgba(255, 255, 255, 0.27)
       );
       filter: blur(3px);
-      opacity: 0.88;
+      opacity: 0.44;
       overflow: hidden;
       z-index: 10;
       pointer-events: none;
@@ -104,7 +105,13 @@ const styles = {
 
 export function BubbleButton({ children }) {
   return (
-    <motion.button layout css={styles.container}>
+    <motion.button
+      layout="size"
+      transition={{
+        layout: { duration: 0.14 },
+      }}
+      css={styles.container}
+    >
       <div css={styles.outside}>
         <div css={styles.inside}>{children}</div>
       </div>

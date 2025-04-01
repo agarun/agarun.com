@@ -46,19 +46,39 @@ const styles = {
   description: css`
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 1.15);
     position: absolute;
-    left: 104%;
+    left: 106%;
     bottom: 0px;
     width: max-content;
     font-weight: 600;
     line-height: 1.5;
     z-index: 2;
+    opacity: 0.94;
     pointer-events: none;
     overflow: visible;
+  `,
+  miniBubble: css`
+    position: absolute;
+    left: -4px;
+    bottom: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center top,
+      rgb(250, 250, 250) 0%,
+      rgb(225, 225, 225) 45%,
+      rgb(205, 205, 205) 75%,
+      rgb(185, 185, 185) 100%
+    );
+    border: 0.5px solid rgb(194, 194, 194, 0.7);
+    box-shadow:
+      inset 0 0 2px 1px rgba(238, 238, 238, 0.8),
+      0 1px 13px rgba(0, 0, 0, 0.1);
   `,
   copy: css`
     ${copyStyles.copiedIcon}
     position: absolute;
-    left: 111%;
+    left: 112%;
     right: -50px;
     z-index: 10;
     font-size: 19px;
@@ -196,6 +216,7 @@ function Contact({ links }) {
                 <BubbleButton>
                   {isCopied ? 'copied!' : description}
                 </BubbleButton>
+                <div css={styles.miniBubble} aria-hidden />
               </motion.div>
             ) : null}
             {copy ? (

@@ -414,7 +414,7 @@ function MSK() {
             backgroundClip: 'text',
           }}
         >
-          Clinical Pathology &#10022; Technical Lead
+          Pathology Software &#10022; Technical Lead
         </p>
       </div>
     </div>
