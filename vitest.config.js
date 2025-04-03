@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitest/config';
+import { transformWithEsbuild } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 
 const nodeModulesToTransform = [
   'unified',
@@ -19,7 +21,25 @@ const nodeModulesToTransform = [
   'ccount',
 ];
 
+// https://github.com/vitejs/vite/discussions/3448#discussioncomment-10118853
+const transformJsxInJs = () => ({
+  name: 'transform-jsx-in-js',
+  enforce: 'pre',
+  async transform(code, id) {
+    if (!id.match(/.*\.js$/)) {
+      return null;
+    }
+
+    return await transformWithEsbuild(code, id, {
+      loader: 'jsx',
+      jsx: 'automatic',
+      jsxDev: true,
+    });
+  },
+});
+
 export default defineConfig({
+  plugins: [react(), transformJsxInJs()],
   test: {
     environment: 'jsdom',
     setupFiles: ['tests/setup.js'],

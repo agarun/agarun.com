@@ -1,32 +1,37 @@
 import React from 'react';
+import { vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { createRouter } from 'next/router';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
 import ThemeProvider from '../components/ThemeProvider';
+import { useRouter } from 'next/router';
 
-// https://github.com/vercel/next.js/discussions/23034
-export function createMockRouter(route = '/', query = {}) {
-  window.__NEXT_DATA__ = {};
-  const router = createRouter(route, query, '', {
-    initialProps: {},
-    pageLoader: jest.fn(),
-    App: jest.fn(),
-    Component: jest.fn(),
-  });
-
-  router.push = jest.fn((href) => {
-    window.location.href = href;
-    return Promise.resolve();
-  });
-  router.replace = jest.fn(() => Promise.resolve());
-  router.prefetch = () => Promise.resolve();
-
-  return router;
+// Mock useRouter for Next.js
+export function createMockRouter(overrides) {
+  return {
+    basePath: '',
+    pathname: '/',
+    route: '/',
+    query: {},
+    asPath: '/',
+    push: vi.fn(),
+    replace: vi.fn(),
+    reload: vi.fn(),
+    back: vi.fn(),
+    prefetch: vi.fn().mockResolvedValue(undefined),
+    beforePopState: vi.fn(),
+    isFallback: false,
+    ...overrides,
+  };
 }
 
+vi.mock('next/router', () => ({
+  useRouter: vi.fn(),
+}));
+
 const Provider = ({ children }) => {
+  useRouter.mockReturnValue(createMockRouter({}));
   return (
-    <RouterContext.Provider value={createMockRouter('/', {})}>
+    <RouterContext.Provider value={createMockRouter({})}>
       <ThemeProvider>{children}</ThemeProvider>
     </RouterContext.Provider>
   );
