@@ -27,9 +27,6 @@ const styles = {
     border-radius: 24px;
     max-height: 272px;
     transition: opacity 200ms ease;
-    &:hover {
-      opacity: 0.94;
-    }
   `,
   areaA: css`
     display: flex;
@@ -40,11 +37,17 @@ const styles = {
     grid-area: b;
     text-decoration: none;
     cursor: inherit;
+    &:hover {
+      opacity: 0.94;
+    }
   `,
   areaC: css`
     grid-area: c;
     text-decoration: none;
     cursor: inherit;
+    &:hover {
+      opacity: 0.92;
+    }
   `,
   areaD: css`
     grid-area: d;
