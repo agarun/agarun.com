@@ -376,6 +376,7 @@ function MSK() {
             width: '100%',
             height: 272,
             borderRadius: 24,
+            zIndex: 0,
           }}
         />
         <p
@@ -397,6 +398,7 @@ function MSK() {
             background:
               'linear-gradient(to top, var(--colors-grey-700) 33%, var(--colors-grey-500) 77%)',
             backgroundClip: 'text',
+            zIndex: 2,
           }}
         >
           Memorial Sloan Kettering Cancer Center
@@ -420,9 +422,23 @@ function MSK() {
             background:
               'linear-gradient(to top, var(--colors-grey-700) 33%, var(--colors-grey-500) 77%)',
             backgroundClip: 'text',
+            zIndex: 2,
           }}
         >
           Pathology Software &#10022; Technical Lead
+        </p>
+        <p
+          style={{
+            position: 'absolute',
+            pointerEvents: 'none',
+            filter: 'blur(20px)',
+            fontSize: 360,
+            transform: 'scaleX(2)',
+            zIndex: 1,
+            color: 'rgba(255, 255, 255, 0.44)',
+          }}
+        >
+          &#10022;
         </p>
       </div>
     </div>
