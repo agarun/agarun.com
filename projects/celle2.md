@@ -11,4 +11,6 @@ links:
     url: https://bohuanglab.github.io/CELL-E_2/
   - title: NeurIPS 2023
     url: https://openreview.net/forum?id=YSMLVffl5u
+  - title: Lab
+    url: https://huanglab.ucsf.edu/
 ---

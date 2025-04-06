@@ -6,4 +6,7 @@ live: https://fotons.herokuapp.com
 code: https://github.com/agarun/foton
 tags: [react, javascript, rails, ruby]
 date: '2017-12-30'
+links:
+  - title: Code
+    url: https://github.com/agarun/foton
 ---

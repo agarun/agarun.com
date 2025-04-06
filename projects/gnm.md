@@ -9,4 +9,6 @@ date: '2017-05-31'
 links:
   - title: Paper
     url: https://agarun.com/files/agarunov-CSCI393.pdf
+  - title: Lab
+    url: https://www.cs.hunter.cuny.edu/~leixie/
 ---

@@ -6,6 +6,14 @@ live: https://agarun.github.io/kume
 code: https://github.com/agarun/kume
 tags: [javascript, data]
 date: '2018-01-02'
+images:
+  - path: /images/projects/kume/plot.webp
+  - path: /images/projects/kume/out.webp
+links:
+  - title: Website
+    url: https://agarun.github.io/kume
+  - title: Code
+    url: https://github.com/agarun/kume
 ---
 
 kume is an interactive visualization of k-means clustering, image segmentation, and color quantization.
