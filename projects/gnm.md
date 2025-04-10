@@ -6,6 +6,8 @@ description: A study on the behavior of HCV direct-acting antiviral agents that 
 live: https://agarun.com/files/agarunov-CSCI393.pdf
 tags: [python, r]
 date: '2017-05-31'
+images:
+  - path: /images/projects/gnm/2.webp
 links:
   - title: Paper
     url: https://agarun.com/files/agarunov-CSCI393.pdf
