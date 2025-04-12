@@ -26,8 +26,11 @@ That brings us here. This version of agarun.com uses:
 
 I expect the stack to change a bit as I'm still looking over alternatives like `linaria` and `react-spring`, so the [`README`](https://github.com/agarun/agarun.com/blob/main/README.md) might be more up-to-date.
 
-> **2025 Update**:
-> I've updated this site to V2, so this article is a bit out of date. We now use Next 15, Vitest, Playwright, and more: [https://github.com/agarun/agarun.com](https://github.com/agarun/agarun.com)
+> **Updated in 2025!**
+>
+> I've updated this site yet again, so this article is a bit out of date. Now using Next 15, Vitest, Playwright, and more
+>
+> Check it out: [https://github.com/agarun/agarun.com](https://github.com/agarun/agarun.com)
 
 # Next.js Ecosystem
 
@@ -37,9 +40,9 @@ I learned a lot from open-source templates like [Next.js Commerce](https://githu
 
 # Tooling
 
-The time that tools like Prettier and ESLint save is insurmountable. Formatters and linters are a must-have for teams working with JavaScript, and I usually pair them with git hooks to ensure the configs aren't ever broken.
+I'm using Prettier and ESLint for formatting and linting, paired with pre-commit hooks.
 
-I try to use plugins that integrate with other tools in the codebase, and I extend the [create-react-app](https://www.npmjs.com/package/eslint-config-react-app) config for its sensible rules and accessibility plugins.
+I try to use plugins that integrate with other tools already in the codebase, and I extend the [create-react-app](https://www.npmjs.com/package/eslint-config-react-app) config for its sensible rules and accessibility plugins.
 
 For monitoring web performance (especially on different networks), I use Lighthouse [plugins](https://www.netlify.com/blog/2021/03/26/netlify-build-plugin-of-the-week-lighthouse) and [web.dev/measure](https://web.dev/measure/).
 
@@ -90,13 +93,13 @@ I keep all the properties in a `variables.css` file imported by a custom Next.js
 
 ## Writing
 
-Since Next.js experimentally supports ESM externals, I've used the latest versions of Unified and its remark and rehype plugins. I'm also parsing MDX using `next-mdx-remote`, so the blog supports either type of content.
+I'm using the latest versions of Unified and its remark and rehype plugins. I'm also parsing MDX using `next-mdx-remote`, so the blog supports either type of content.
 
 Code snippets are themed thanks to Prism using CSS variables via [`prism-theme-vars`](https://github.com/antfu/prism-theme-vars). The theme is based on Night Owl by Sarah Drasner with some hue shifts and color tweaks.
 
 ## Testing
 
-Common behaviors, components, and helper functions are tested with Jest and React Testing Library. For testing pages, navigation, and data presence, I'm writing end-to-end tests with Cypress.
+Common behaviors, components, and helper functions are tested with Vitest and React Testing Library. For testing pages, navigation, and data presence, I'm writing end-to-end tests with Playwright.
 
 # Summary
 

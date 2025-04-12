@@ -7,7 +7,7 @@ code: https://github.com/BoHuangLab/CELL-E_2
 tags: [web, ai, ml]
 date: '2023-05-01'
 images:
-  - path: /images/projects/celle2/image_generation.webp
+  - path: /images/projects/celle2/architecture.webp
 links:
   - title: Website
     url: https://bohuanglab.github.io/CELL-E_2/

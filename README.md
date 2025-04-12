@@ -60,10 +60,9 @@ This project uses [React](https://react.dev/) and [Next.js](https://nextjs.org/)
 ├── public
 ├── styles
 └── tests
-    └── playwright # TODO
-        ├── integration
-        ├── plugins
-        └── support
+│   ├── …
+    └── e2e
+        └── …
 ```
 
 ### Hosting
