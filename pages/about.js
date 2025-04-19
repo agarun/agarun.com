@@ -125,7 +125,7 @@ function About() {
             filter: 'blur(0px)',
           }}
           transition={{
-            duration: 1.5,
+            duration: 1.2,
           }}
         >
           <h3 css={styles.subtitle}>Highlights</h3>

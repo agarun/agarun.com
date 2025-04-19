@@ -245,8 +245,8 @@ function ProjectImages({ project, projectIndex }) {
   const imageCoversSummary = summary.length > 30;
   const dy = imageCoversSummary ? -50 : 0;
 
-  // TODO, if there's no links width can be higher like 800 insatead of 600^
-  const imageWidth = 600 / images.length;
+  const maxWidth = project.links.length === 1 ? 720 : 600;
+  const imageWidth = maxWidth / images.length;
 
   const rotateMultiplier = projectIndex % 2 === 0 ? 1 : -1;
 
@@ -287,6 +287,7 @@ function ProjectImages({ project, projectIndex }) {
                   position: 'relative',
                   bottom: dy + (index % 2 === 0 ? -100 : -80),
                   left: index > 0 ? -40 : 0,
+                  marginRight: images.length === 3 ? -20 : 0,
                   transition: 'box-shadow 0.3s ease',
                 }}
               />
@@ -300,12 +301,12 @@ function ProjectImages({ project, projectIndex }) {
             key={index}
             initial={{
               y: 40,
-              zIndex: 1,
+              zIndex: 10 - index,
             }}
             whileHover={{
               y: -60,
               transition: { type: 'spring', stiffness: 300, damping: 20 },
-              zIndex: 9,
+              zIndex: 20 - index,
             }}
             style={{
               marginRight: 8,
@@ -313,7 +314,6 @@ function ProjectImages({ project, projectIndex }) {
               display: 'inline-block',
               right: index * 32,
               width: 640,
-              height: 360,
               bottom: dy,
             }}
           >
@@ -330,7 +330,7 @@ function ProjectImages({ project, projectIndex }) {
                 boxShadow:
                   '0 4px 12px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.1)',
                 position: 'absolute',
-                bottom: dy + -90 + index,
+                bottom: dy + -90 - index,
                 transition: 'box-shadow 0.3s ease',
               }}
             />
