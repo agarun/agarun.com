@@ -17,8 +17,13 @@ const styles = {
       auto;
 
     @media (max-width: 867px) {
+      width: 100%;
       grid-template-columns: 1fr;
-      grid-template-areas: 1fr;
+      grid-template-areas:
+        'a'
+        'b'
+        'c'
+        'd';
     }
   `,
   area: css`
@@ -431,15 +436,71 @@ function MSK() {
           style={{
             position: 'absolute',
             pointerEvents: 'none',
-            filter: 'blur(20px)',
+            filter: 'blur(14px)',
             fontSize: 360,
             transform: 'scaleX(2)',
             zIndex: 1,
-            color: 'rgba(255, 255, 255, 0.44)',
+            color: 'rgba(255, 255, 255, 0.5)',
           }}
         >
           &#10022;
         </p>
+        <svg
+          width="600"
+          height="400"
+          viewBox="0 0 600 400"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{
+            position: 'absolute',
+            opacity: 0.5,
+            filter: 'blur(10px)',
+            overflow: 'hidden',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          <defs>
+            <filter
+              id="layer-blur"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+            </filter>
+          </defs>
+          <ellipse
+            cx="300"
+            cy="200"
+            rx="140"
+            ry="110"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            filter="url(#layer-blur)"
+          />
+          <ellipse
+            cx="300"
+            cy="200"
+            rx="170"
+            ry="80"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            filter="url(#layer-blur)"
+          />
+          <ellipse
+            cx="300"
+            cy="200.5"
+            rx="256"
+            ry="54"
+            fill="rgba(255, 255, 255, 0.125)"
+            stroke="white"
+            stroke-width="1"
+            style={{ filter: 'blur(1.75px)' }}
+          />
+        </svg>
       </div>
     </div>
   );

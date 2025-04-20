@@ -21,12 +21,23 @@ const styles = {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 867px) {
+      width: 100%;
+    }
   `,
   intro: css`
     margin-top: 24px;
     margin-bottom: 64px;
     width: 540px;
     font-size: calc(var(--font-size-scale) * 21px);
+
+    @media (max-width: 867px) {
+      width: 100%;
+      p {
+        margin-bottom: 36px;
+      }
+    }
   `,
   subtitle: css`
     margin-bottom: 28px;
@@ -55,12 +66,18 @@ const styles = {
       rgba(222, 222, 222, 0) 25%,
       #dedede 75%
     );
+    @media (max-width: 867px) {
+      background: 0;
+    }
   `,
   outro: css`
     border: 1px solid #dedede;
     border-top: none;
     min-height: 128px;
     border-radius: 24px;
+    @media (max-width: 867px) {
+      border: 0;
+    }
   `,
   link: css`
     text-decoration: none;
@@ -72,9 +89,6 @@ const styles = {
     }
   `,
 };
-
-// TODO: if you grab the headings you can move them around the page. e.g. RECENTLY etc.
-// TODO: hovering certain links, show preview in a little window floating next to cursor? for example in `Recently` section
 
 function About() {
   return (
