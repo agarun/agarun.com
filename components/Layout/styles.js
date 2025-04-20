@@ -29,6 +29,10 @@ export const header = css`
 `;
 
 export const title = css`
+  margin: 0;
+  padding: 0.67em 0;
+  display: flex;
+  gap: 6.25px;
   font-size: calc(var(--font-size-scale) * 26px);
   font-weight: 600;
 `;
