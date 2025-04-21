@@ -156,8 +156,8 @@ function About() {
             projects and my{' '}
             <Link href="https://photos.agarun.com/">photography</Link>. I also{' '}
             <em>really</em> love music (religiously listen to weekly releases
-            from my faves), cooking (addicted to the YouTube food scene and
-            blogs), and esports (mostly FPS games).
+            from my faves), cooking (addicted to food YouTube vids and blogs),
+            and esports (mostly FPS games).
           </p>
         </section>
         <section css={styles.section}>

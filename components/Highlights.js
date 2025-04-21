@@ -440,7 +440,7 @@ function MSK() {
             fontSize: 360,
             transform: 'scaleX(2)',
             zIndex: 1,
-            color: 'rgba(255, 255, 255, 0.5)',
+            color: 'rgba(255, 255, 255, 0.57)',
           }}
         >
           &#10022;
@@ -452,7 +452,7 @@ function MSK() {
           xmlns="http://www.w3.org/2000/svg"
           style={{
             position: 'absolute',
-            opacity: 0.5,
+            opacity: 0.57,
             filter: 'blur(10px)',
             overflow: 'hidden',
             pointerEvents: 'none',
