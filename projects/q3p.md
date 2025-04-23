@@ -1,6 +1,6 @@
 ---
 title: Q3P
-summary: Creating powerful moderation tools and analytics dashboards for A-list music artists' communities on Discord
+summary: Creating a complete web platform for moderating, managing, and activating digital communities for internationally renowned musicians
 description: ''
 tags: [music]
 date: '2024-05'

@@ -30,7 +30,7 @@ const styles = {
     position: relative;
     background: var(--colors-white);
     border-radius: 24px;
-    max-height: 272px;
+    height: 272px;
     transition: opacity 200ms ease;
   `,
   areaA: css`
@@ -53,14 +53,35 @@ const styles = {
     &:hover {
       opacity: 0.92;
     }
+    canvas {
+      width: 272px;
+      @media (max-width: 867px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
   `,
   areaD: css`
     grid-area: d;
     display: flex;
     flex-direction: column;
+    svg {
+      width: 600px;
+      height: 400px;
+      @media (max-width: 867px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  `,
+  mskStarLayer: css`
+    transform: scaleX(2);
+    @media (max-width: 867px) {
+      transform: scaleX(1);
+    }
   `,
   photographyPortfolioPhoto: css`
-      position: relative;
+    position: relative;
 
     &:before {
       content: '';
@@ -230,7 +251,7 @@ function PhotographyPortfolio() {
       <div
         style={{
           width: '100%',
-          height: '100%',
+          height: 272,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -240,7 +261,6 @@ function PhotographyPortfolio() {
           textAlign: 'center',
           lineHeight: 1.2,
           fontWeight: 700,
-          maxHeight: 272,
           backgroundImage: `url('/images/projects/photography/1.webp')`,
           filter: 'brightness(1.15)',
           backgroundPosition: '0% 80%',
@@ -345,8 +365,6 @@ function GenerativeArt() {
           mixBlendMode: 'screen',
           position: 'absolute',
           left: 0,
-          width: 272,
-          height: 272,
           borderRadius: 24,
         }}
       />
@@ -390,8 +408,6 @@ function MSK() {
             top: 60,
             padding: '25px 0',
             display: 'flex',
-            width: '100%',
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             width: '100%',
@@ -433,12 +449,12 @@ function MSK() {
           Pathology Software &#10022; Technical Lead
         </p>
         <p
+          css={styles.mskStarLayer}
           style={{
             position: 'absolute',
             pointerEvents: 'none',
             filter: 'blur(14px)',
             fontSize: 360,
-            transform: 'scaleX(2)',
             zIndex: 1,
             color: 'rgba(255, 255, 255, 0.57)',
           }}
@@ -446,8 +462,6 @@ function MSK() {
           &#10022;
         </p>
         <svg
-          width="600"
-          height="400"
           viewBox="0 0 600 400"
           xmlns="http://www.w3.org/2000/svg"
           style={{
@@ -477,7 +491,7 @@ function MSK() {
             ry="110"
             fill="none"
             stroke="white"
-            stroke-width="2"
+            strokeWidth="1"
             filter="url(#layer-blur)"
           />
           <ellipse
@@ -487,7 +501,7 @@ function MSK() {
             ry="80"
             fill="none"
             stroke="white"
-            stroke-width="2"
+            strokeWidth="1"
             filter="url(#layer-blur)"
           />
           <ellipse
@@ -497,7 +511,7 @@ function MSK() {
             ry="54"
             fill="rgba(255, 255, 255, 0.125)"
             stroke="white"
-            stroke-width="1"
+            strokeWidth="1"
             style={{ filter: 'blur(1.75px)' }}
           />
         </svg>

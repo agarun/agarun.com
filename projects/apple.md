@@ -1,6 +1,6 @@
 ---
 title: Apple
-summary: Bringing interactive on-device optimization and visualization tools to production for Apple foundation models delivery
+summary: Bringing interactive on-device optimization and ML visualization tools to production for delivering Apple Foundation Models
 description: ''
 live: https://www.apple.com/
 code: ''
