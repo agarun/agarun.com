@@ -74,82 +74,13 @@ const styles = {
       }
     }
   `,
-  mskStarLayer: css`
-    transform: scaleX(2);
+};
+
+const appleStyles = {
+  gradient: css`
+    background-size: 140%;
     @media (max-width: 867px) {
-      transform: scaleX(1);
-    }
-  `,
-  photographyPortfolioPhoto: css`
-    position: relative;
-
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      filter: blur(0.5px);
-      border-radius: 24px;
-      z-index: 1;
-    }
-
-    &:hover:before {
-      filter: blur(0px);
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.125); /* Soft white overlay */
-      pointer-events: none;
-      border-radius: 24px;
-      box-shadow:
-        inset 0 0 12px rgba(255, 255, 255, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.03),
-        inset 0 0 30px rgba(255, 255, 255, 0.03),
-        inset 0 2px 5px rgba(0, 0, 0, 0.15);
-      z-index: 2;
-  `,
-  photographyPortfolioText: css`
-    position: relative;
-    background: linear-gradient(
-      to bottom,
-      #ffffff 16%,
-      #6695bd 50%,
-      #fff 60%,
-      #6695bd 92%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    font-weight: 400;
-    letter-spacing: -1px;
-    transform: perspective(280px) rotateX(6deg);
-    z-index: 5;
-
-    &:before {
-      background: none;
-      content: 'Photography Portfolio';
-      left: 0;
-      top: 0;
-      z-index: 0;
-      position: absolute;
-      filter: blur(3px);
-    }
-    &:after {
-      background: none;
-      content: 'Photography Portfolio';
-      left: 0;
-      top: 0;
-      z-index: 0;
-      position: absolute;
-      text-shadow:
-        -1px 0 1px #fbf3ffe1,
-        2px 2px 5px rgba(0, 0, 0, 0.1),
-        -2px -2px 5px rgba(0, 0, 0, 0.1);
+      background-size: 200%;
     }
   `,
 };
@@ -158,13 +89,13 @@ function Apple() {
   return (
     <div css={[styles.area, styles.areaA]}>
       <div
+        css={appleStyles.gradient}
         style={{
           width: '100%',
           height: 272,
           borderRadius: 24,
           backgroundImage: `url('/images/projects/apple/gradient.webp')`,
           backgroundPosition: 'center',
-          backgroundSize: '140%',
           backgroundRepeat: 'no-repeat',
           boxShadow:
             'inset 0 0 12px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2), inset 0 0 30px rgba(255, 255, 255, 0.1), inset 0 2px 5px rgba(0, 0, 0, 0.15)',
@@ -240,6 +171,81 @@ function Apple() {
   );
 }
 
+const photographyStyles = {
+  photo: css`
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: blur(0.5px);
+      border-radius: 24px;
+      z-index: 1;
+    }
+
+    &:hover:before {
+      filter: blur(0px);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.125); /* Soft white overlay */
+      pointer-events: none;
+      border-radius: 24px;
+      box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.03),
+        inset 0 0 30px rgba(255, 255, 255, 0.03),
+        inset 0 2px 5px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+  `,
+  text: css`
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      #ffffff 16%,
+      #6695bd 50%,
+      #fff 60%,
+      #6695bd 92%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 400;
+    letter-spacing: -1px;
+    transform: perspective(280px) rotateX(6deg);
+    z-index: 5;
+
+    &:before {
+      background: none;
+      content: 'Photography Portfolio';
+      left: 0;
+      top: 0;
+      z-index: 0;
+      position: absolute;
+      filter: blur(3px);
+    }
+    &:after {
+      background: none;
+      content: 'Photography Portfolio';
+      left: 0;
+      top: 0;
+      z-index: 0;
+      position: absolute;
+      text-shadow:
+        -1px 0 1px #fbf3ffe1,
+        2px 2px 5px rgba(0, 0, 0, 0.1),
+        -2px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  `,
+};
+
 function PhotographyPortfolio() {
   return (
     <a
@@ -268,7 +274,7 @@ function PhotographyPortfolio() {
           backgroundRepeat: 'no-repeat',
           borderRadius: 24,
         }}
-        css={styles.photographyPortfolioPhoto}
+        css={photographyStyles.photo}
       >
         <GlobeIcon
           style={{
@@ -289,7 +295,7 @@ function PhotographyPortfolio() {
             fontFamily: 'var(--font-family-monospace)',
           }}
         />
-        <span css={styles.photographyPortfolioText}>
+        <span css={photographyStyles.text}>
           Photography
           <br />
           Portfolio
@@ -372,6 +378,50 @@ function GenerativeArt() {
   );
 }
 
+const mskStyles = {
+  company: css`
+    position: absolute;
+    top: 60px;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    color: transparent;
+    background: linear-gradient(
+      to top,
+      var(--colors-grey-700) 33%,
+      var(--colors-grey-500) 77%
+    );
+    background-clip: text;
+    z-index: 2;
+    @media (max-width: 867px) {
+      top: 30px;
+      padding: 25px;
+      text-align: center;
+      background: linear-gradient(
+        to top,
+        var(--colors-grey-700) 0%,
+        var(--colors-grey-500) 25%,
+        var(--colors-grey-700) 50%,
+        var(--colors-grey-500) 75%
+      );
+      background-clip: text;
+      line-height: 1.33;
+    }
+  `,
+  star: css`
+    transform: scaleX(2);
+    @media (max-width: 867px) {
+      transform: scaleX(1);
+    }
+  `,
+};
+
 function MSK() {
   return (
     <div css={[styles.area, styles.areaD]}>
@@ -402,28 +452,7 @@ function MSK() {
             zIndex: 0,
           }}
         />
-        <p
-          style={{
-            position: 'absolute',
-            top: 60,
-            padding: '25px 0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '100%',
-            flexGrow: 1,
-            fontSize: 22,
-            letterSpacing: '-0.5px',
-            fontWeight: 600,
-            color: 'transparent',
-            background:
-              'linear-gradient(to top, var(--colors-grey-700) 33%, var(--colors-grey-500) 77%)',
-            backgroundClip: 'text',
-            zIndex: 2,
-          }}
-        >
-          Memorial Sloan Kettering Cancer Center
-        </p>
+        <p css={mskStyles.company}>Memorial Sloan Kettering Cancer Center</p>
         <p
           style={{
             position: 'absolute',
@@ -449,7 +478,7 @@ function MSK() {
           Pathology Software &#10022; Technical Lead
         </p>
         <p
-          css={styles.mskStarLayer}
+          css={mskStyles.star}
           style={{
             position: 'absolute',
             pointerEvents: 'none',
