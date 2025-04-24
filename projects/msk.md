@@ -1,7 +1,7 @@
 ---
 title: MSK
 full_title: Memorial Sloan Kettering Cancer Center
-summary: Building Pathology software for comprehensive genomic testing used to visualize actionable cancer mutations and match patients to targeted therapies
+summary: Building pathology software for comprehensive genomic testing used to visualize actionable cancer mutations and match patients to targeted therapies
 description: ''
 live: https://mskcc.org
 code: ''

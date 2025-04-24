@@ -22,6 +22,9 @@
   --gutter-width: calc(var(--spacing) * 2);
   --window-width: calc(100vw - var(--scrollbar-width));
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
+
+  --colors-static-white: #ffffff;
+  --colors-static-black: #000000;
 }
 
 body.light {
@@ -56,9 +59,7 @@ body.light {
   --colors-link-gradient: hsl(250deg, 79%, 63%, 0.2);
 
   --colors-white: #ffffff;
-  --colors-static-white: #ffffff;
   --colors-black: #000000;
-  --colors-static-black: #000000;
 
   --font-weight-bold: 600;
   --text-shadow: none;
@@ -69,7 +70,7 @@ body.dark {
   --colors-text-secondary: hsl(210deg, 5%, 69%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
-  --colors-accent: hsl(23deg 37% 51%);
+  --colors-accent: hsl(204deg, 69%, 69%);
   --colors-highlight: hsl(260deg, 73%, 91%);
   --colors-muted: hsl(232deg, 15%, 50%);
 
@@ -94,9 +95,7 @@ body.dark {
   --colors-link-gradient: hsl(333deg, 43%, 63%, 0.44);
 
   --colors-white: #000000;
-  --colors-static-white: #ffffff;
   --colors-black: #ffffff;
-  --colors-static-black: #000000;
 
   --font-weight-bold: 500;
   --text-shadow: 1px 1px var(--colors-grey-200);
