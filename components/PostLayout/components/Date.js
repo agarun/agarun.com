@@ -17,9 +17,9 @@ const styles = {
   `,
 };
 
-function Date({ date, children }) {
+function Date({ date, children, ...props }) {
   return (
-    <div css={styles.container}>
+    <div css={styles.container} {...props}>
       <time css={styles.date} dateTime={date}>
         {formatDate(date || children)}
       </time>

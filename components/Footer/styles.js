@@ -29,6 +29,8 @@ export const content = css`
 `;
 
 export const link = css`
+  margin: 4px;
+  display: inline-block;
   color: var(--colors-grey-500);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
