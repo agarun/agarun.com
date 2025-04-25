@@ -137,7 +137,7 @@ function points(row, col) {
   return points;
 }
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 function Canvas({ projects = [] }) {
   const ref = useRef();

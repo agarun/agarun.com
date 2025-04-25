@@ -13,7 +13,7 @@ describe('posts page', () => {
     cy.visit('/posts/a-new-website');
     cy.findByText('Previous').should('exist');
     cy.findByText(/Taking Notes/).should('exist');
-    cy.findByRole('link', { name: 'Blog' }).click();
+    cy.findByRole('link', { name: 'Posts' }).click();
     cy.findByText(/Taking Notes/).should('exist');
     cy.findByText('A New Website').should('exist');
   });

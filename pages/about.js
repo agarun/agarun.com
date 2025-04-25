@@ -74,7 +74,8 @@ const styles = {
     border: 1px solid #dedede;
     border-top: none;
     min-height: 128px;
-    border-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
     @media (max-width: 867px) {
       border: 0;
     }

@@ -22,7 +22,7 @@ dependencies:
     version: 12.6.0(react-dom@19.0.0)(react@19.0.0)
   next:
     specifier: ^15.2.4
-    version: 15.2.4(@babel/core@7.26.10)(react-dom@19.0.0)(react@19.0.0)
+    version: 15.2.4(@babel/core@7.26.10)(@playwright/test@1.51.1)(react-dom@19.0.0)(react@19.0.0)
   next-mdx-remote:
     specifier: ^5.0.0
     version: 5.0.0(@types/react@19.0.12)(acorn@8.14.1)(react@19.0.0)
@@ -64,18 +64,24 @@ dependencies:
     version: 10.1.2
   vitest:
     specifier: ^3.1.1
-    version: 3.1.1(jsdom@26.0.0)(terser@5.39.0)
+    version: 3.1.1(@types/node@22.14.0)(jsdom@26.0.0)(terser@5.39.0)
 
 devDependencies:
   '@emotion/babel-plugin':
     specifier: ^11.13.5
     version: 11.13.5
+  '@playwright/test':
+    specifier: ^1.51.1
+    version: 1.51.1
   '@testing-library/jest-dom':
     specifier: ^6.6.3
     version: 6.6.3
   '@testing-library/react':
     specifier: ^16.3.0
     version: 16.3.0(@testing-library/dom@10.4.0)(@types/react@19.0.12)(react-dom@19.0.0)(react@19.0.0)
+  '@types/node':
+    specifier: ^22.14.0
+    version: 22.14.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^8.28.0
     version: 8.28.0(@typescript-eslint/parser@8.28.0)(eslint@7.32.0)(typescript@5.8.2)
@@ -2386,6 +2392,13 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
+  /@playwright/test@1.51.1:
+    resolution: {integrity: sha512-nM+kEaTSAoVlXmMPH10017vn3FSiFqr/bh4fKg9vmAdMfd9SDqRZNvPSiAHADc/itWak+qPvMPZQOPwCBW7k7Q==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dependencies:
+      playwright: 1.51.1
+
   /@puppeteer/browsers@2.8.0:
     resolution: {integrity: sha512-yTwt2KWRmCQAfhvbCRjebaSX8pV1//I0Y3g+A7f/eS7gf0l4eRJoUCvcYdVtboeU4CTOZQuqYbZNS8aBYb8ROQ==}
     engines: {node: '>=18'}
@@ -2877,11 +2890,10 @@ packages:
     resolution: {integrity: sha512-GsCCIZDE/p3i96vtEqx+7dBUGXrc7zeSK3wwPHIaRThS+9OhWIXRqzs4d6k1SVU8g91DrNRWxWUGhp5KXQb2VA==}
     dev: false
 
-  /@types/node@22.13.13:
-    resolution: {integrity: sha512-ClsL5nMwKaBRwPcCvH8E7+nU4GxHVx1axNvMZTFHMEfNI7oahimt26P5zjVCRrjiIWj6YFXfE1v3dEp94wLcGQ==}
+  /@types/node@22.14.0:
+    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
     dependencies:
-      undici-types: 6.20.0
-    dev: true
+      undici-types: 6.21.0
 
   /@types/parse-json@4.0.2:
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -2911,7 +2923,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
     dev: true
     optional: true
 
@@ -3274,7 +3286,7 @@ packages:
       vite: ^4 || ^5 || ^6
     dependencies:
       '@swc/core': 1.11.16
-      vite: 6.2.4(terser@5.39.0)
+      vite: 6.2.4(@types/node@22.14.0)(terser@5.39.0)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: false
@@ -3302,7 +3314,7 @@ packages:
       '@vitest/spy': 3.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      vite: 6.2.4(terser@5.39.0)
+      vite: 6.2.4(@types/node@22.14.0)(terser@5.39.0)
     dev: false
 
   /@vitest/pretty-format@3.1.1:
@@ -3922,7 +3934,7 @@ packages:
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 2.0.1
@@ -5406,7 +5418,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /fsevents@2.3.3:
@@ -7358,12 +7369,12 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      next: 15.2.4(@babel/core@7.26.10)(react-dom@19.0.0)(react@19.0.0)
+      next: 15.2.4(@babel/core@7.26.10)(@playwright/test@1.51.1)(react-dom@19.0.0)(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
     dev: false
 
-  /next@15.2.4(@babel/core@7.26.10)(react-dom@19.0.0)(react@19.0.0):
+  /next@15.2.4(@babel/core@7.26.10)(@playwright/test@1.51.1)(react-dom@19.0.0)(react@19.0.0):
     resolution: {integrity: sha512-VwL+LAaPSxEkd3lU2xWbgEOtrM8oedmyhBqaVNmgKB+GvZlCy9rgaEc+y2on0wv+l0oSFqLtYD6dcC1eAedUaQ==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
@@ -7385,6 +7396,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 15.2.4
+      '@playwright/test': 1.51.1
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.15
       busboy: 1.6.0
@@ -7674,7 +7686,6 @@ packages:
     resolution: {integrity: sha512-/crRMj8+j/Nq5s8QcvegseuyeZPxpQCZb6HNk3Sos3BlZyAknRjoyJPFWkpNn8v0+P3WiwqFF8P+zQo4eqiNuw==}
     engines: {node: '>=18'}
     hasBin: true
-    dev: true
 
   /playwright@1.51.1:
     resolution: {integrity: sha512-kkx+MB2KQRkyxjYPc3a0wLZZoDczmppyGJIvQ43l+aZihkaVvmu/21kiyaHeHjiFxjxNNFnUncKmcGIyOojsaw==}
@@ -7684,7 +7695,6 @@ packages:
       playwright-core: 1.51.1
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -8493,7 +8503,7 @@ packages:
     resolution: {integrity: sha512-DI7/OuAUD+GMpR6dmu8lliO2Wg5zfeh+/xsdyJZCzd8o5JgFUjCeLsBDuZjIQJdwXS3J0L/uZYrELKYqx+PXog==}
     engines: {node: '>=8.0'}
     dependencies:
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       image-ssim: 0.2.0
       jpeg-js: 0.4.4
     dev: true
@@ -8982,9 +8992,8 @@ packages:
       which-boxed-primitive: 1.1.1
     dev: true
 
-  /undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
-    dev: true
+  /undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   /unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -9224,7 +9233,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite-node@3.1.1(terser@5.39.0):
+  /vite-node@3.1.1(@types/node@22.14.0)(terser@5.39.0):
     resolution: {integrity: sha512-V+IxPAE2FvXpTCHXyNem0M+gWm6J7eRyWPR6vYoG/Gl+IscNOjXzztUhimQgTxaAoUoj40Qqimaa0NLIOOAH4w==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -9233,7 +9242,7 @@ packages:
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 2.0.3
-      vite: 6.2.4(terser@5.39.0)
+      vite: 6.2.4(@types/node@22.14.0)(terser@5.39.0)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -9249,7 +9258,7 @@ packages:
       - yaml
     dev: false
 
-  /vite@6.2.4(terser@5.39.0):
+  /vite@6.2.4(@types/node@22.14.0)(terser@5.39.0):
     resolution: {integrity: sha512-veHMSew8CcRzhL5o8ONjy8gkfmFJAd5Ac16oxBUjlwgX3Gq2Wqr+qNC3TjPIpy7TPV/KporLga5GT9HqdrCizw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -9289,6 +9298,7 @@ packages:
       yaml:
         optional: true
     dependencies:
+      '@types/node': 22.14.0
       esbuild: 0.25.2
       postcss: 8.5.3
       rollup: 4.38.0
@@ -9297,7 +9307,7 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /vitest@3.1.1(jsdom@26.0.0)(terser@5.39.0):
+  /vitest@3.1.1(@types/node@22.14.0)(jsdom@26.0.0)(terser@5.39.0):
     resolution: {integrity: sha512-kiZc/IYmKICeBAZr9DQ5rT7/6bD9G7uqQEki4fxazi1jdVl2mWGzedtBs5s6llz59yQhVb7FFY2MbHzHCnT79Q==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -9325,6 +9335,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
+      '@types/node': 22.14.0
       '@vitest/expect': 3.1.1
       '@vitest/mocker': 3.1.1(vite@6.2.4)
       '@vitest/pretty-format': 3.1.1
@@ -9343,8 +9354,8 @@ packages:
       tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
-      vite: 6.2.4(terser@5.39.0)
-      vite-node: 3.1.1(terser@5.39.0)
+      vite: 6.2.4(@types/node@22.14.0)(terser@5.39.0)
+      vite-node: 3.1.1(@types/node@22.14.0)(terser@5.39.0)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - jiti
