@@ -1,7 +1,7 @@
 ---
 title: Pathing
 short_title: Pathing
-summary: Visualizing maze generation & graph traversal algos
+summary: Visualizing maze generation and graph traversal algorithms
 description: A demonstration of maze generation using randomized Prim's algorithm, and maze searching using graph traversal algorithms like breadth-first, depth-first, Dijkstra's, and A* search
 live: https://agarun.github.io/pathing
 code: https://github.com/agarun/pathing

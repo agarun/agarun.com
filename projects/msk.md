@@ -1,10 +1,12 @@
 ---
 title: MSK
+role: Senior Software Engineer
+type: full-time
 full_title: Memorial Sloan Kettering Cancer Center
 summary: Building pathology software for comprehensive genomic testing used to visualize actionable cancer mutations and match patients to targeted therapies
 description: ''
+blurb: Pathology Software
 live: https://mskcc.org
-code: ''
 tags: [web, health]
 date: '2025-04'
 links:

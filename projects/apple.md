@@ -1,9 +1,11 @@
 ---
 title: Apple
+role: Senior Software Developer
+type: contract
 summary: Bringing interactive on-device optimization and ML visualization tools to production for delivering Apple Foundation Models
 description: ''
+blurb: Foundation Models
 live: https://www.apple.com/
-code: ''
 tags: [web, ai, ml]
 date: '2025-03'
 links:

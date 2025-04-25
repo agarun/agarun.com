@@ -1,6 +1,6 @@
 ---
 title: Foton
-summary: Single-page web app for sharing photos (500px clone)
+summary: Web app for sharing and discovering photos (500px.com clone)
 description: Single-page application clone of 500px, a website for sharing and discovering photos.
 live: https://fotons.herokuapp.com
 code: https://github.com/agarun/foton
