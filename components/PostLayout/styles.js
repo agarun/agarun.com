@@ -42,6 +42,7 @@ export const prose = css`
 
   a:not([href*='#']) {
     ${linkStyle}
+    background-size: 100% 4px;
     line-height: 1.5;
   }
   h1 {

@@ -26,7 +26,7 @@ function HoverTitle({ children, delay = 0 }) {
             filter: 'blur(0px)',
           },
           hover: {
-            translateY: '-167%',
+            translateY: '-145%',
             opacity: 0.2,
             filter: 'blur(2.5px)',
           },
@@ -41,7 +41,7 @@ function HoverTitle({ children, delay = 0 }) {
           initial: {
             filter: 'blur(5px)',
             opacity: 0,
-            translateY: '167%',
+            translateY: '145%',
           },
           hover: {
             filter: 'blur(0px)',

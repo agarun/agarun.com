@@ -55,6 +55,7 @@ const styles = {
     }
     canvas {
       width: 272px;
+      height: 100%;
       @media (max-width: 867px) {
         width: 100%;
         height: 100%;
@@ -309,7 +310,7 @@ function GenerativeArt() {
   return (
     <a
       css={[styles.area, styles.areaC]}
-      href="https://photos.agarun.com/"
+      href="https://instagram.com/ronivonu"
       target="_blank"
       rel="noopener noreferer"
       style={{
