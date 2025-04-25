@@ -83,6 +83,7 @@ This project uses [React](https://react.dev/) and [Next.js](https://nextjs.org/)
 - **Theming**: color mode support and theming tokens are implemented with CSS variables
 - **CSS**: [Emotion](https://github.com/emotion-js/emotion) CSS prop in addition to regular stylesheets
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Shaders**: [Paper](https://github.com/paper-design/shaders)
 
 > Josh Comeau's [dark mode guide](https://www.joshwcomeau.com/react/dark-mode/), [Theme UI](https://theme-ui.com/), [Tailwind](https://github.com/tailwindlabs/tailwindcss/blob/c45616ff915c4bddb551f92f4c651ca76c4448ea/packages/tailwindcss/src/compat/dark-mode.ts#L4), and [useDarkMode](https://github.com/donavon/use-dark-mode) were really useful resources to avoid flash of unstyled content (FOUC).
 
