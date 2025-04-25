@@ -1,19 +1,15 @@
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { getProjects } from '../lib/projects';
-import Link from '../components/Link';
-import Monogram from '../components/Monogram';
-import ThemeSwitch from '../components/ThemeSwitch';
-import Subtitle from '../components/Subtitle';
-import Recent from '../components/Recent';
 import { NavLink } from '../components/Nav';
+import Canvas from '../components/Canvas';
 
 const styles = {
   header: css`
     padding-top: calc(var(--spacing) * 20);
-    margin-bottom: calc(var(--spacing) * 10);
+    margin-bottom: calc(var(--spacing) * 8);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,10 +31,11 @@ const styles = {
   heading: css`
     font-size: calc(var(--font-size-scale) * 56px);
     font-weight: var(--font-weight-bold);
+    letter-spacing: var(--font-letter-spacing-tight);
     line-height: 0.95;
   `,
   subheading: css`
-    max-width: 800px;
+    max-width: 900px;
     font-size: calc(var(--font-size-scale) * 36px);
     line-height: 1.33;
   `,
@@ -48,19 +45,22 @@ const styles = {
     color: var(--colors-text-secondary);
   `,
   footer: css`
-    margin: calc(var(--spacing) * 2) var(--spacing);
+    margin: calc(var(--spacing) * 2) 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+  `,
+  grid: css`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   `,
 };
 
 export async function getStaticProps() {
   const projects = getProjects();
-  const recentProjects = projects.slice(0, 2);
-  return { props: { recentProjects } };
+  return { props: { projects } };
 }
 
-function Home({ recentProjects }) {
+function Home({ projects }) {
   /**
    * using `will-change` appears to help `transform` performance
    * here for `x` & `y` transitions.
@@ -101,27 +101,23 @@ function Home({ recentProjects }) {
       </Head>
       <motion.header css={styles.header} {...topMotionProps}>
         <h1 css={styles.heading}>Aaron Agarunov</h1>
-        <ThemeSwitch css={styles.themeSwitch} />
       </motion.header>
       <main role="main">
         <motion.p css={styles.subheading} {...middleMotionProps}>
-          Software developer based in Brooklyn, NY. Building web experiences at{' '}
-          <Link href="https://mskcc.org">MSKCC</Link>.
+          Hi! I&#39;m Aaron, a software developer from New York.
         </motion.p>
         <motion.div {...bottomMotionProps}>
           <p css={styles.description}>
-            I work on creating modern, engaging user interfaces with a focused
-            approach. <NavLink href="/about">Read more</NavLink>, see my{' '}
-            <NavLink href="/projects">projects</NavLink>,{' '}
-            <NavLink href="/posts">posts</NavLink>, or{' '}
-            <NavLink href="/contact">contact info</NavLink>.
+            I build engaging user interfaces focused on all the details.
+            <br />
+            Read more <NavLink href="/about">about me</NavLink>, my{' '}
+            <NavLink href="/projects">work</NavLink>, or{' '}
+            <NavLink href="/contact">reach out</NavLink>.
           </p>
-          <Subtitle>Projects</Subtitle>
-          <Recent projects={recentProjects} />
         </motion.div>
       </main>
       <motion.footer {...bottomMotionProps} css={styles.footer}>
-        <Monogram width={30} height={30} />
+        <Canvas projects={projects} />
       </motion.footer>
     </>
   );

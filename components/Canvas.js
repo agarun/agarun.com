@@ -1,0 +1,433 @@
+import { css } from '@emotion/react';
+import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+
+const styles = {
+  container: css`
+    position: relative;
+    margin-top: var(--spacing) * 0.5;
+    width: 417px;
+    height: 240px;
+    border: 1px solid rgba(200, 200, 200, 0.25);
+    border-radius: 8px;
+
+    & polygon {
+      transition: all ease 100ms;
+    }
+  `,
+  listItem: css`
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: -0.4px;
+    & strong {
+      color: hsl(250deg, 79%, 63%, 0.75);
+    }
+    & strong + span {
+      color: var(--colors-text-secondary);
+      letter-spacing: -0.2px;
+      font-size: 16px;
+    }
+  `,
+  link: css`
+    text-decoration: none;
+    color: var(--colors-text-primary);
+  `,
+};
+
+const size = 30;
+const h = (size * Math.sqrt(3)) / 2;
+
+const TOP = 0;
+const BOTTOM = 1;
+const RIGHT = 2;
+
+function line(row1, col1, pos1, row2, col2, pos2) {
+  const point1 = getPointCoordinates(row1, col1, pos1);
+  const point2 = getPointCoordinates(row2, col2, pos2);
+  return (
+    <line
+      key={`line-${row1}-${col1}-${pos1}-${row2}-${col2}-${pos2}`}
+      x1={point1.x}
+      y1={point1.y}
+      x2={point2.x}
+      y2={point2.y}
+      stroke="rgba(0, 100, 200, 0.1)"
+      strokeWidth="2"
+    />
+  );
+}
+
+function shape(row1, col1, pos1, row2, col2, pos2) {
+  const point1 = getPointCoordinates(row1, col1, pos1);
+  const point2 = getPointCoordinates(row2, col2, pos2);
+  return (
+    <polygon
+      key={`shape-${row1}-${col1}-${pos1}-${row2}-${col2}-${pos2}`}
+      points={`${point1.x},${point1.y} ${point2.x},${point2.y}`}
+      stroke="rgba(0, 100, 200, 0.1)"
+      strokeWidth="2"
+    />
+  );
+}
+
+function getPointCoordinates(row, col, pos) {
+  const offsetY = row * (size / 2);
+  const rowIsEven = row % 2 === 0;
+  const offsetX = col * h;
+  const isPointingRight = (col % 2 === 0) === rowIsEven;
+
+  let x, y;
+
+  if (isPointingRight) {
+    // Triangle pointing right
+    switch (pos) {
+      case 0: // Left-top vertex
+        x = offsetX;
+        y = offsetY;
+        break;
+      case 1: // Left-bottom vertex
+        x = offsetX;
+        y = offsetY + size;
+        break;
+      case 2: // Right vertex
+        x = offsetX + h;
+        y = offsetY + size / 2;
+        break;
+      default:
+        throw new Error('Position must be 0, 1, or 2');
+    }
+  } else {
+    // Triangle pointing left
+    switch (pos) {
+      case 0: // Right-top vertex
+        x = offsetX + h;
+        y = offsetY;
+        break;
+      case 1: // Right-bottom vertex
+        x = offsetX + h;
+        y = offsetY + size;
+        break;
+      case 2: // Left vertex
+        x = offsetX;
+        y = offsetY + size / 2;
+        break;
+      default:
+        throw new Error('Position must be 0, 1, or 2');
+    }
+  }
+
+  return { x, y };
+}
+
+function points(row, col) {
+  const offsetY = row * (size / 2);
+  const rowIsEven = row % 2 === 0;
+  const offsetX = col * h;
+  const isPointingRight = (col % 2 === 0) === rowIsEven;
+
+  let points;
+
+  if (isPointingRight) {
+    points = `${offsetX},${offsetY} ${offsetX},${offsetY + size} ${offsetX + h},${offsetY + size / 2}`;
+  } else {
+    points = `${offsetX + h},${offsetY} ${offsetX + h},${offsetY + size} ${offsetX},${offsetY + size / 2}`;
+  }
+
+  return points;
+}
+
+const MotionLink = motion(Link);
+
+function Canvas({ projects = [] }) {
+  const ref = useRef();
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const hasDimensions = dimensions.width && dimensions.height;
+  useEffect(() => {
+    const updateSize = () => {
+      if (ref.current) {
+        setDimensions({
+          width: ref.current.offsetWidth,
+          height: ref.current.offsetHeight,
+        });
+      }
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  const [hoverId, setHoverId] = useState(null);
+
+  const createTriangleGrid = () => {
+    const cols = Math.ceil(dimensions.width / h) + 1;
+    const rows = Math.ceil(dimensions.height / (size / 2)) + 1;
+
+    const cells = [];
+    const lines = [];
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const id = `triangle-${row}-${col}`;
+
+        const hoverStyle =
+          hoverId === id
+            ? {
+                fill: 'rgba(0, 0, 0, 0.01)',
+                stroke: 'rgba(0, 0, 0, 0.14)',
+              }
+            : {};
+
+        cells.push(
+          <polygon
+            key={id}
+            points={points(row, col)}
+            fill="transparent"
+            stroke="rgba(200, 200, 200, 0.1)"
+            onMouseEnter={() => setHoverId(id)}
+            onMouseLeave={() => setHoverId(null)}
+            data-row={row}
+            data-col={col}
+            {...hoverStyle}
+          />
+        );
+      }
+    }
+
+    for (let col = 0; col <= cols; col++) {
+      lines.push(
+        <line
+          key={`vertical-${col}`}
+          x1={col * h}
+          y1="0"
+          x2={col * h}
+          y2={dimensions.height}
+          stroke="rgba(200, 200, 200, 0.14)"
+          strokeWidth="1"
+        />
+      );
+    }
+
+    return { lines, cells };
+  };
+
+  const { lines, cells } = hasDimensions
+    ? createTriangleGrid()
+    : { lines: [], cells: [] };
+
+  const SELECTED_WORK = ['Apple', 'MSK'].map((title) =>
+    projects.find((project) => title === project.title)
+  );
+  const SELECTED_PROJECTS = [
+    'CELL-E 2',
+    'ronivonu',
+    'Photography Portfolio',
+  ].map((title) => projects.find((project) => title === project.title));
+
+  // TODO: Trigger whileTap entire animation with a single tap
+  // TODO: Mobile styles
+  // TODO: Fix individual section displaying
+
+  return (
+    <div ref={ref} css={styles.container}>
+      <motion.div
+        whileHover="hover"
+        whileTap="hover"
+        initial="initial"
+        animate="initial"
+        style={{ position: 'relative' }}
+      >
+        <motion.div
+          initial={{ translateY: 7, opacity: 0 }}
+          animate={{ translateY: 0, opacity: 1 }}
+          transition={{ delay: 1, ease: 'easeOut', duration: 0.36 }}
+        >
+          <motion.div
+            variants={{
+              initial: {
+                top: size * 1.04 * 3,
+                left: h * 1.51 * 3,
+                transform: 'rotate(330deg) skewX(30deg) skewY(0deg)',
+                width: size * 6,
+                height: h * 2,
+                borderRadius: 1,
+              },
+              hover: {
+                top: 0,
+                left: 0,
+                transform: 'rotate(360deg) skewX(0deg) skewY(0deg)',
+                width: 417,
+                height: 240,
+                borderRadius: 8,
+                transition: {
+                  duration: 0.32,
+                },
+              },
+            }}
+            style={{
+              position: 'absolute',
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: 3,
+              alignItems: 'center',
+              fontSize: 11.5,
+              borderRadius: 1,
+              background: 'rgba(255, 255, 255, 0.25)',
+              border: '1px solid rgba(0, 0, 0, 0.45)',
+              opacity: 0.5,
+              letterSpacing: 1,
+              color: 'rgba(0,0,0,.8)',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              borderTopRightRadius: 5,
+              borderBottomLeftRadius: 5,
+            }}
+          >
+            Recent Work
+          </motion.div>
+          <motion.div
+            variants={{
+              initial: {
+                top: size * 1.13 * 3,
+                left: h * 1.51 * 3,
+                transform: 'rotate(330deg) skewX(30deg) skewY(0deg)',
+                width: size * 6,
+                height: h * 2,
+                borderRadius: 1,
+              },
+              hover: {
+                top: 0,
+                left: 0,
+                transform: 'rotate(360deg) skewX(0deg) skewY(0deg)',
+                width: 417,
+                height: 240,
+                borderRadius: 8,
+                transition: {
+                  duration: 0.36,
+                },
+              },
+            }}
+            style={{
+              position: 'absolute',
+              fontSize: 12,
+              background: 'rgba(255, 255, 255, 0.5)',
+              border: '1px solid rgba(0, 0, 0, 0.4)',
+              opacity: 0.2,
+              borderTopRightRadius: 5,
+              borderBottomLeftRadius: 5,
+              filter: 'drop-shadow(-4px 3px 10px rgba(0, 0, 0, .4))',
+            }}
+          ></motion.div>
+        </motion.div>
+        <MotionLink
+          href="/projects"
+          variants={{
+            initial: {
+              translateY: 4,
+              filter: 'blur(1px)',
+              opacity: 0,
+            },
+            hover: {
+              translateY: 0,
+              filter: 'blur(0px)',
+              opacity: 1,
+              transition: {
+                delay: 0.47,
+                ease: 'easeOut',
+              },
+            },
+          }}
+          style={{
+            textDecoration: 'none',
+            padding: '12px 16px',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            background: 'rgba(255, 255, 255, 0.38)',
+            borderRadius: 8,
+            width: 417,
+            height: 240,
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.7 }}
+          >
+            <p
+              style={{
+                marginTop: 5,
+                fontSize: 11.5,
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+                opacity: 0.9,
+                color: 'transparent',
+                background: `linear-gradient(
+      to top,
+     var(--colors-grey-400) 0%,
+      var(--colors-text-secondary) 100%
+    )`,
+                backgroundClip: 'text',
+              }}
+            >
+              Clients
+            </p>
+            <ul>
+              {SELECTED_WORK.map((item) => (
+                <li key={item.title} css={styles.listItem}>
+                  <strong>{item.title}</strong>
+                  <span> ▪ {item.blurb}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8 }}
+          >
+            <p
+              style={{
+                fontSize: 11.5,
+                letterSpacing: '0.8px',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+                opacity: 0.9,
+                color: 'transparent',
+                background: `linear-gradient(
+      to top,
+     var(--colors-grey-400) 0%,
+      var(--colors-text-secondary) 100%
+    )`,
+                backgroundClip: 'text',
+              }}
+            >
+              Projects
+            </p>
+            <ul>
+              {SELECTED_PROJECTS.map((item) => (
+                <li key={item.title} css={styles.listItem}>
+                  <strong>{item.title}</strong>
+                  <span> ▪ {item.blurb}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </MotionLink>
+      </motion.div>
+
+      {hasDimensions && (
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <g>{lines}</g>
+          <g>{cells}</g>
+        </svg>
+      )}
+    </div>
+  );
+}
+
+export default Canvas;
