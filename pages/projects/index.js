@@ -356,7 +356,7 @@ function Projects({ projects }) {
         const variants =
           index < 4 ? mainProjectsAnimation : restProjectsAnimation;
         return (
-          <motion.div
+          <motion.article
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             ref={ref}
@@ -422,7 +422,7 @@ function Projects({ projects }) {
               </div>
               <ProjectImages project={project} projectIndex={index} />
             </motion.div>
-          </motion.div>
+          </motion.article>
         );
       })}
     </section>
