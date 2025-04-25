@@ -3,7 +3,7 @@
     "react-app",
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "plugin:cypress/recommended",
+    "plugin:playwright/recommended",
     "next/core-web-vitals"
   ]
 }
