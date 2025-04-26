@@ -74,24 +74,30 @@ function Home({ projects }) {
     return () => clearTimeout(timeout);
   }, []);
 
+  /**
+   * with Next.js 15, React 18, and `motion`, I found a delay of 0
+   * would cause the first two animations to appear together.
+   * adding a `baseDelay` to ensure the animations are separate.
+   */
+  const baseDelay = 0.4;
   const topMotionProps = {
     style: hintStyle,
     initial: { opacity: 0, y: 'calc(var(--spacing) * -0.5)' },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
+    transition: { duration: 0.6, delay: baseDelay },
   };
 
   const middleMotionProps = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
-    transition: { duration: 0.5, delay: 0.3 },
+    transition: { duration: 0.5, delay: baseDelay + 0.3 },
   };
 
   const bottomMotionProps = {
     style: hintStyle,
     initial: { opacity: 0, y: 'var(--spacing)' },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, delay: 0.6 },
+    transition: { duration: 0.6, delay: baseDelay + 0.6 },
   };
 
   return (
