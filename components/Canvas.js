@@ -23,7 +23,10 @@ const styles = {
     & strong {
       color: hsl(250deg, 79%, 63%, 0.75);
     }
-    & strong + span {
+    & em {
+      opacity: 0.75;
+    }
+    & span {
       color: var(--colors-text-secondary);
       letter-spacing: -0.2px;
       font-size: 16px;
@@ -352,11 +355,7 @@ function Canvas({ projects = [] }) {
             height: 240,
           }}
         >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.7 }}
-          >
+          <div>
             <p
               style={{
                 marginTop: 5,
@@ -380,16 +379,15 @@ function Canvas({ projects = [] }) {
               {SELECTED_WORK.map((item) => (
                 <li key={item.title} css={styles.listItem}>
                   <strong>{item.title}</strong>
-                  <span> ▪ {item.blurb}</span>
+                  <span>
+                    {' '}
+                    <em>▪</em> {item.blurb}
+                  </span>
                 </li>
               ))}
             </ul>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.8 }}
-          >
+          </div>
+          <div>
             <p
               style={{
                 fontSize: 11.5,
@@ -411,12 +409,15 @@ function Canvas({ projects = [] }) {
             <ul>
               {SELECTED_PROJECTS.map((item) => (
                 <li key={item.title} css={styles.listItem}>
-                  <strong>{item.title}</strong>
-                  <span> ▪ {item.blurb}</span>
+                  <strong>{item.short_title || item.title}</strong>
+                  <span>
+                    {' '}
+                    <em>▪</em> {item.blurb}
+                  </span>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </MotionLink>
       </motion.div>
 
