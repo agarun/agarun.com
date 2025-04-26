@@ -5,11 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint --fix",
     "prepare": "husky install",
-    "serve": "serve out",
-    "site": "pnpm build && serve out",
+    "site": "pnpm build && npx serve out",
     "lighthouse": "lighthouse http://localhost:5000 --output html --view",
     "test": "vitest",
     "e2e": "playwright test --ui",

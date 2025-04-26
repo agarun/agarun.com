@@ -22,16 +22,10 @@ Visit [http://localhost:3000](http://localhost:3000) to see the site.
 
 ## Preview Build
 
-Build the site:
+To export the site for production and preview it locally:
 
 ```bash
-pnpm build
-```
-
-Then, serve it locally:
-
-```bash
-pnpm start
+pnpm site
 ```
 
 ## Tech Stack
