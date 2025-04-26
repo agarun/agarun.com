@@ -70,7 +70,7 @@ function Home({ projects }) {
    */
   const [hintStyle, setHintStyle] = useState({ willChange: 'transform' });
   useEffect(() => {
-    const timeout = setTimeout(() => setHintStyle({}), 2000);
+    const timeout = setTimeout(() => setHintStyle({}), 5000);
     return () => clearTimeout(timeout);
   }, []);
 

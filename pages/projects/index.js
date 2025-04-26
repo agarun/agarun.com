@@ -169,8 +169,12 @@ const styles = {
     color: var(--colors-grey-600);
     z-index: 100;
     &:hover {
-      background: var(--colors-#ffffff);
-      box-shadow: none;
+      background: var(--colors-white);
+      box-shadow:
+        0 0 10px 2px rgba(255, 255, 255, 0.08),
+        0 0 20px 6px rgba(255, 255, 255, 0.08),
+        0 0 30px 12px rgba(255, 255, 255, 0.14),
+        0 0 50px 20px rgba(255, 255, 255, 0.18);
       color: var(--colors-accent);
       opacity: 0.98;
     }

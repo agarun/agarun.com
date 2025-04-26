@@ -1,9 +1,9 @@
 ---
 title: Photography Portfolio
-short_title: Photography Portfolio
+short_title: Photography
 summary: My photo albums, galleries, and travels! Built with Next.js and Three.js
 description: ''
-blurb: Open-source
+blurb: Open-source portfolio
 live: https://agarun.github.io/pathing
 code: https://github.com/agarun/pathing
 tags: [javascript]
