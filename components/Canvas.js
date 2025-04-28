@@ -34,7 +34,7 @@ const styles = {
   `,
   link: css`
     text-decoration: none;
-    color: var(--colors-text-primary);
+    cursor: alias;
   `,
 };
 
@@ -340,6 +340,7 @@ function Canvas({ projects = [] }) {
               },
             },
           }}
+          css={styles.link}
           style={{
             textDecoration: 'none',
             padding: '12px 16px',

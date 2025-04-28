@@ -45,7 +45,8 @@ const styles = {
     color: var(--colors-text-secondary);
   `,
   footer: css`
-    margin: calc(var(--spacing) * 2) 0;
+    margin-top: calc(var(--spacing) * 2);
+    margin-bottom: calc(var(--spacing) * 5);
     display: flex;
     justify-content: flex-start;
   `,
@@ -66,7 +67,7 @@ function Home({ projects }) {
    * here for `x` & `y` transitions.
    * "it is a good practice to switch will-change on and off using
    * script code before and after the change occurs."
-   * -- https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+   * -> https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
    */
   const [hintStyle, setHintStyle] = useState({ willChange: 'transform' });
   useEffect(() => {

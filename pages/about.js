@@ -141,6 +141,7 @@ function About() {
           }}
           transition={{
             duration: 1.2,
+            delay: 0.3,
           }}
         >
           <h3 css={styles.subtitle}>Highlights</h3>

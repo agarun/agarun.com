@@ -166,9 +166,6 @@ export async function getStaticProps() {
   return { props: { links: getSocials().filter((item) => !item.disabled) } };
 }
 
-// TODO: See more button with Last.fm, Letterboxd, Whatpulse
-// TODO: Add Are.na link
-
 function Contact({ links }) {
   const [currentLink, setCurrentLink] = useState(null);
   const [isCopied, setIsCopied] = useState(false);
