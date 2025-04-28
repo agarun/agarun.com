@@ -2,7 +2,7 @@
 title: CELL-E 2
 summary: Translating proteins to pictures and back with a bidirectional text-to-image transformer
 description: ''
-blurb: Transformers for protein prediction
+blurb: Protein prediction
 live: https://bohuanglab.github.io/CELL-E_2/
 code: https://github.com/BoHuangLab/CELL-E_2
 tags: [web, ai, ml]
