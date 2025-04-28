@@ -81,7 +81,7 @@ const appleStyles = {
   gradient: css`
     background-size: 140%;
     @media (max-width: 867px) {
-      background-size: 200%;
+      background-size: 220%;
     }
   `,
 };
