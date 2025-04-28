@@ -2,18 +2,32 @@ import { css } from '@emotion/react';
 import { motion } from 'motion/react';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import useMediaQuery from '../lib/hooks/useMediaQuery';
+
+const size = 30;
+const h = (size * Math.sqrt(3)) / 2;
+const mobileQuery = '(max-width: 500px)';
+const mobileWidth = 313;
+const mobileLeft = h * 0.84 * 3;
+const desktopWidth = 417;
+const desktopLeft = h * 1.51 * 3;
+const height = 240;
 
 const styles = {
   container: css`
     position: relative;
     margin-top: var(--spacing) * 0.5;
-    width: 417px;
-    height: 240px;
+    width: ${desktopWidth}px;
+    height: ${height}px;
     border: 1px solid rgba(200, 200, 200, 0.25);
     border-radius: 8px;
 
     & polygon {
       transition: all ease 100ms;
+    }
+
+    @media (${mobileQuery}) {
+      width: ${mobileWidth}px;
     }
   `,
   listItem: css`
@@ -30,6 +44,11 @@ const styles = {
       color: var(--colors-text-secondary);
       letter-spacing: -0.2px;
       font-size: 16px;
+      white-space: nowrap;
+
+      @media (${mobileQuery}) {
+        font-size: 15px;
+      }
     }
   `,
   link: css`
@@ -37,9 +56,6 @@ const styles = {
     cursor: alias;
   `,
 };
-
-const size = 30;
-const h = (size * Math.sqrt(3)) / 2;
 
 const TOP = 0;
 const BOTTOM = 1;
@@ -85,15 +101,15 @@ function getPointCoordinates(row, col, pos) {
   if (isPointingRight) {
     // Triangle pointing right
     switch (pos) {
-      case 0: // Left-top vertex
+      case TOP: // Left-top vertex
         x = offsetX;
         y = offsetY;
         break;
-      case 1: // Left-bottom vertex
+      case BOTTOM: // Left-bottom vertex
         x = offsetX;
         y = offsetY + size;
         break;
-      case 2: // Right vertex
+      case RIGHT: // Right vertex
         x = offsetX + h;
         y = offsetY + size / 2;
         break;
@@ -103,15 +119,15 @@ function getPointCoordinates(row, col, pos) {
   } else {
     // Triangle pointing left
     switch (pos) {
-      case 0: // Right-top vertex
+      case TOP: // Right-top vertex
         x = offsetX + h;
         y = offsetY;
         break;
-      case 1: // Right-bottom vertex
+      case BOTTOM: // Right-bottom vertex
         x = offsetX + h;
         y = offsetY + size;
         break;
-      case 2: // Left vertex
+      case RIGHT: // Left vertex
         x = offsetX;
         y = offsetY + size / 2;
         break;
@@ -231,6 +247,8 @@ function Canvas({ projects = [] }) {
   // TODO: Mobile styles
   // TODO: Fix individual section displaying
 
+  const isMobile = useMediaQuery(mobileQuery);
+
   return (
     <div ref={ref} css={styles.container}>
       <motion.div
@@ -249,7 +267,7 @@ function Canvas({ projects = [] }) {
             variants={{
               initial: {
                 top: size * 1.04 * 3,
-                left: h * 1.51 * 3,
+                left: isMobile ? mobileLeft : desktopLeft,
                 transform: 'rotate(330deg) skewX(30deg) skewY(0deg)',
                 width: size * 6,
                 height: h * 2,
@@ -259,8 +277,8 @@ function Canvas({ projects = [] }) {
                 top: 0,
                 left: 0,
                 transform: 'rotate(360deg) skewX(0deg) skewY(0deg)',
-                width: 417,
-                height: 240,
+                width: isMobile ? mobileWidth : desktopWidth,
+                height,
                 borderRadius: 8,
                 transition: {
                   duration: 0.32,
@@ -292,7 +310,7 @@ function Canvas({ projects = [] }) {
             variants={{
               initial: {
                 top: size * 1.13 * 3,
-                left: h * 1.51 * 3,
+                left: isMobile ? mobileLeft : desktopLeft,
                 transform: 'rotate(330deg) skewX(30deg) skewY(0deg)',
                 width: size * 6,
                 height: h * 2,
@@ -302,8 +320,8 @@ function Canvas({ projects = [] }) {
                 top: 0,
                 left: 0,
                 transform: 'rotate(360deg) skewX(0deg) skewY(0deg)',
-                width: 417,
-                height: 240,
+                width: isMobile ? mobileWidth : desktopWidth,
+                height,
                 borderRadius: 8,
                 transition: {
                   duration: 0.36,
@@ -352,8 +370,8 @@ function Canvas({ projects = [] }) {
             justifyContent: 'space-between',
             background: 'rgba(255, 255, 255, 0.38)',
             borderRadius: 8,
-            width: 417,
-            height: 240,
+            width: isMobile ? mobileWidth : desktopWidth,
+            height,
           }}
         >
           <div>
