@@ -244,9 +244,6 @@ function Canvas({ projects = [] }) {
   ].map((title) => projects.find((project) => title === project.title));
 
   // TODO: Trigger whileTap entire animation with a single tap
-  // TODO: Mobile styles
-  // TODO: Fix individual section displaying
-
   const isMobile = useMediaQuery(mobileQuery);
 
   return (

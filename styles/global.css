@@ -12,7 +12,12 @@ body > div /* react root */ {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  transition: color 300ms ease, background 300ms ease;
+  transition:
+    color 300ms ease,
+    background 300ms ease;
+  @media (max-width: 500px) {
+    min-height: 100svh;
+  }
 }
 
 ::-moz-selection {
