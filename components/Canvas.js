@@ -51,9 +51,60 @@ const styles = {
       }
     }
   `,
-  link: css`
+  canvasLink: css`
     text-decoration: none;
     cursor: alias;
+    padding: 12px 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 8px;
+  `,
+  canvasLinkHeading: css`
+    font-size: 11.5px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.9;
+    color: transparent;
+    background: linear-gradient(
+      to top,
+      var(--colors-grey-400) 0%,
+      var(--colors-text-secondary) 100%
+    );
+    background-clip: text;
+  `,
+  canvasRectangle: css`
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+    align-items: center;
+    font-size: 11.5px;
+    border-radius: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    opacity: 0.5;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  `,
+  canvasRectangleBackground: css`
+    position: absolute;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    opacity: 0.2;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    filter: drop-shadow(-4px 3px 10px rgba(0, 0, 0, 0.4));
   `,
 };
 
@@ -282,24 +333,7 @@ function Canvas({ projects = [] }) {
                 },
               },
             }}
-            style={{
-              position: 'absolute',
-              display: 'flex',
-              justifyContent: 'center',
-              paddingTop: 3,
-              alignItems: 'center',
-              fontSize: 11.5,
-              borderRadius: 1,
-              background: 'rgba(255, 255, 255, 0.25)',
-              border: '1px solid rgba(0, 0, 0, 0.45)',
-              opacity: 0.5,
-              letterSpacing: 1,
-              color: 'rgba(0,0,0,.8)',
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              borderTopRightRadius: 5,
-              borderBottomLeftRadius: 5,
-            }}
+            css={styles.canvasRectangle}
           >
             Recent Work
           </motion.div>
@@ -325,16 +359,7 @@ function Canvas({ projects = [] }) {
                 },
               },
             }}
-            style={{
-              position: 'absolute',
-              fontSize: 12,
-              background: 'rgba(255, 255, 255, 0.5)',
-              border: '1px solid rgba(0, 0, 0, 0.4)',
-              opacity: 0.2,
-              borderTopRightRadius: 5,
-              borderBottomLeftRadius: 5,
-              filter: 'drop-shadow(-4px 3px 10px rgba(0, 0, 0, .4))',
-            }}
+            css={styles.canvasRectangleBackground}
           ></motion.div>
         </motion.div>
         <MotionLink
@@ -355,40 +380,14 @@ function Canvas({ projects = [] }) {
               },
             },
           }}
-          css={styles.link}
+          css={styles.canvasLink}
           style={{
-            textDecoration: 'none',
-            padding: '12px 16px',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            background: 'rgba(255, 255, 255, 0.38)',
-            borderRadius: 8,
             width: isMobile ? mobileWidth : desktopWidth,
             height,
           }}
         >
           <div>
-            <p
-              style={{
-                marginTop: 5,
-                fontSize: 11.5,
-                letterSpacing: '0.8px',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                opacity: 0.9,
-                color: 'transparent',
-                background: `linear-gradient(
-      to top,
-     var(--colors-grey-400) 0%,
-      var(--colors-text-secondary) 100%
-    )`,
-                backgroundClip: 'text',
-              }}
-            >
+            <p style={{ marginTop: 5 }} css={styles.canvasLinkHeading}>
               Clients
             </p>
             <ul>
@@ -404,24 +403,7 @@ function Canvas({ projects = [] }) {
             </ul>
           </div>
           <div>
-            <p
-              style={{
-                fontSize: 11.5,
-                letterSpacing: '0.8px',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-                opacity: 0.9,
-                color: 'transparent',
-                background: `linear-gradient(
-      to top,
-     var(--colors-grey-400) 0%,
-      var(--colors-text-secondary) 100%
-    )`,
-                backgroundClip: 'text',
-              }}
-            >
-              Projects
-            </p>
+            <p css={styles.canvasLinkHeading}>Projects</p>
             <ul>
               {SELECTED_PROJECTS.map((item) => (
                 <li key={item.title} css={styles.listItem}>
