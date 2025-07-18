@@ -8,6 +8,7 @@ tags: [python, r]
 date: '2017-05-31'
 images:
   - path: /images/projects/gnm/1.webp
+    alt: figure from paper showing known structures of the Hepatitis C Virus NS5A protein Domain 1
 links:
   - title: Paper
     url: https://agarun.com/files/agarunov-CSCI393.pdf

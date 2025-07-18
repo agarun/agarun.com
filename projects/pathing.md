@@ -9,6 +9,7 @@ tags: [javascript]
 date: '2017-10-01'
 images:
   - path: /images/projects/pathing/website.webp
+    alt: screenshot of website showing generated maze and highlighted solution
 links:
   - title: Website
     url: https://agarun.github.io/pathing

@@ -278,6 +278,7 @@ function ProjectImages({ project, projectIndex }) {
             >
               <Image
                 src={image.path}
+                alt={image.alt}
                 width={imageWidth}
                 height={imageWidth}
                 unoptimized
@@ -323,6 +324,7 @@ function ProjectImages({ project, projectIndex }) {
           >
             <Image
               src={image.path}
+              alt={image.alt}
               width={640}
               height={360}
               unoptimized

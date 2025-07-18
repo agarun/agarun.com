@@ -8,7 +8,9 @@ tags: [javascript, processing]
 date: '2019-01-02'
 images:
   - path: /images/projects/ronivonu/220729.webp
+    alt: abstract generative artwork depicting landscape with mountains and suns
   - path: /images/projects/ronivonu/220203.webp
+    alt: abstract generative artwork depicting colorful triangular grid and shapes
 links:
   - title: Instagram
     url: https://instagram.com/ronivonu

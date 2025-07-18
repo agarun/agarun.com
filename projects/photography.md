@@ -10,6 +10,7 @@ tags: [javascript]
 date: '2017-09-01' # fake date
 images:
   - path: /images/projects/photography/3.webp
+    alt: photo of the famous Fushimi Inari Shrine in Kyoto, Japan
 links:
   - title: Website
     url: https://photos.agarun.com/

@@ -8,7 +8,9 @@ tags: [javascript, data]
 date: '2018-01-02'
 images:
   - path: /images/projects/kume/plot.webp
+    alt: screenshot from kume website of colorspace for example image
   - path: /images/projects/kume/out.webp
+    alt: screenshot from kube website of final output after image segmentation
 links:
   - title: Website
     url: https://agarun.github.io/kume

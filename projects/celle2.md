@@ -9,6 +9,7 @@ tags: [web, ai, ml]
 date: '2023-05-01'
 images:
   - path: /images/projects/celle2/vs.webp
+    alt: comparison of CELL-E 1 to CELLE-E 2 showing 65-times speed improvement
 links:
   - title: Website
     url: https://bohuanglab.github.io/CELL-E_2/
