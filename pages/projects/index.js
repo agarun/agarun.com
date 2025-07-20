@@ -209,6 +209,17 @@ const styles = {
       display: none;
     }
   `,
+  image: css`
+    position: relative;
+    max-height: 400px;
+    border: 5px solid #ffffff;
+    border-radius: 12px;
+    object-fit: contain;
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+  `,
 };
 
 export async function getStaticProps() {
@@ -282,18 +293,11 @@ function ProjectImages({ project, projectIndex }) {
                 width={imageWidth}
                 height={imageWidth}
                 unoptimized
+                css={styles.image}
                 style={{
-                  border: '5px solid #ffffff',
-                  borderRadius: 12,
-                  objectFit: 'contain',
-                  maxHeight: 400,
-                  boxShadow:
-                    '0 4px 12px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.1)',
-                  position: 'relative',
                   bottom: dy + (index % 2 === 0 ? -100 : -80),
                   left: index > 0 ? -40 : 0,
                   marginRight: images.length === 3 ? -20 : 0,
-                  transition: 'box-shadow 0.3s ease',
                 }}
               />
             </motion.div>
@@ -325,19 +329,14 @@ function ProjectImages({ project, projectIndex }) {
             <Image
               src={image.path}
               alt={image.alt}
+              css={styles.image}
               width={640}
               height={360}
               unoptimized
               style={{
-                border: '5px solid #ffffff',
-                borderRadius: 12,
                 objectFit: 'cover',
-                maxHeight: 400,
-                boxShadow:
-                  '0 4px 12px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.1)',
                 position: 'absolute',
                 bottom: dy + -90 - index,
-                transition: 'box-shadow 0.3s ease',
               }}
             />
           </motion.div>
