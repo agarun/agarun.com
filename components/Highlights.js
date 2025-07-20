@@ -226,9 +226,9 @@ const photographyStyles = {
     position: relative;
     background: linear-gradient(
       to bottom,
-      #ffffff 16%,
+      var(--colors-static-white) 16%,
       #6695bd 50%,
-      #fff 60%,
+      var(--colors-static-white) 60%,
       #6695bd 92%
     );
     -webkit-background-clip: text;

@@ -35,7 +35,7 @@ body.light {
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(250deg, 79%, 63%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(232deg, 15%, 50%);
+  --colors-border: hsl(0, 0%, 87%);
 
   --colors-background: hsl(0deg, 0%, 96%);
   --colors-background-light: hsl(0deg, 0%, 100%);
@@ -54,9 +54,10 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-700: hsl(250deg, 79%, 63%, 0.2);
-  --colors-link-900: hsl(216deg, 100%, 60%, 0.14);
-  --colors-link-gradient: hsl(250deg, 79%, 63%, 0.2);
+  --colors-link-underline: hsl(250deg, 79%, 63%, 0.75);
+  --colors-link-hover: hsl(250, 100%, 9%);
+  --colors-link-gradient-stop1: hsl(250deg, 79%, 63%, 0.2);
+  --colors-link-gradient-stop2: hsl(250deg, 79%, 63%, 0.2);
 
   --colors-white: #ffffff;
   --colors-black: #000000;
@@ -68,11 +69,12 @@ body.light {
 body.dark {
   --colors-text-primary: hsl(225deg, 5%, 94%);
   --colors-text-secondary: hsl(210deg, 5%, 69%);
+  --colors-text-secondary-light: hsl(250deg, 5%, 55%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(204deg, 69%, 69%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(232deg, 15%, 50%);
+  --colors-border: hsl(251, 5%, 41%);
 
   --colors-background: hsl(232deg, 31%, 9%);
   --colors-background-light: hsl(222deg, 23%, 15%);
@@ -89,10 +91,11 @@ body.dark {
   --colors-grey-900: hsl(210deg, 17%, 88%);
   --colors-grey-1000: hsl(210deg, 17%, 96%);
 
-  --colors-link: hsl(38deg, 91%, 60%);
-  --colors-link-700: hsl(38deg, 93%, 60%, 0.44);
-  --colors-link-900: hsl(38deg, 93%, 60%, 0.19);
-  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.44);
+  --colors-link: hsl(204deg, 69%, 69%);
+  --colors-link-underline: hsla(226, 79%, 63%, 0.75);
+  --colors-link-hover: hsl(249, 100%, 97%);
+  --colors-link-gradient-stop1: hsl(204, 77%, 34%);
+  --colors-link-gradient-stop2: hsla(204, 77%, 74%, 0.5);
 
   --colors-white: #000000;
   --colors-black: #ffffff;

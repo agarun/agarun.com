@@ -43,6 +43,10 @@ const styles = {
       rgba(65, 32, 0, 0.077) 0px 100px 80px 0px,
       rgba(0, 0, 0, 0.01) 0px 0px 30px 0px inset;
     border-radius: 48px;
+
+    body.dark & {
+      background: none;
+    }
   `,
   inside: css`
     padding: 0 32px;
@@ -64,6 +68,10 @@ const styles = {
     box-shadow: rgb(255, 255, 255, 0.87) 0px -2px 0px 0px;
     border-radius: 44px;
     z-index: 10;
+
+    body.dark & {
+      text-shadow: none;
+    }
 
     &:before {
       transition: all 0.3s ease-in;

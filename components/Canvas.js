@@ -35,7 +35,8 @@ const styles = {
     line-height: 1.6;
     letter-spacing: -0.4px;
     & strong {
-      color: hsl(250deg, 79%, 63%, 0.75);
+      color: var(--colors-accent);
+      opacity: 0.75;
     }
     & em {
       opacity: 0.75;
@@ -63,6 +64,10 @@ const styles = {
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.38);
     border-radius: 8px;
+
+    body.dark & {
+      background: rgba(0, 0, 0, 0.5);
+    }
   `,
   canvasLinkHeading: css`
     font-size: 11.5px;
@@ -77,6 +82,10 @@ const styles = {
       var(--colors-text-secondary) 100%
     );
     background-clip: text;
+
+    body.dark & {
+      opacity: 1;
+    }
   `,
   canvasRectangle: css`
     position: absolute;
@@ -95,6 +104,11 @@ const styles = {
     text-transform: uppercase;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
+
+    body.dark & {
+      color: var(--colors-static-white);
+      font-weight: 700;
+    }
   `,
   canvasRectangleBackground: css`
     position: absolute;
@@ -107,88 +121,6 @@ const styles = {
     filter: drop-shadow(-4px 3px 10px rgba(0, 0, 0, 0.4));
   `,
 };
-
-const TOP = 0;
-const BOTTOM = 1;
-const RIGHT = 2;
-
-function line(row1, col1, pos1, row2, col2, pos2) {
-  const point1 = getPointCoordinates(row1, col1, pos1);
-  const point2 = getPointCoordinates(row2, col2, pos2);
-  return (
-    <line
-      key={`line-${row1}-${col1}-${pos1}-${row2}-${col2}-${pos2}`}
-      x1={point1.x}
-      y1={point1.y}
-      x2={point2.x}
-      y2={point2.y}
-      stroke="rgba(0, 100, 200, 0.1)"
-      strokeWidth="2"
-    />
-  );
-}
-
-function shape(row1, col1, pos1, row2, col2, pos2) {
-  const point1 = getPointCoordinates(row1, col1, pos1);
-  const point2 = getPointCoordinates(row2, col2, pos2);
-  return (
-    <polygon
-      key={`shape-${row1}-${col1}-${pos1}-${row2}-${col2}-${pos2}`}
-      points={`${point1.x},${point1.y} ${point2.x},${point2.y}`}
-      stroke="rgba(0, 100, 200, 0.1)"
-      strokeWidth="2"
-    />
-  );
-}
-
-function getPointCoordinates(row, col, pos) {
-  const offsetY = row * (size / 2);
-  const rowIsEven = row % 2 === 0;
-  const offsetX = col * h;
-  const isPointingRight = (col % 2 === 0) === rowIsEven;
-
-  let x, y;
-
-  if (isPointingRight) {
-    // Triangle pointing right
-    switch (pos) {
-      case TOP: // Left-top vertex
-        x = offsetX;
-        y = offsetY;
-        break;
-      case BOTTOM: // Left-bottom vertex
-        x = offsetX;
-        y = offsetY + size;
-        break;
-      case RIGHT: // Right vertex
-        x = offsetX + h;
-        y = offsetY + size / 2;
-        break;
-      default:
-        throw new Error('Position must be 0, 1, or 2');
-    }
-  } else {
-    // Triangle pointing left
-    switch (pos) {
-      case TOP: // Right-top vertex
-        x = offsetX + h;
-        y = offsetY;
-        break;
-      case BOTTOM: // Right-bottom vertex
-        x = offsetX + h;
-        y = offsetY + size;
-        break;
-      case RIGHT: // Left vertex
-        x = offsetX;
-        y = offsetY + size / 2;
-        break;
-      default:
-        throw new Error('Position must be 0, 1, or 2');
-    }
-  }
-
-  return { x, y };
-}
 
 function points(row, col) {
   const offsetY = row * (size / 2);

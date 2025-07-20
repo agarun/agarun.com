@@ -96,6 +96,9 @@ const styles = {
       height: calc(100% - var(--spacing) * 2);
       border-radius: 12px;
       border: 1px dashed rgb(218, 218, 218);
+      body.dark & {
+        border-color: var(--colors-border);
+      }
       @media (max-width: 767px) {
         margin: 0;
         padding: var(--spacing) * 4;
@@ -114,7 +117,7 @@ const styles = {
       background: linear-gradient(
         to top,
         rgba(222, 222, 222, 0) 0%,
-        #dedede 33%
+        var(--colors-border) 33%
       );
     }
   `,
@@ -127,8 +130,12 @@ const styles = {
       background: linear-gradient(
         to right,
         rgba(222, 222, 222, 0) 0%,
-        #dedede 33%
+        var(--colors-border) 33%
       );
+    }
+
+    body.dark & {
+      background: var(--colors-border);
     }
   `,
   keylineMobile: css`

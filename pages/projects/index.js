@@ -83,9 +83,14 @@ const styles = {
     height: 100%;
     border-radius: 24px;
     transition: background-color ease 150ms;
-    background: #ffffff;
+    background: var(--colors-white);
+
     &:hover {
       background-color: #fcfbff;
+    }
+
+    body.dark &:hover {
+      background-color: #100f13;
     }
   `,
   card: css`
@@ -97,8 +102,16 @@ const styles = {
     background-size: 100% 100%;
     transition: border-color ease 100ms;
     border: #f2f2f2 solid 10px;
+
     &:hover {
       border-color: #f2f2f3;
+    }
+
+    body.dark & {
+      border-color: hsl(0, 0%, 5%);
+      &:hover {
+        border-color: hsl(240, 4%, 5%);
+      }
     }
   `,
   title: css`
@@ -112,7 +125,7 @@ const styles = {
     font-weight: 400;
     color: var(--colors-grey-400);
     letter-spacing: -1.4px;
-    #ffffff-space: nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -132,7 +145,7 @@ const styles = {
       0 0 0 1.5px #f0f0f0,
       0 3px 7px rgba(0, 0, 0, 0.11);
     backdrop-filter: blur(10px);
-    border: 2px solid #ffffff;
+    border: 2px solid var(--colors-static-white);
   `,
   icon: css`
     width: 44px;
@@ -168,6 +181,7 @@ const styles = {
     font-weight: 500;
     color: var(--colors-grey-600);
     z-index: 100;
+
     &:hover {
       background: var(--colors-white);
       box-shadow:

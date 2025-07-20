@@ -49,6 +49,10 @@ const styles = {
     border: 1px solid #b7a8ff;
     border-radius: 24px;
     padding: 0 8px;
+
+    body.dark & {
+      border: 1px solid var(--colors-grey-500);
+    }
   `,
   paragraph: css`
     margin: 0;
@@ -64,14 +68,14 @@ const styles = {
     background: linear-gradient(
       to bottom,
       rgba(222, 222, 222, 0) 25%,
-      #dedede 75%
+      var(--colors-border) 75%
     );
     @media (max-width: 867px) {
       background: 0;
     }
   `,
   outro: css`
-    border: 1px solid #dedede;
+    border: 1px solid var(--colors-border);
     border-top: none;
     min-height: 128px;
     border-bottom-left-radius: 24px;

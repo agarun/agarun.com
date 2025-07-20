@@ -74,6 +74,11 @@ const styles = {
     box-shadow:
       inset 0 0 2px 1px rgba(238, 238, 238, 0.8),
       0 1px 13px rgba(0, 0, 0, 0.1);
+
+    body.dark & {
+      border-color: rgb(14, 17, 14);
+      background: linear-gradient(to top, rgb(90, 91, 98), rgb(44, 52, 60));
+    }
   `,
   copy: css`
     ${copyStyles.copiedIcon}
