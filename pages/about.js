@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { css } from '@emotion/react';
 import Link from '../components/Link';
 import Highlights from '../components/Highlights';
+import ScrollFade from '../components/ScrollFade';
 
 const styles = {
   container: css`
@@ -196,6 +197,7 @@ function About() {
         </section>
       </div>
       <section css={styles.outro} />
+      <ScrollFade top />
     </section>
   );
 }

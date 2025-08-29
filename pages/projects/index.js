@@ -10,6 +10,7 @@ import {
   ArrowUpRightIcon,
   Q3PIcon,
 } from '../../components/Icon';
+import ScrollFade from '../../components/ScrollFade';
 import useColorMode from '../../lib/hooks/useColorMode';
 
 function Link({ href, children, ...props }) {
@@ -477,6 +478,8 @@ function Projects({ projects }) {
           </motion.article>
         );
       })}
+
+      <ScrollFade top bottom />
     </section>
   );
 }
