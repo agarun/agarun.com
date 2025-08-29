@@ -2,7 +2,7 @@
 title: Q3P
 role: Software Consultant
 type: freelance
-summary: Creating a complete web platform for moderating, managing, and activating digital communities for internationally renowned musicians
+summary: Creating a global web platform for moderating, managing, and activating digital communities for internationally renowned musicians
 description: ''
 tags: [music]
 date: '2024-05'
