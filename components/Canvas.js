@@ -226,16 +226,17 @@ function Canvas({ projects = [] }) {
     'Photography Portfolio',
   ].map((title) => projects.find((project) => title === project.title));
 
-  // TODO: Trigger whileTap entire animation with a single tap
+  // On desktop, show the animation only while the user hovers the canvas
+  // On mobile, show the full animation after a single tap on the canvas
   const isMobile = useMediaQuery(mobileQuery);
+  const [didTap, setDidTap] = useState(false);
 
   return (
     <div ref={ref} css={styles.container}>
       <motion.div
         whileHover="hover"
-        whileTap="hover"
         initial="initial"
-        animate="initial"
+        animate={didTap ? 'hover' : 'initial'}
         style={{ position: 'relative' }}
       >
         <motion.div
@@ -316,6 +317,15 @@ function Canvas({ projects = [] }) {
           style={{
             width: isMobile ? mobileWidth : desktopWidth,
             height,
+          }}
+          onClick={(event) => {
+            console.log({ isMobile, didTap });
+            if (isMobile && !didTap) {
+              // ignore the 1st tap so the animation finishes playing w/o navigating,
+              // but subsequent taps will navigate the user
+              event.preventDefault();
+              setDidTap(true);
+            }
           }}
         >
           <div>
