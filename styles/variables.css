@@ -80,6 +80,7 @@ body.dark {
   --colors-background-light: hsl(222deg, 23%, 15%);
   --colors-background-gradient: hsl(232deg, 25%, 1%);
 
+  --colors-grey-50: hsl(210deg, 11%, 10%);
   --colors-grey-100: hsl(210deg, 13%, 19%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
   --colors-grey-300: hsl(210deg, 10%, 40%);

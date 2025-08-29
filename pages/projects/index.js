@@ -10,6 +10,7 @@ import {
   ArrowUpRightIcon,
   Q3PIcon,
 } from '../../components/Icon';
+import useColorMode from '../../lib/hooks/useColorMode';
 
 function Link({ href, children, ...props }) {
   const [isHovering, setIsHovering] = useState(false);
@@ -129,6 +130,10 @@ const styles = {
     overflow: hidden;
     text-overflow: ellipsis;
 
+    body.dark & {
+      color: var(--colors-grey-700);
+    }
+
     @media (max-width: 960px) {
       display: none;
     }
@@ -192,6 +197,16 @@ const styles = {
       color: var(--colors-accent);
       opacity: 0.98;
     }
+
+    body.dark & {
+      background: var(--colors-background);
+      color: var(--colors-grey-800);
+      box-shadow: 0 0 0 1px rgba(200, 200, 200, 0.15);
+
+      &:hover {
+        color: var(--colors-link);
+      }
+    }
   `,
   links: css`
     display: flex;
@@ -203,6 +218,11 @@ const styles = {
     color: var(--colors-text-secondary-light);
     height: 66px;
     line-height: 1.5;
+
+    body.dark & {
+      color: var(--colors-text-secondary);
+      text-shadow: 0px 1px 1px rgb(0, 0, 0, 0.9);
+    }
 
     @media (max-width: 960px) {
       height: auto;
@@ -361,8 +381,19 @@ function ProjectImages({ project, projectIndex }) {
 }
 
 function Projects({ projects }) {
+  const sectionRef = useRef(null);
+  const handleMouseMove = (e) => {
+    const section = sectionRef.current;
+    const x = Math.round((e.nativeEvent.offsetX / section.clientWidth) * 100);
+    const y = Math.round((e.nativeEvent.offsetY / section.clientHeight) * 100);
+    section.style.setProperty('--x', `${x}%`);
+    section.style.setProperty('--y', `${y}%`);
+  };
+
+  const { colorMode } = useColorMode();
+
   return (
-    <section css={styles.cards}>
+    <section ref={sectionRef} onMouseMove={handleMouseMove} css={styles.cards}>
       <Head>
         <title>Work ▪ Aaron Agarunov</title>
       </Head>
@@ -390,7 +421,9 @@ function Projects({ projects }) {
               css={styles.card}
               whileHover={{
                 background:
-                  'radial-gradient(circle at bottom center, rgba(183, 168, 255, .6) 5%, rgba(183, 168, 255, .3) 15%, rgba(183, 168, 255, .15) 30%, rgba(183, 168, 255, .05) 50%, rgba(183, 168, 255, .01) 70%)',
+                  colorMode === 'dark'
+                    ? 'radial-gradient(circle at bottom center, rgba(20, 88, 205, 0.42) 5%, rgba(20, 88, 2051, 0.17)25%, rgba(20, 88, 2051, 0.06) 50%, rgba(0, 0, 17, 0.04) 70%)'
+                    : 'radial-gradient(circle at bottom center, rgba(183, 168, 255, .6) 5%, rgba(183, 168, 255, .3) 15%, rgba(183, 168, 255, .15) 30%, rgba(183, 168, 255, .05) 50%, rgba(183, 168, 255, .01) 70%)',
                 backgroundSize: '100% 300%',
                 backgroundPosition: 'center 80%',
                 transition: {

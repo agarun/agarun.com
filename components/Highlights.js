@@ -109,7 +109,6 @@ const appleStyles = {
     font-size: 20px;
     letter-spacing: -0.5px;
     font-weight: 700;
-    color: var(--colors-text-secondary);
     color: transparent;
     background: linear-gradient(
       to top,
@@ -117,6 +116,16 @@ const appleStyles = {
       var(--colors-grey-200) 77%
     );
     background-clip: text;
+
+    body.dark & {
+      color: transparent;
+      background: linear-gradient(
+        to top,
+        var(--colors-grey-900) 33%,
+        var(--colors-static-white) 77%
+      );
+      background-clip: text;
+    }
   `,
   textBottom: css`
     position: absolute;
@@ -130,7 +139,6 @@ const appleStyles = {
     font-size: 20px;
     letter-spacing: -0.5px;
     font-weight: 700;
-    color: var(--colors-text-secondary);
     color: transparent;
     background: linear-gradient(
       to top,
@@ -138,6 +146,16 @@ const appleStyles = {
       var(--colors-grey-200) 77%
     );
     background-clip: text;
+
+    body.dark & {
+      color: transparent;
+      background: linear-gradient(
+        to top,
+        var(--colors-grey-900) 33%,
+        var(--colors-static-white) 77%
+      );
+      background-clip: text;
+    }
   `,
   textCenter: css`
     padding: 20px;
