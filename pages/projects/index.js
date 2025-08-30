@@ -205,7 +205,9 @@ const styles = {
       box-shadow: 0 0 0 1px rgba(200, 200, 200, 0.15);
 
       &:hover {
+        background: var(--colors-static-black);
         color: var(--colors-link);
+        box-shadow: 0 0 0 1px rgba(184, 184, 184, 0.15);
       }
     }
   `,
