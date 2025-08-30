@@ -319,7 +319,6 @@ function Canvas({ projects = [] }) {
             height,
           }}
           onClick={(event) => {
-            console.log({ isMobile, didTap });
             if (isMobile && !didTap) {
               // ignore the 1st tap so the animation finishes playing w/o navigating,
               // but subsequent taps will navigate the user
