@@ -17,9 +17,9 @@ export const link = css`
   color: var(--colors-text-primary);
   text-decoration: none;
   cursor: pointer;
-  transition: color ease 200ms;
+  transition: color ease 216ms;
   &:hover {
-    transition: color ease 67ms;
+    transition: color ease 64ms;
     color: var(--colors-grey-500);
   }
 `;

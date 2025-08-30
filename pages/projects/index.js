@@ -156,8 +156,8 @@ const styles = {
     body.dark & {
       background: radial-gradient(circle, #0a0511, #000000);
       box-shadow:
-        0 0 0 1.5px rgba(240, 240, 240, 0.28),
-        0 3px 7px rgba(255, 255, 255, 0.56);
+        0 0 0 1.5px rgba(240, 240, 240, 0.56),
+        0 3px 7px rgba(255, 255, 255, 0.4);
     }
   `,
   icon: css`

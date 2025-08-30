@@ -1,9 +1,12 @@
 import { motion } from 'motion/react';
+import useColorMode from '../lib/hooks/useColorMode';
 
-const defaultColor = '#d1d5db';
-const hoverColor = '#000000';
+const hoverColor = 'var(--colors-black)';
 
 export function AnimateArrowRight({ isHovering }) {
+  const { colorMode } = useColorMode();
+  const defaultColor = colorMode === 'dark' ? '#696d72' : '#d1d5db';
+
   return (
     <div
       style={{
@@ -22,7 +25,7 @@ export function AnimateArrowRight({ isHovering }) {
       >
         <motion.path
           d="M0 10 H177"
-          stroke="#d1d5db"
+          stroke={defaultColor}
           strokeWidth="2"
           strokeDasharray="16 20"
           strokeLinecap="round"
@@ -39,7 +42,7 @@ export function AnimateArrowRight({ isHovering }) {
           }}
         />
         <motion.path
-          stroke="#d1d5db"
+          stroke={defaultColor}
           d="M5 12h24 M22 5l7 7-7 7"
           strokeWidth="2"
           strokeLinecap="round"
@@ -58,7 +61,7 @@ export function AnimateArrowRight({ isHovering }) {
 
         <motion.path
           d="M0 10 H177"
-          stroke="#000000"
+          stroke={hoverColor}
           strokeWidth="2"
           strokeDasharray="8 10"
           strokeLinecap="round"
