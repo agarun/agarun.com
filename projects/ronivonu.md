@@ -1,7 +1,7 @@
 ---
 title: ronivonu
 summary: Generative art in JavaScript
-description: Generative art in JavaScript and Processing
+description: Generative art and creative coding projects in JavaScript and Processing
 blurb: Generative artwork
 live: https://ronivonu.com
 tags: [javascript, processing]

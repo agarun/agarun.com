@@ -7,7 +7,7 @@ blurb: Open-source portfolio
 live: https://agarun.github.io/pathing
 code: https://github.com/agarun/pathing
 tags: [javascript]
-date: '2017-09-01' # fake date
+date: '2018-01-01' # fake date
 images:
   - path: /images/projects/photography/3.webp
     alt: photo of the famous Fushimi Inari Shrine in Kyoto, Japan
