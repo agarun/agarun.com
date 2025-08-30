@@ -1,10 +1,10 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
+import { motion } from 'motion/react';
 import { css } from '@emotion/react';
 import { NavLink } from '../../components/Nav';
 import Date from '../../components/PostLayout/components/Date';
 import { getPosts } from '../../lib/posts';
 import AnimateArrowRight from '../../components/AnimateArrowRight';
-import { useState } from 'react';
 
 const styles = {
   wrapper: css`
@@ -220,7 +220,16 @@ function Posts({ posts }) {
             return (
               <Fragment key={id}>
                 <li css={styles.listItem}>
-                  <div css={styles.listItemHeading}>
+                  <motion.div
+                    css={styles.listItemHeading}
+                    initial={{ opacity: 0.75, clipPath: 'inset(0 100% 0 0)' }}
+                    animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
+                    transition={{
+                      duration: 1.2,
+                      ease: 'easeInOut',
+                      delay: index * 0.175,
+                    }}
+                  >
                     <NavLink
                       href={`/posts/${id}`}
                       onMouseEnter={() => setIsHovering(true)}
@@ -231,7 +240,7 @@ function Posts({ posts }) {
                     <Date style={isHovering ? { opacity: 0.75 } : {}}>
                       {date}
                     </Date>
-                  </div>
+                  </motion.div>
                   {isHovering && <AnimateArrowRight isHovering={isHovering} />}
                   {index % 2 !== 0 && (
                     <div css={styles.listItemBackground} aria-hidden>
