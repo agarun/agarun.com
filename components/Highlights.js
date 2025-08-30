@@ -96,6 +96,9 @@ const appleStyles = {
     @media (max-width: 867px) {
       background-size: 220%;
     }
+    @media (max-width: 433px) {
+      background-size: 240%;
+    }
   `,
   textTop: css`
     position: absolute;
@@ -170,6 +173,10 @@ const appleStyles = {
     line-height: 1.25;
     text-align: center;
     text-shadow: rgba(104, 64, 154, 0.33) 0px 1px 2.5px;
+
+    @media (max-width: 395px) {
+      font-size: 30px;
+    }
   `,
 };
 

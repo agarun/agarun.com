@@ -152,6 +152,13 @@ const styles = {
       0 3px 7px rgba(0, 0, 0, 0.11);
     backdrop-filter: blur(10px);
     border: 2px solid var(--colors-static-white);
+
+    body.dark & {
+      background: radial-gradient(circle, #0a0511, #000000);
+      box-shadow:
+        0 0 0 1.5px rgba(240, 240, 240, 0.28),
+        0 3px 7px rgba(255, 255, 255, 0.56);
+    }
   `,
   icon: css`
     width: 44px;
