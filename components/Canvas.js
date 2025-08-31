@@ -218,14 +218,12 @@ function Canvas({ projects = [] }) {
     ? createTriangleGrid()
     : { lines: [], cells: [] };
 
-  const SELECTED_WORK = ['Apple', 'MSK'].map((title) =>
-    projects.find((project) => title === project.title)
+  const SELECTED_WORK = projects.filter((project) =>
+    ['Apple', 'MSK'].includes(project.title)
   );
-  const SELECTED_PROJECTS = [
-    'CELL-E 2',
-    'ronivonu',
-    'Photography Portfolio',
-  ].map((title) => projects.find((project) => title === project.title));
+  const SELECTED_PROJECTS = projects.filter((project) =>
+    ['CELL-E 2', 'ronivonu', 'Photography Portfolio'].includes(project.title)
+  );
 
   // On desktop, show the animation only while the user hovers the canvas
   // On mobile, show the full animation after a single tap on the canvas

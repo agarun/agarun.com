@@ -1,11 +1,14 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
+import { cleanup } from '@testing-library/react';
 import { getProjects } from '../lib/projects';
 import Index from '../pages/index';
 import { render, screen } from './utils';
 
+afterEach(cleanup);
+
 describe('index page', () => {
   it('renders a heading', () => {
-    render(<Index recentProjects={[]} />);
+    render(<Index projects={[]} />);
 
     const heading = screen.getByRole('heading', {
       name: /aaron agarunov/i,
@@ -14,11 +17,22 @@ describe('index page', () => {
     expect(heading).toBeInTheDocument();
   });
 
-  it.skip('displays last 2 projects', () => {
+  it('displays featured projects', () => {
     const projects = getProjects();
 
-    const { getByRole } = render(<Index recentProjects={projects} />);
+    const { getByRole } = render(<Index projects={projects} />);
 
-    expect(getByRole('main')).toHaveTextContent(projects[0].title);
+    const featuredProjects = projects.filter((project) =>
+      Boolean(project.blurb)
+    );
+
+    const footer = getByRole('contentinfo', {
+      name: /recent work/i,
+      hidden: false,
+    });
+
+    for (const project of featuredProjects) {
+      expect(footer).toHaveTextContent(project.short_title || project.title);
+    }
   });
 });

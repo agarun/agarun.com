@@ -123,7 +123,11 @@ function Home({ projects }) {
           </p>
         </motion.div>
       </main>
-      <motion.footer {...bottomMotionProps} css={styles.footer}>
+      <motion.footer
+        {...bottomMotionProps}
+        css={styles.footer}
+        aria-label="Recent Work"
+      >
         <Canvas projects={projects} />
       </motion.footer>
     </>
