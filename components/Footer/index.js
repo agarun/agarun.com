@@ -23,7 +23,7 @@ const links = getSocials().filter((link) => link.isFooterIcon);
 const IconGrid = ({
   cellSize = 16,
   lineExtension = 5,
-  lineColor = '#000000',
+  lineColor = 'var(--colors-static-black)',
   lineWidth = 1,
   icons = [],
 }) => {

@@ -39,6 +39,7 @@ const styles = {
       opacity: 0.75;
     }
     & em {
+      font-style: normal;
       opacity: 0.75;
     }
     & span {

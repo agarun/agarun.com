@@ -384,7 +384,7 @@ function GenerativeArt() {
       artist
       <ArrowDownIcon width="52" height="52" css={generativeArtStyles.icon} />
       <GodRays
-        colorBack="#000000"
+        colorBack="var(--colors-static-black)"
         color1="#f0f0f0"
         color2="#f0f0f0"
         color4="#f0f0f0"
