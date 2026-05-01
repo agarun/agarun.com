@@ -44,6 +44,7 @@ class CustomDocument extends Document {
           <meta name="theme-color" content="#0e0629" />
           <meta name="msapplication-TileColor" content="#0e0629" />
 
+          <meta name="robots" content="noindex, nofollow" />
           <meta name="build version" content={packageInfo.version} />
           <meta name="description" content="Aaron Agarunov's portfolio" />
 
