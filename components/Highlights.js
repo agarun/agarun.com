@@ -182,7 +182,7 @@ const appleStyles = {
 
 function Apple() {
   return (
-    <div css={[styles.area, styles.areaA]}>
+    <div css={[styles.area, styles.areaA]} style={{ cursor: 'default' }}>
       <div css={appleStyles.gradient}>
         <p css={appleStyles.textTop}>Apple</p>
         <p css={appleStyles.textBottom}>Foundation Models</p>
@@ -489,7 +489,7 @@ const mskStyles = {
 
 function MSK() {
   return (
-    <div css={[styles.area, styles.areaD]}>
+    <div css={[styles.area, styles.areaD]} style={{ cursor: 'default' }}>
       <div css={mskStyles.container}>
         <MeshGradient
           color1="#f1caf6"
