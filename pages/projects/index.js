@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -390,8 +390,89 @@ function ProjectImages({ project, projectIndex }) {
   );
 }
 
+function ProjectCard({ project, index, colorMode, hasScrolled }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [isHovering, setIsHovering] = useState(false);
+  const Icon = titleIcon[project.title];
+
+  const variants = hasScrolled ? restProjectsAnimation : mainProjectsAnimation;
+
+  return (
+    <motion.article
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      ref={ref}
+      variants={variants}
+      custom={index}
+      css={styles.cardBackground}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <motion.div
+        css={styles.card}
+        whileHover={{
+          background:
+            colorMode === 'dark'
+              ? 'radial-gradient(circle at bottom center, rgba(20, 88, 205, 0.42) 5%, rgba(20, 88, 2051, 0.17)25%, rgba(20, 88, 2051, 0.06) 50%, rgba(0, 0, 17, 0.04) 70%)'
+              : 'radial-gradient(circle at bottom center, rgba(183, 168, 255, .6) 5%, rgba(183, 168, 255, .3) 15%, rgba(183, 168, 255, .15) 30%, rgba(183, 168, 255, .05) 50%, rgba(183, 168, 255, .01) 70%)',
+          backgroundSize: '100% 300%',
+          backgroundPosition: 'center 80%',
+          transition: {
+            duration: 0.35,
+            ease: 'easeOut',
+          },
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 50,
+          exit: {
+            duration: 2,
+            ease: 'easeOut',
+          },
+        }}
+      >
+        <header css={styles.header}>
+          {Icon && (
+            <div css={styles.iconContainer}>
+              <div css={styles.icon}>
+                <Icon width={30} height={30} />
+              </div>
+            </div>
+          )}
+          <h2 css={styles.title}>{project.title}</h2>
+          <AnimatePresence>
+            {project.full_title && isHovering && (
+              <motion.span
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.2 }}
+                css={styles.fullTitle}
+              >
+                {project.full_title}
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </header>
+        <p css={styles.summary}>{project.summary}</p>
+        <div css={styles.links}>
+          {project.links?.map((link) => (
+            <Link key={link.url} href={link.url} css={styles.link}>
+              {link.title}
+            </Link>
+          ))}
+        </div>
+        <ProjectImages project={project} projectIndex={index} />
+      </motion.div>
+    </motion.article>
+  );
+}
+
 function Projects({ projects }) {
   const sectionRef = useRef(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const handleMouseMove = (e) => {
     const section = sectionRef.current;
     const x = Math.round((e.nativeEvent.offsetX / section.clientWidth) * 100);
@@ -402,91 +483,34 @@ function Projects({ projects }) {
 
   const { colorMode } = useColorMode();
 
+  useEffect(() => {
+    if (window.scrollY > 0) {
+      setHasScrolled(true);
+      return undefined;
+    }
+
+    const handleScroll = () => setHasScrolled(true);
+    window.addEventListener('scroll', handleScroll, { once: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <section ref={sectionRef} onMouseMove={handleMouseMove} css={styles.cards}>
       <Head>
         <title>Work ▪ Aaron Agarunov</title>
       </Head>
 
-      {projects.map((project, index) => {
-        const ref = useRef(null);
-        const isInView = useInView(ref, { once: true });
-        const [isHovering, setIsHovering] = useState(false);
-        const Icon = titleIcon[project.title];
-        const variants =
-          index < 4 ? mainProjectsAnimation : restProjectsAnimation;
-        return (
-          <motion.article
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            ref={ref}
-            variants={variants}
-            custom={index}
-            key={project.title}
-            css={styles.cardBackground}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            <motion.div
-              css={styles.card}
-              whileHover={{
-                background:
-                  colorMode === 'dark'
-                    ? 'radial-gradient(circle at bottom center, rgba(20, 88, 205, 0.42) 5%, rgba(20, 88, 2051, 0.17)25%, rgba(20, 88, 2051, 0.06) 50%, rgba(0, 0, 17, 0.04) 70%)'
-                    : 'radial-gradient(circle at bottom center, rgba(183, 168, 255, .6) 5%, rgba(183, 168, 255, .3) 15%, rgba(183, 168, 255, .15) 30%, rgba(183, 168, 255, .05) 50%, rgba(183, 168, 255, .01) 70%)',
-                backgroundSize: '100% 300%',
-                backgroundPosition: 'center 80%',
-                transition: {
-                  duration: 0.35,
-                  ease: 'easeOut',
-                },
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: 100,
-                damping: 50,
-                exit: {
-                  duration: 2,
-                  ease: 'easeOut',
-                },
-              }}
-            >
-              <header css={styles.header}>
-                {Icon && (
-                  <div css={styles.iconContainer}>
-                    <div css={styles.icon}>
-                      <Icon width={30} height={30} />
-                    </div>
-                  </div>
-                )}
-                <h2 css={styles.title}>{project.title}</h2>
-                <AnimatePresence>
-                  {project.full_title && isHovering && (
-                    <motion.span
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.2 }}
-                      css={styles.fullTitle}
-                    >
-                      {project.full_title}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </header>
-              <p css={styles.summary}>{project.summary}</p>
-              <div css={styles.links}>
-                {project.links?.map((link) => (
-                  <Link key={link.url} href={link.url} css={styles.link}>
-                    {link.title}
-                  </Link>
-                ))}
-              </div>
-              <ProjectImages project={project} projectIndex={index} />
-            </motion.div>
-          </motion.article>
-        );
-      })}
+      {projects.map((project, index) => (
+        <ProjectCard
+          key={project.title}
+          project={project}
+          index={index}
+          colorMode={colorMode}
+          hasScrolled={hasScrolled}
+        />
+      ))}
 
       <ScrollFade top bottom />
     </section>
