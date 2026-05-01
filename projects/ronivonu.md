@@ -5,7 +5,7 @@ description: Generative art and creative coding projects in JavaScript and Proce
 blurb: Generative artwork
 live: https://ronivonu.com
 tags: [javascript, processing]
-date: '2019-01-02'
+date: '2019-01-01'
 images:
   - path: /images/projects/ronivonu/220729.webp
     alt: abstract generative artwork depicting landscape with mountains and suns
