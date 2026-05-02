@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
 import { Global } from '@emotion/react';
 import { getPostById, getPostIds, getPosts } from '../../lib/posts';
@@ -29,7 +28,7 @@ function Post({ post, prev, next }) {
   return (
     <>
       <Head>
-        <title>{post.title} — Aaron Agarunov</title>
+        <title>{post.title} ▪ Aaron Agarunov</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Cousine&display=swap"
           rel="stylesheet"

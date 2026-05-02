@@ -55,6 +55,6 @@ Notion is special in that it can support so many of these workflows in one servi
 
 It's great to have a process and stick to it, iteratively improving as needed.
 
-I found Kat Fukui's post on [journaling 5 minutes a day](https://www.tinykat.cafe/5-min-day) inspiring. All it takes is 5 minutes out of your day to keep up the habit and reap the benefits. A little reflection goes a long way towards validation, documentation, and creating actionable items.
+I found Kat Fukui's post on [journaling 5 minutes a day](https://web.archive.org/web/20201021081032/https://www.tinykat.cafe/5-min-day/) inspiring. All it takes is 5 minutes out of your day to keep up the habit and reap the benefits. A little reflection goes a long way towards validation, documentation, and creating actionable items.
 
 Daily journaling is an _Area_ in PARA, but I often find myself pulling information out of the dailies back into other areas, projects, and resources when I have the time to reflect or update a project list.

@@ -1,6 +1,11 @@
 module.exports = {
   reactStrictMode: true,
-  experimental: {
-    esmExternals: 'true',
+  devIndicators: false,
+  compiler: {
+    emotion: true,
+  },
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
 };

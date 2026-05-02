@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
 import { getProjectIds, getProjectById } from '../../lib/projects';
 import ProjectLayout from '../../components/ProjectLayout';
@@ -22,7 +21,7 @@ function Project({ project }) {
   return (
     <>
       <Head>
-        <title>{project.title} — Aaron Agarunov</title>
+        <title>{project.title} ▪ Aaron Agarunov</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Cousine&display=swap"
           rel="stylesheet"

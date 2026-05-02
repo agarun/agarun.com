@@ -1,53 +1,98 @@
 import Head from 'next/head';
-import { css, keyframes } from '@emotion/react';
+import NextLink from 'next/link';
+import { motion } from 'motion/react';
+import { css } from '@emotion/react';
 import Link from '../components/Link';
-import Subtitle from '../components/Subtitle';
-import CopyIconButton from '../components/CopyIconButton';
-
-const animation = keyframes`
-    0% { background-position: 0% 30% }
-    50% { background-position: 100% 70% }
-    100% { background-position: 0% 30% }
-`;
+import Highlights from '../components/Highlights';
+import ScrollFade from '../components/ScrollFade';
 
 const styles = {
-  blurb: css`
+  container: css`
     position: relative;
-    font-size: calc(var(--font-size-scale) * 70px);
-    font-weight: 500;
-    line-height: 1.1;
-    z-index: 1;
-    &::after {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 54%;
-      height: 100%;
-      content: '';
-      background: linear-gradient(
-        40deg,
-        var(--colors-link-700),
-        var(--colors-link-gradient),
-        var(--colors-accent),
-        var(--colors-link-700)
-      );
-      background-size: 400% 400%;
-      border-radius: var(--shape-border-radius);
-      opacity: 0.25;
-      pointer-events: none;
-      z-index: -1;
-      animation: ${animation} 10s ease-in-out infinite;
+    padding-top: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
+    color: var(--colors-text-primary);
+  `,
+  section: css`
+    margin: 48px 0;
+    width: 840px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 867px) {
+      width: 100%;
     }
-    @media (max-width: 500px) {
-      font-size: calc(var(--font-size-scale) * 54px);
+  `,
+  intro: css`
+    margin-top: 24px;
+    margin-bottom: 64px;
+    width: 540px;
+    font-size: calc(var(--font-size-scale) * 21px);
+
+    @media (max-width: 867px) {
+      width: 100%;
+      p {
+        margin-bottom: 36px;
+      }
     }
   `,
   subtitle: css`
+    margin-bottom: 28px;
     color: var(--colors-accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    border: 1px solid #b7a8ff;
+    border-radius: 24px;
+    padding: 0 8px;
+
+    body.dark & {
+      border: 1px solid var(--colors-grey-500);
+    }
   `,
   paragraph: css`
-    font-size: calc(var(--font-size-scale) * 22px);
-    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 21px;
+    width: 100%;
+    font-size: calc(var(--font-size-scale) * 21px);
+    line-height: 1.6;
+  `,
+  keyline: css`
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(222, 222, 222, 0) 25%,
+      var(--colors-border) 75%
+    );
+    @media (max-width: 867px) {
+      background: 0;
+    }
+  `,
+  outro: css`
+    border: 1px solid var(--colors-border);
+    border-top: none;
+    min-height: 128px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    @media (max-width: 867px) {
+      border: 0;
+    }
+  `,
+  link: css`
+    text-decoration: none;
+    font-size: calc(var(--font-size-scale) * 14px);
+    color: var(--colors-text-secondary);
+    align-self: flex-end;
+    &:hover {
+      color: var(--colors-grey-500);
+    }
   `,
 };
 
@@ -55,75 +100,104 @@ function About() {
   return (
     <section>
       <Head>
-        <title>About — Aaron Agarunov</title>
+        <title>About ▪ Aaron Agarunov</title>
       </Head>
-      <p css={styles.blurb}>
-        Hey! I&apos;m Aaron.
-        <br />
-        I&apos;m a software developer based in New York.
-      </p>
-      <p css={styles.paragraph}>
-        I&apos;m really passionate about delivering clean and friendly
-        experiences on the web. I enjoy working on front-end development with a
-        focus on research, design, and data.
-      </p>
-      <p css={styles.paragraph}>
-        I think a lot about how to enhance and share user interfaces and data
-        visualizations to make my work inclusive, fast, engaging, and pretty.
-      </p>
 
-      <section>
-        <Subtitle css={styles.subtitle}>Currently</Subtitle>
-        <p css={styles.paragraph}>
-          I work in Pathology at <Link href="https://www.mskcc.org">MSKCC</Link>{' '}
-          where I collaborate with physicians, biologists, and engineers to
-          build portals, tools, and{' '}
-          <Link href="https://www.mskcc.org/msk-impact">tests</Link> in clinical
-          bioinformatics.
-        </p>
-        <p css={styles.paragraph}>
-          I spend a lot of time working on generative art and design. I&apos;m
-          also into esports, peripherals, and music. Right now, I&apos;m trying
-          to <Link href="/posts">write more</Link> and explore creative
-          projects.
-        </p>
-        <p css={styles.paragraph}>
-          I&apos;m open to new opportunities! Feel free to{' '}
-          <Link href="mailto:agarunovaaron@gmail.com">email</Link>
-          <CopyIconButton text="agarunovaaron@gmail.com" /> me or check out my{' '}
-          <Link href="/contact">socials</Link> or{' '}
-          <Link href="https://agarun.com/files/aaron-agarunov-resume.pdf">
-            résumé
-          </Link>
-          .
-        </p>
-      </section>
+      <div css={styles.container}>
+        <div css={styles.intro}>
+          <p
+            css={css`
+              font-weight: 500;
+              color: var(--colors-grey-900);
+            `}
+          >
+            {`Hi! I'm Aaron, a software developer from Brooklyn. Welcome to my
+            personal site, where I showcase recent work and tinker with projects
+            endlessly.`}
+          </p>
+          <p>
+            {`I think a lot about how to make web experiences inclusive, fast,
+            engaging, and pretty. Throughout my career, I've worked in senior
+            engineering positions where I focused on crafting user interfaces
+            and data visualizations with diligent attention to detail.`}
+          </p>
+          <p>
+            {`I'm obsessed with creative work and continuously chase inspiration,
+            refine my skills, and study great design. When I'm not
+            glued to a monitor, I'm trying out new restaurants, levitating to
+            albums, or pursuing street photography.`}
+          </p>
+        </div>
 
-      <section>
-        <Subtitle css={styles.subtitle}>Previously</Subtitle>
-        <p css={styles.paragraph}>
-          I studied Chemistry at{' '}
-          <Link href="https://macaulay.cuny.edu/">Macaulay @ CUNY Hunter</Link>{' '}
-          until May 2017. After graduating, I went to{' '}
-          <Link href="https://www.appacademy.io/">App Academy</Link> to learn
-          development. I loved it and I&apos;ve been navigating the industry
-          ever since. I guess messing with HTML and CSS on 2007-era Myspace and
-          Tumblr was just the start.
-        </p>
-      </section>
+        <div css={styles.keyline} style={{ left: 0 }} aria-hidden />
+        <div css={styles.keyline} style={{ right: 0 }} aria-hidden />
 
-      <section>
-        <Subtitle css={styles.subtitle}>Colophon</Subtitle>
-        <p css={styles.paragraph}>
-          This is the 3rd iteration of my personal site. This one is built with
-          React and Next.js, and hosted on Netlify. It&apos;s set in{' '}
-          <Link href="https://rsms.me/inter/">Inter</Link> for sans serif and{' '}
-          <Link href="https://fonts.google.com/specimen/Cousine">Cousine</Link>{' '}
-          for monospace. The code is available on{' '}
-          <Link href="https://github.com/agarun/agarun.com">GitHub</Link>.
-        </p>
-        <p css={styles.paragraph}>Thanks for reading!</p>
-      </section>
+        <motion.section
+          css={styles.section}
+          initial={{
+            translateY: 10,
+            opacity: 0,
+            filter: 'blur(3px)',
+          }}
+          animate={{
+            translateY: 0,
+            opacity: 1,
+            filter: 'blur(0px)',
+          }}
+          transition={{
+            duration: 1.2,
+            delay: 0.3,
+          }}
+        >
+          <h3 css={styles.subtitle}>Highlights</h3>
+          <Highlights />
+          <NextLink href="/projects" css={styles.link}>
+            {'See all projects ->'}
+          </NextLink>
+        </motion.section>
+        <section css={styles.section}>
+          <h3 css={styles.subtitle}>Recently</h3>
+          <p css={styles.paragraph}>
+            I've been enjoying playing around with{' '}
+            <Link href="https://instagram.com/ronivonu">generative art</Link>{' '}
+            projects and my{' '}
+            <Link href="https://photos.agarun.com/">photography</Link>. I also{' '}
+            <em>really</em> love music (religiously listen to weekly releases
+            from my faves), cooking (addicted to food YouTube vids and blogs),
+            and esports (mostly FPS games).
+          </p>
+        </section>
+        <section css={styles.section}>
+          <h3 css={styles.subtitle}>Previously</h3>
+          <p css={styles.paragraph}>
+            I studied Chemistry and Bioinformatics at{' '}
+            <Link href="https://macaulay.cuny.edu/">
+              Macaulay Honors College
+            </Link>{' '}
+            until graduating in May 2017. That summer, I enrolled into{' '}
+            <Link href="http://appacademy.io/">App Academy</Link> to give web
+            development another shot. It unlocked memories from 2008-2012 when I
+            was making Freewebs sites, MySpace layouts, Tumblr themes, forums,
+            and blogs. Turns out I love writing modern software, and I'm
+            grateful to be doing it professionally!
+          </p>
+        </section>
+        <section css={styles.section}>
+          <h3 css={styles.subtitle}>Colophon</h3>
+          <p css={styles.paragraph}>
+            This site is set in <Link href="https://rsms.me/inter/">Inter</Link>{' '}
+            for sans-serif and{' '}
+            <Link href="https://fonts.google.com/specimen/Cousine">
+              Cousine
+            </Link>{' '}
+            for monospace. It's built with React and Next.js, and hosted on
+            Netlify. The code is available on{' '}
+            <Link href="https://github.com/agarun/agarun.com">GitHub</Link>.
+          </p>
+        </section>
+      </div>
+      <section css={styles.outro} />
+      <ScrollFade top />
     </section>
   );
 }

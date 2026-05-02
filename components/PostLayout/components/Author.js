@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { css } from '@emotion/react';
-import profilePhoto from '../../../public/images/me.jpg';
+import profilePhoto from '../../../public/images/me.webp';
 
 const styles = {
   author: css`
@@ -12,6 +12,8 @@ const styles = {
     border-top: var(--border-style);
 
     address {
+      position: relative;
+      top: 1px;
       margin: calc(var(--spacing) * 2);
       font-style: normal;
 
@@ -32,14 +34,18 @@ const styles = {
   `,
   avatar: css`
     position: relative;
-    min-width: 48px;
-    width: 64px;
-    height: 64px;
-    border-radius: var(--shape-border-radius);
+    min-width: 75px;
+    max-width: 75px;
+    min-height: 75px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
 
     img {
-      transform: scale(1.6);
+      position: relative;
+      width: 100%;
+      height: 100%;
+      filter: brightness(1.1) saturate(0.9);
     }
   `,
 };
@@ -49,7 +55,6 @@ export function Avatar() {
     <div css={styles.avatar}>
       <Image
         src={profilePhoto}
-        layout="fill"
         objectFit="cover"
         placeholder="blur"
         alt="Photo of the author Aaron"

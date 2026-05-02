@@ -2,17 +2,19 @@
 
 :root {
   /* fonts, sans serif based on https://systemfontstack.com/ */
-  --font-family-sans-serif: Inter, -apple-system, BlinkMacSystemFont,
-    avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto,
-    segoe ui, arial, sans-serif;
-  --font-family-monospace: Cousine, Menlo, Consolas, 'Andale Mono WT',
-    'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
-    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
-    'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+  --font-family-sans-serif:
+    Inter, -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  --font-family-monospace:
+    Cousine, Menlo, Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
   --font-family-serif: Lora, Garamond, Georgia, serif;
   --font-size-scale: 1;
   --font-size-body: calc(14px * var(--font-size-scale));
   --font-weight-body: 400;
+  --font-letter-spacing-tight: -0.8px;
   --font-letter-spacing-wide: 0.7px;
 
   --spacing: 8px;
@@ -20,21 +22,26 @@
   --gutter-width: calc(var(--spacing) * 2);
   --window-width: calc(100vw - var(--scrollbar-width));
   --layout-width: calc(var(--window-width) - (var(--gutter-width) * 2));
+
+  --colors-static-white: #ffffff;
+  --colors-static-black: #000000;
 }
 
 body.light {
   --colors-text-primary: hsl(252deg, 56%, 2%);
   --colors-text-secondary: hsl(0deg, 0%, 45%);
+  --colors-text-secondary-light: hsl(250deg, 5%, 55%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
   --colors-accent: hsl(250deg, 79%, 63%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(232deg, 15%, 50%);
+  --colors-border: hsl(0, 0%, 87%);
 
   --colors-background: hsl(0deg, 0%, 96%);
   --colors-background-light: hsl(0deg, 0%, 100%);
   --colors-background-gradient: hsl(0deg, 0%, 100%);
 
+  --colors-grey-50: hsl(225deg, 25%, 98%);
   --colors-grey-100: hsl(225deg, 25%, 95%);
   --colors-grey-200: hsl(225deg, 16%, 90%);
   --colors-grey-300: hsl(225deg, 8%, 80%);
@@ -47,9 +54,13 @@ body.light {
   --colors-grey-1000: hsl(225deg, 15%, 15%);
 
   --colors-link: hsl(216deg, 90%, 60%);
-  --colors-link-700: hsl(216deg, 100%, 60%, 0.31);
-  --colors-link-900: hsl(216deg, 100%, 60%, 0.14);
-  --colors-link-gradient: hsl(303deg, 100%, 70%, 0.31);
+  --colors-link-underline: hsl(250deg, 79%, 63%, 0.75);
+  --colors-link-hover: hsl(250, 100%, 9%);
+  --colors-link-gradient-stop1: hsl(250deg, 79%, 63%, 0.2);
+  --colors-link-gradient-stop2: hsl(250deg, 79%, 63%, 0.2);
+
+  --colors-white: #ffffff;
+  --colors-black: #000000;
 
   --font-weight-bold: 600;
   --text-shadow: none;
@@ -58,16 +69,18 @@ body.light {
 body.dark {
   --colors-text-primary: hsl(225deg, 5%, 94%);
   --colors-text-secondary: hsl(210deg, 5%, 69%);
+  --colors-text-secondary-light: hsl(250deg, 5%, 55%);
   --colors-primary: hsl(0deg, 0%, 0%);
   --colors-secondary: hsl(0deg, 0%, 50%);
-  --colors-accent: hsl(23deg 37% 51%);
+  --colors-accent: hsl(204deg, 69%, 69%);
   --colors-highlight: hsl(260deg, 73%, 91%);
-  --colors-muted: hsl(232deg, 15%, 50%);
+  --colors-border: hsl(251, 5%, 41%);
 
-  --colors-background: hsl(232deg, 31%, 9%);
+  --colors-background: hsl(232deg, 29%, 8%);
   --colors-background-light: hsl(222deg, 23%, 15%);
   --colors-background-gradient: hsl(232deg, 25%, 1%);
 
+  --colors-grey-50: hsl(210deg, 11%, 10%);
   --colors-grey-100: hsl(210deg, 13%, 19%);
   --colors-grey-200: hsl(210deg, 15%, 25%);
   --colors-grey-300: hsl(210deg, 10%, 40%);
@@ -79,10 +92,14 @@ body.dark {
   --colors-grey-900: hsl(210deg, 17%, 88%);
   --colors-grey-1000: hsl(210deg, 17%, 96%);
 
-  --colors-link: hsl(38deg, 91%, 60%);
-  --colors-link-700: hsl(38deg, 93%, 60%, 0.44);
-  --colors-link-900: hsl(38deg, 93%, 60%, 0.19);
-  --colors-link-gradient: hsl(333deg, 43%, 63%, 0.44);
+  --colors-link: hsl(204deg, 69%, 69%);
+  --colors-link-underline: hsla(226, 79%, 63%, 0.75);
+  --colors-link-hover: hsl(249, 100%, 97%);
+  --colors-link-gradient-stop1: hsl(204, 77%, 34%);
+  --colors-link-gradient-stop2: hsla(204, 77%, 74%, 0.5);
+
+  --colors-white: #000000;
+  --colors-black: #ffffff;
 
   --font-weight-bold: 500;
   --text-shadow: 1px 1px var(--colors-grey-200);

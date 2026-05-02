@@ -29,9 +29,13 @@ const styles = {
     display: block;
     width: 100%;
     font-weight: var(--font-weight-bold);
-    background-color: var(--colors-link-900);
+    background-color: var(--colors-background);
     border-radius: var(--shape-border-radius);
-    filter: brightness(0.85);
+    transition: background-color 150ms ease;
+    &:hover {
+      background-color: var(--colors-grey-50);
+      color: var(--colors-text-primary);
+    }
   `,
   prevNextItemSubtitle: css`
     margin-top: 0;

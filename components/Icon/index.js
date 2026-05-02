@@ -1,5 +1,14 @@
 export { default as ArrowTopIcon } from './ArrowTopIcon';
 export { default as DropletIcon } from './DropletIcon';
+export { default as PaletteIcon } from './PaletteIcon';
+export { default as PaintIcon } from './PaintIcon';
 export { default as GitHubIcon } from './GitHubIcon';
 export { default as TwitterIcon } from './TwitterIcon';
 export { default as LinkedInIcon } from './LinkedInIcon';
+export { default as InstagramIcon } from './InstagramIcon';
+export { default as MSKIcon } from './MSKIcon';
+export { default as Q3PIcon } from './Q3PIcon';
+export { default as AppleIcon } from './AppleIcon';
+export { default as GlobeIcon } from './GlobeIcon';
+export { default as ArrowUpRightIcon } from './ArrowUpRightIcon';
+export { default as ArrowDownIcon } from './ArrowDownIcon';

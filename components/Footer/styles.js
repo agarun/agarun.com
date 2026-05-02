@@ -1,12 +1,14 @@
 import { css } from '@emotion/react';
 
 export const footer = css`
-  margin-bottom: calc(var(--spacing) * 2);
+  display: flex;
+  justify-content: center;
+  padding-bottom: calc(var(--spacing) * 15);
   color: var(--colors-grey-400);
   font-size: calc(var(--font-size-scale) * 13px);
 
   @media (max-width: 950px) {
-    margin-bottom: calc(var(--spacing) * 10);
+    padding-bottom: calc(var(--spacing) * 20);
   }
 `;
 
@@ -22,16 +24,21 @@ export const content = css`
     fill: currentColor;
   }
   path:hover {
-    fill: var(--colors-grey-600);
+    fill: var(--colors-grey-800);
   }
 `;
 
 export const link = css`
-  color: var(--colors-grey-400);
+  margin: 4px;
+  display: inline-block;
+  color: var(--colors-grey-500);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   &:hover {
-    color: var(--colors-grey-600);
+    color: var(--colors-grey-800);
+  }
+  svg {
+    fill: currentColor;
   }
 `;
 

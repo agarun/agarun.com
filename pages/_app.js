@@ -11,9 +11,20 @@ import '../styles/normalize.css';
 import '../styles/global.css';
 import '../styles/prism.css';
 
+const ascii = `%c
+ _______ _______ _______ ______ _______ _______                        
+|   _   |     __|   _   |   __ \\   |   |    |  |  .----.-----.--------.
+|       |    |  |       |      <   |   |       |__|  __|  _  |        |
+|___|___|_______|___|___|___|__|_______|__|____|__|____|_____|__|__|__|
+`;
+
 function App({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
+    console.log(
+      ascii,
+      `color: orange; font-size: 10px; font-family: monospace;`
+    );
     const handleRouteChange = (url) => {
       isEnabled && gtag.pageview(url);
     };

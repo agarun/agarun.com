@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { getSocials } from '../lib/socials';
 import { styles as copyStyles } from '../components/CopyIconButton';
+import { BubbleButton } from '../components/Button/BubbleButton';
 
 const styles = {
   list: css`
@@ -16,7 +17,7 @@ const styles = {
     position: relative;
     font-size: calc(var(--font-size-scale) * 64px);
     line-height: 1.2;
-    z-index: 1;
+    z-index: 10;
 
     a {
       text-decoration: none;
@@ -43,24 +44,50 @@ const styles = {
     transition: background 300ms ease;
   `,
   description: css`
-    padding: calc(var(--spacing) * 0.75) calc(var(--spacing) * 1.15);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 1.15);
     position: absolute;
-    right: -75%;
-    bottom: -10%;
-    font-size: calc(var(--font-size-scale) * 20px);
+    left: 106%;
+    bottom: 0px;
+    width: max-content;
     font-weight: 600;
-    line-height: 1;
-    color: var(--colors-background);
-    background-color: var(--colors-text-primary);
-    border-radius: var(--shape-border-radius);
+    line-height: 1.5;
     z-index: 2;
+    opacity: 0.94;
     pointer-events: none;
+    overflow: visible;
+  `,
+  miniBubble: css`
+    position: absolute;
+    left: -4px;
+    bottom: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center top,
+      rgb(250, 250, 250) 0%,
+      rgb(225, 225, 225) 45%,
+      rgb(205, 205, 205) 75%,
+      rgb(185, 185, 185) 100%
+    );
+    border: 0.5px solid rgb(194, 194, 194, 0.7);
+    box-shadow:
+      inset 0 0 2px 1px rgba(238, 238, 238, 0.8),
+      0 1px 13px rgba(0, 0, 0, 0.1);
+
+    body.dark & {
+      border-color: rgb(14, 17, 14);
+      background: linear-gradient(to top, rgb(90, 91, 98), rgb(44, 52, 60));
+    }
   `,
   copy: css`
     ${copyStyles.copiedIcon}
     position: absolute;
-    left: auto;
+    left: 112%;
     right: -50px;
+    z-index: 10;
+    font-size: 19px;
+    background: transparent;
   `,
 };
 
@@ -94,24 +121,49 @@ const listItemVariants = {
 const listItemDescriptionVariants = {
   hidden: {
     opacity: 0,
-    y: '-50%',
-    rotate: '2deg',
-    scale: 1.08,
+    transform: 'translate3d(-125px, 50px, 100px) scale(0.25, 1)',
   },
   visible: {
     opacity: 1,
-    rotate: '-12deg',
-    scale: 1,
-    transition: { duration: 700 / 1000, ease: [0.19, 1, 0.22, 1] },
+    transform: 'translate3d(0px, 0px, 0px) scale(1, 1)',
+    transition: {
+      opacity: {
+        duration: 0.25,
+        ease: 'easeInOut',
+        delay: 0.05,
+      },
+      transform: {
+        type: 'spring',
+        bounce: 0.4,
+        visualDuration: 0.14,
+        delay: 0.1,
+      },
+    },
+  },
+  reveal: {
+    transition: {
+      mask: {
+        duration: 0.87,
+        times: [0, 0.36, 0.6, 0.9, 1],
+        ease: [
+          [0.65, 0, 0.8, 0.7],
+          [0.65, 0, 0.8, 0.7],
+          [0.65, 0, 0.8, 0.7],
+          [0.65, 0, 0.8, 0.7],
+          [0.65, 0, 0.8, 0.7],
+        ],
+        delay: 0,
+      },
+    },
   },
 };
 
 const copyVariants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
-    opacity: [0, 1, 1, 1, 0],
-    y: -20,
-    transition: { duration: 2, ease: 'circOut' },
+    opacity: [1, 0],
+    y: -12,
+    transition: { duration: 1, ease: 'circOut' },
   },
 };
 
@@ -126,7 +178,7 @@ function Contact({ links }) {
   return (
     <section>
       <Head>
-        <title>Contact — Aaron Agarunov</title>
+        <title>Contact ▪ Aaron Agarunov</title>
       </Head>
       <motion.ul
         initial="hidden"
@@ -159,11 +211,14 @@ function Contact({ links }) {
             {description && currentLink?.description === description ? (
               <motion.div
                 initial="hidden"
-                animate="visible"
+                animate={['visible', 'reveal']}
                 variants={listItemDescriptionVariants}
                 css={styles.description}
               >
-                {description}
+                <BubbleButton>
+                  {isCopied ? 'copied!' : description}
+                </BubbleButton>
+                <div css={styles.miniBubble} aria-hidden />
               </motion.div>
             ) : null}
             {copy ? (
@@ -174,7 +229,7 @@ function Contact({ links }) {
                 onAnimationComplete={() => setIsCopied(false)}
                 css={styles.copy}
               >
-                copied
+                ✅
               </motion.div>
             ) : null}
           </motion.li>

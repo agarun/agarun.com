@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export const styles = {
   copyIcon: css`
     position: relative;
-    transition: opacity 200ms ease-out;
+    transition:
+      opacity 180ms ease-out,
+      scale 180ms ease-out;
     & span:first-child:hover {
       opacity: 0.75;
+    }
+    &:active {
+      transform: scale(0.98);
     }
   `,
   copiedIcon: css`

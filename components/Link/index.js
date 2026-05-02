@@ -1,10 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import NextLink from 'next/link';
 import * as styles from './styles';
 
 function Link({ href, ...props }) {
   const isFragment = href.startsWith('#');
-  const isExternal = !href.startsWith('/') && !isFragment;
+
+  if (isFragment) {
+    return <NextLink href={href} {...props} />;
+  }
+
+  const isExternal = !href.startsWith('/');
 
   if (isExternal) {
     return (
@@ -18,11 +22,7 @@ function Link({ href, ...props }) {
     );
   }
 
-  return (
-    <NextLink href={href} passHref>
-      <a css={styles.link} {...props} />
-    </NextLink>
-  );
+  return <NextLink href={href} css={styles.link} {...props} />;
 }
 
 export default Link;
