@@ -6,6 +6,9 @@ const size = 272;
 
 const styles = {
   grid: css`
+    --cursor-default: url('/images/cursor-default.svg') 18 10, default;
+    --cursor-pointer: url('/images/cursor-pointer.svg') 24 24, auto;
+
     display: grid;
     width: 840px;
     margin-bottom: 12px;
@@ -14,9 +17,7 @@ const styles = {
     grid-template-areas:
       'a a b'
       'c d d';
-    cursor:
-      url('/images/pointer.svg') 24 24,
-      auto;
+    cursor: var(--cursor-pointer);
 
     @media (max-width: 867px) {
       width: 100%;
@@ -39,6 +40,7 @@ const styles = {
     display: flex;
     flex-direction: column;
     grid-area: a;
+    cursor: var(--cursor-default);
   `,
   areaB: css`
     grid-area: b;
@@ -68,6 +70,7 @@ const styles = {
     grid-area: d;
     display: flex;
     flex-direction: column;
+    cursor: var(--cursor-default);
     svg {
       width: 600px;
       height: 400px;
@@ -182,7 +185,7 @@ const appleStyles = {
 
 function Apple() {
   return (
-    <div css={[styles.area, styles.areaA]} style={{ cursor: 'default' }}>
+    <div css={[styles.area, styles.areaA]}>
       <div css={appleStyles.gradient}>
         <p css={appleStyles.textTop}>Apple</p>
         <p css={appleStyles.textBottom}>Foundation Models</p>
@@ -384,7 +387,7 @@ function GenerativeArt() {
       artist
       <ArrowDownIcon width="52" height="52" css={generativeArtStyles.icon} />
       <GodRays
-        colorBack="var(--colors-static-black)"
+        colorBack="#000000"
         color1="#f0f0f0"
         color2="#f0f0f0"
         color4="#f0f0f0"
@@ -489,7 +492,7 @@ const mskStyles = {
 
 function MSK() {
   return (
-    <div css={[styles.area, styles.areaD]} style={{ cursor: 'default' }}>
+    <div css={[styles.area, styles.areaD]}>
       <div css={mskStyles.container}>
         <MeshGradient
           color1="#f1caf6"
