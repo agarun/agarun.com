@@ -16,7 +16,8 @@ export const card = css`
     }
 
     border: 2px solid var(--colors-grey-300);
-    box-shadow: 0 0 0px 3px var(--colors-grey-200),
+    box-shadow:
+      0 0 0px 3px var(--colors-grey-200),
       0 0 5px var(--colors-grey-100);
   }
 `;
