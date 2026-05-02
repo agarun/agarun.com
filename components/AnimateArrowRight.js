@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { css } from '@emotion/react';
 import useColorMode from '../lib/hooks/useColorMode';
 
 const hoverColor = 'var(--colors-black)';
@@ -12,19 +13,25 @@ const guideRects = [
   { x: 149, width: 16 },
 ];
 
+const styles = {
+  container: css`
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (max-width: 599px) {
+      display: none;
+    }
+  `,
+};
+
 export function AnimateArrowRight({ isHovering }) {
   const { colorMode } = useColorMode();
   const defaultColor = colorMode === 'dark' ? '#696d72' : '#d1d5db';
 
   return (
-    <div
-      style={{
-        flexGrow: 1,
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-      }}
-    >
+    <div css={styles.container}>
       <svg
         width="300"
         height="20"
