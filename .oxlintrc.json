@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "react",
+    "import",
+    "jsx-a11y",
+    "nextjs",
+    "vitest"
+  ],
+  "jsPlugins": ["eslint-plugin-playwright"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "settings": {
+    "react": {
+      "version": "19.0.0"
+    }
+  },
+  "ignorePatterns": [
+    ".next",
+    "out",
+    "node_modules",
+    "playwright-report",
+    "test-results"
+  ]
+}

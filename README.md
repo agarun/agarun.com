@@ -4,7 +4,7 @@ My personal website where I host my portfolio, contact info, and writing. It's a
 
 ## Getting Started
 
-First, setup [pnpm](https://pnpm.io/) and [Node](https://nodejs.org/en/download) >= 20.
+First, setup [pnpm](https://pnpm.io/) 9 and [Node](https://nodejs.org/en/download) >= 22.
 
 Next, install the dependencies:
 
@@ -102,4 +102,4 @@ This project uses [React](https://react.dev/) and [Next.js](https://nextjs.org/)
 
 ## History
 
-This is the third iteration of `agarun.com`. The first one was made with [Jekyll](https://jekyllrb.com/), and the second with [Gatsby](https://www.gatsbyjs.com/).
+This is the third iteration of `agarun.com`. The [first](https://github.com/agarun/agarun.github.io) one was made with [Jekyll](https://jekyllrb.com/), and the [second](https://github.com/agarun/v2.agarun.com) with [Gatsby](https://www.gatsbyjs.com/).

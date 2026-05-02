@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "next lint --fix",
+    "lint": "oxlint --fix .",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "check": "tsc --noEmit",
     "prepare": "husky install",
     "site": "pnpm build && npx serve out",
     "lighthouse": "lighthouse http://localhost:5000 --output html --view",
@@ -40,36 +43,25 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^22.14.0",
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "@typescript-eslint/parser": "^8.28.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.5.0",
-    "eslint-config-next": "^15.2.4",
-    "eslint-config-prettier": "^10.1.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-playwright": "^2.2.0",
-    "eslint-plugin-prettier": "^5.2.5",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-playwright": "^2.10.2",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.1",
     "jsdom": "^26.0.0",
     "lighthouse": "^12.4.0",
     "lint-staged": ">=10",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
     "playwright": "^1.51.1",
-    "prettier": "^3.5.3",
     "sanitize-html": "^2.5.0",
-    "terser": "^5.7.2"
+    "terser": "^5.7.2",
+    "typescript": "6.0.3"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
-      "eslint --fix"
+      "oxlint --fix"
     ],
     "*.+(js|jsx|ts|tsx|json|css|scss|md|mdx)": [
-      "prettier --write"
+      "oxfmt"
     ]
   },
   "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
