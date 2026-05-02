@@ -8,6 +8,7 @@
     "lint": "oxlint --fix .",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
+    "check": "tsc --noEmit",
     "prepare": "husky install",
     "site": "pnpm build && npx serve out",
     "lighthouse": "lighthouse http://localhost:5000 --output html --view",
@@ -51,7 +52,8 @@
     "oxlint": "^1.62.0",
     "playwright": "^1.51.1",
     "sanitize-html": "^2.5.0",
-    "terser": "^5.7.2"
+    "terser": "^5.7.2",
+    "typescript": "6.0.3"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
