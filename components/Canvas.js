@@ -222,7 +222,7 @@ function Canvas({ projects = [] }) {
     ['Apple', 'MSK'].includes(project.title)
   );
   const SELECTED_PROJECTS = projects.filter((project) =>
-    ['CELL-E 2', 'ronivonu', 'Photography Portfolio'].includes(project.title)
+    ['CELL-E 2', 'ronivonu', 'Photography'].includes(project.title)
   );
 
   // On desktop, show the animation only while the user hovers the canvas
