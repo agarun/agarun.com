@@ -9,6 +9,7 @@
     "nextjs",
     "vitest"
   ],
+  "jsPlugins": ["eslint-plugin-playwright"],
   "env": {
     "browser": true,
     "node": true,
