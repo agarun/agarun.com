@@ -55,8 +55,8 @@ const IconGrid = ({
     cells.push(
       <foreignObject
         key={`cell-${i}`}
-        width="100%"
-        height="100%"
+        width={cellSize}
+        height={cellSize}
         transform={`translate(${x + 1}, ${lineExtension + 1})`}
       >
         {icons[i]}
